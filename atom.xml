@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Coding的路上，至少我乐在其中...]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuanzhangjiong.xyz/"/>
-  <updated>2015-12-09T09:31:40.000Z</updated>
+  <updated>2015-12-19T10:18:20.000Z</updated>
   <id>http://www.xuanzhangjiong.xyz/</id>
   
   <author>
@@ -13,6 +13,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android技术贴总汇]]></title>
+    <link href="http://www.xuanzhangjiong.xyz/2015/12/19/android%E5%AD%A6%E4%B9%A0%E6%80%BB%E6%B1%87/"/>
+    <id>http://www.xuanzhangjiong.xyz/2015/12/19/android学习总汇/</id>
+    <published>2015-12-19T08:12:38.000Z</published>
+    <updated>2015-12-19T10:18:20.000Z</updated>
+    <content type="html"><![CDATA[<p>收藏夹里积攒了好多自己喜欢的blog和帖子，是时候找个时间整理下了，方便他人学习，为他人填坑，也方便自己以后的回顾，so,let’s begin…</p>
+<ul>
+<li><p><a href="http://www.stormzhang.com/android/2014/07/07/learn-android-from-rookie/" target="_blank" rel="external">Android学习之路</a>从android开发入门，到后来的进阶，stormzhang提供了许多自己宝贵的经验，值得拜读。</p>
+</li>
+<li><p><a href="http://tech.meituan.com/" target="_blank" rel="external">美团技术团队</a>美团在做一些技术上的分享，在国内属于领先的地位，里面有一些和移动开发相关高质量文章。</p>
+</li>
+<li><p><a href="http://bugly.qq.com/blog/" target="_blank" rel="external">腾讯Bugly博客</a>腾讯Bugly博客</p>
+</li>
+<li><p><a href="http://tools.android.com/recent" target="_blank" rel="external">Recent Changes</a>了解Android新动态，需要翻墙。</p>
+</li>
+<li><p><a href="http://androidweekly.net/" target="_blank" rel="external">Android Weekly</a>Android周报，英文，邮箱订阅。</p>
+</li>
+<li><p><a href="http://www.androidweekly.cn/" target="_blank" rel="external">Android 开发技术周报</a>国内的开发周报。</p>
+</li>
+<li><p><a href="http://www.androiddevtools.cn/" target="_blank" rel="external">AndroidDevTools</a>提供了不翻墙下载Android相关工具的服务。</p>
+</li>
+<li><p><a href="http://android-developers.blogspot.ca/" target="_blank" rel="external">Android Blog</a>Android 官方的开发博客。</p>
+</li>
+<li><p><a href="http://developer.android.com/intl/zh-cn/index.html" target="_blank" rel="external">Android官网</a>官网对开发者提供了许多教程以及开发实例，坚持阅读，相信会受益匪浅。毋庸置疑，官网需要翻墙。</p>
+</li>
+<li><p><a href="https://github.com/pcqpcq/open-source-android-apps" target="_blank" rel="external">Android开源项目</a>提供了众多不同领域的开源项目，值得学习。</p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/1078568e859f" target="_blank" rel="external">Android Material Design 最佳实践项目</a>对于Material Design众多组件的使用给出了详细的讲解说明，是MD入门的利器。</p>
+</li>
+<li><p><a href="http://v.youku.com/v_show/id_XODk2NjkwNjM2.html?f=23494296&amp;from=y1.7-1.3" target="_blank" rel="external">Android 性能模式 第一季(中字幕)</a>Google官方推出的性能优化视频，第一季。最初发布在Youtube，Google为了方便天朝人民观看，在优酷上也放了一份。</p>
+</li>
+<li><p><a href="http://v.youku.com/v_show/id_XMTMxNDIzODcxMg==.html?f=26016201&amp;from=y1.7-3" target="_blank" rel="external">Android 性能模式 第二季(中字幕)</a>Google官方推出的性能优化视频，第二季。</p>
+</li>
+<li><p><a href="http://v.youku.com/v_show/id_XMTMwMTYzNDQwMA==.html?f=25972284&amp;from=y1.7-3" target="_blank" rel="external">Android 性能模式 第三季(英字幕)</a>Google官方推出的性能优化视频，第三季。</p>
+</li>
+<li><p><a href="http://v.youku.com/v_show/id_XMTM1OTI3NDE2NA==.html?f=26144822&amp;from=y1.7-3" target="_blank" rel="external">Android 性能模式 第四季(英字幕)</a>Google官方推出的性能优化视频，第四季。</p>
+</li>
+<li><p><a href="http://hukai.me/" target="_blank" rel="external">胡凯的博客</a>胡凯大神，腾讯Android高级开发，做了许多优质的分享，发起了翻译Android Training Course的活动。</p>
+</li>
+<li><p><a href="http://a.codekk.com/" target="_blank" rel="external">CodeKK</a>国内Android开源领袖级的人物，博客中有许多眼前一亮的干货。</p>
+</li>
+<li><p><a href="http://litesuits.com/" target="_blank" rel="external">Lite Your Android</a>博主倡导极简生活，开源了一些极简概念的Android库。</p>
+</li>
+<li><p><a href="http://www.vmatianyu.cn/" target="_blank" rel="external">Liter’s Blog</a>这是上一条推荐项目的博主的个人博客，前辈的博文语重心长，非常诚恳。</p>
+</li>
+<li><p><a href="http://keeganlee.me/" target="_blank" rel="external">Keegan小钢</a>博客中又对Android动画以及项目重构的实战讲解。</p>
+</li>
+<li><p><a href="http://it.deepinmind.com/index.html" target="_blank" rel="external">Java基础及深入</a>非常棒的一个博客，有关Java学习的博文质量很高。</p>
+</li>
+<li><p><a href="http://www.itechzero.com/google-mirror-sites-collect.html" target="_blank" rel="external">Google镜像集合</a>持续更新，让你不翻墙也可以用Google搜索。</p>
+</li>
+<li><p><a href="http://blog.knownsec.com/Knownsec_RD_Checklist/v3.0.html" target="_blank" rel="external">知道创宇研发技能表v3.0</a>对于Programer或者Geeker来说，这个技能表是必备的。</p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[平时发现的优质blog和技术贴，会持续更新]]>
+    
+    </summary>
+    
+      <category term="Android进阶优质资源" scheme="http://www.xuanzhangjiong.xyz/tags/Android%E8%BF%9B%E9%98%B6%E4%BC%98%E8%B4%A8%E8%B5%84%E6%BA%90/"/>
+    
+      <category term="Android" scheme="http://www.xuanzhangjiong.xyz/categories/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Git Flow简介]]></title>
