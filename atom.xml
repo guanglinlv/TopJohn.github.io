@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Coding的路上，至少我乐在其中...]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuanzhangjiong.xyz/"/>
-  <updated>2015-12-20T10:38:42.000Z</updated>
+  <updated>2015-12-20T08:13:28.000Z</updated>
   <id>http://www.xuanzhangjiong.xyz/</id>
   
   <author>
@@ -15,11 +15,135 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[参加腾讯Innovation Space比赛的感想]]></title>
+    <link href="http://www.xuanzhangjiong.xyz/2015/12/20/%E5%8F%82%E5%8A%A0%E8%85%BE%E8%AE%AFInnovation-Space%E6%AF%94%E8%B5%9B%E7%9A%84%E6%84%9F%E6%83%B3/"/>
+    <id>http://www.xuanzhangjiong.xyz/2015/12/20/参加腾讯Innovation-Space比赛的感想/</id>
+    <published>2015-12-20T05:45:52.000Z</published>
+    <updated>2015-12-20T08:13:28.000Z</updated>
+    <content type="html"><![CDATA[<p>2015年11月26日，我和几个小伙伴带着创意在线报名了腾讯的Innovation Space 比赛，几经筛选，我们从270多个创意中，进入了总决赛。</p>
+<p>12月11日，我们背上行囊奔赴上海腾讯，当然这也是第一次去腾讯，内心很激动。</p>
+<p>12月11日傍晚，腾讯的HR姐姐，带我们参观了上海腾讯的腾云大厦，以及比赛团队的介绍。</p>
+<p>12月12日上午，经历了半天的商业模式的洗礼。到了下午我们开始了58小时的封闭式开发。哦，忘了介绍我们的团队了：一名腾讯的产品姐姐，一名腾讯的前端大牛，一名上大的研究生学长（后端开发），以及3名浙大的骚年，一名iOS开发，一名设计，还有做Android的我。</p>
+<p>我们做的产品是<code>刷脸加好友</code>,在那58小时里，我们配合的很默契，其中也出现了很多的问题：特别吐槽下腾讯的GuestWifi,慢的和乌龟一样，而且莫名地不定时地局域网无法ping通，在调试接口的时候，我们几经崩溃。最后迫于无奈，用的手机热点来，调试，是不是醉了，哈哈。</p>
+<p>58小时里，我们几乎都没怎么睡觉，一直在14号中午快开始路演的时候还在调试，心好累。。。。</p>
+<p>刷脸加好友的创意首先是来自于我们发现了腾讯的优图接口，我们想利用优图实现传统加好友的局限性，能够仅仅通过一张老照片，对仅仅只有一面之缘的又无法联系到的人通过社交平台添加好友，这是我们的初衷。</p>
+<p>说了半天，获奖没，并没有，当路演完，评审完，我们意识到了，哦，原来商业模式也是很重要的，不仅创意要好，产品要做出来，而且要能够让投资人能够了解到创意背后的商业价值，好吧，也许我们在这方面思考欠佳。</p>
+<p>但是这并不影响我对这次比赛的感受，还是很值得的，体验了58小时的封闭式开发，感受了BAT之一的大公司，了解了一个公司，认识了这么多小伙伴。</p>
+<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/innovation_space.png" alt="附上一张合照" title="合照"></p>
+<p>项目的客户端代码已经放到我的Github上了，需要的小伙伴可以自己下载，做的比较简陋，毕竟只有58小时，希望不要见怪。</p>
+<p>当然无图无真相：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_5.jpg?imageView2/2/w/360/h/640" alt="">    <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_4.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_3.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_6.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_2.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_1.jpg?imageView2/2/w/360/h/640" alt=""><br><br></p>
+<p>Git地址：<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;&#x3a;&#x54;&#111;&#112;&#x4a;&#111;&#x68;&#110;&#47;&#102;&#x61;&#x63;&#x65;&#83;&#119;&#105;&#x70;&#x69;&#x6e;&#x67;&#46;&#103;&#x69;&#116;">&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;&#x3a;&#x54;&#111;&#112;&#x4a;&#111;&#x68;&#110;&#47;&#102;&#x61;&#x63;&#x65;&#83;&#119;&#105;&#x70;&#x69;&#x6e;&#x67;&#46;&#103;&#x69;&#116;</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[虽然并没有获奖，但是认识了一群小伙伴，经历了，很值得...]]>
+    
+    </summary>
+    
+      <category term="生活感言" scheme="http://www.xuanzhangjiong.xyz/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E8%A8%80/"/>
+    
+      <category term="项目经历" scheme="http://www.xuanzhangjiong.xyz/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/"/>
+    
+      <category term="作品" scheme="http://www.xuanzhangjiong.xyz/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/%E4%BD%9C%E5%93%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android技术贴总汇]]></title>
+    <link href="http://www.xuanzhangjiong.xyz/2015/12/19/android%E5%AD%A6%E4%B9%A0%E6%80%BB%E6%B1%87/"/>
+    <id>http://www.xuanzhangjiong.xyz/2015/12/19/android学习总汇/</id>
+    <published>2015-12-19T08:12:38.000Z</published>
+    <updated>2015-12-19T11:53:04.000Z</updated>
+    <content type="html"><![CDATA[<p>收藏夹里积攒了好多自己喜欢的blog和帖子，是时候找个时间整理下了，方便他人学习，为他人填坑，也方便自己以后的回顾，so,let’s begin…</p>
+<ul>
+<li><p><a href="http://www.stormzhang.com/android/2014/07/07/learn-android-from-rookie/" target="_blank" rel="external">Android学习之路</a>从android开发入门，到后来的进阶，stormzhang提供了许多自己宝贵的经验，值得拜读。</p>
+</li>
+<li><p><a href="http://tech.meituan.com/" target="_blank" rel="external">美团技术团队</a>美团在做一些技术上的分享，在国内属于领先的地位，里面有一些和移动开发相关高质量文章。</p>
+</li>
+<li><p><a href="http://bugly.qq.com/blog/" target="_blank" rel="external">腾讯Bugly博客</a>腾讯Bugly博客</p>
+</li>
+<li><p><a href="http://tools.android.com/recent" target="_blank" rel="external">Recent Changes</a>了解Android新动态，需要翻墙。</p>
+</li>
+<li><p><a href="http://androidweekly.net/" target="_blank" rel="external">Android Weekly</a>Android周报，英文，邮箱订阅。</p>
+</li>
+<li><p><a href="http://www.androidweekly.cn/" target="_blank" rel="external">Android 开发技术周报</a>国内的开发周报。</p>
+</li>
+<li><p><a href="http://www.androiddevtools.cn/" target="_blank" rel="external">AndroidDevTools</a>提供了不翻墙下载Android相关工具的服务。</p>
+</li>
+<li><p><a href="http://android-developers.blogspot.ca/" target="_blank" rel="external">Android Blog</a>Android 官方的开发博客。</p>
+</li>
+<li><p><a href="http://developer.android.com/intl/zh-cn/index.html" target="_blank" rel="external">Android官网</a>官网对开发者提供了许多教程以及开发实例，坚持阅读，相信会受益匪浅。毋庸置疑，官网需要翻墙。</p>
+</li>
+<li><p><a href="https://github.com/pcqpcq/open-source-android-apps" target="_blank" rel="external">Android开源项目</a>提供了众多不同领域的开源项目，值得学习。</p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/1078568e859f" target="_blank" rel="external">Android Material Design 最佳实践项目</a>对于Material Design众多组件的使用给出了详细的讲解说明，是MD入门的利器。</p>
+</li>
+<li><p><a href="http://v.youku.com/v_show/id_XODk2NjkwNjM2.html?f=23494296&amp;from=y1.7-1.3" target="_blank" rel="external">Android 性能模式 第一季(中字幕)</a>Google官方推出的性能优化视频，第一季。最初发布在Youtube，Google为了方便天朝人民观看，在优酷上也放了一份。</p>
+</li>
+<li><p><a href="http://v.youku.com/v_show/id_XMTMxNDIzODcxMg==.html?f=26016201&amp;from=y1.7-3" target="_blank" rel="external">Android 性能模式 第二季(中字幕)</a>Google官方推出的性能优化视频，第二季。</p>
+</li>
+<li><p><a href="http://v.youku.com/v_show/id_XMTMwMTYzNDQwMA==.html?f=25972284&amp;from=y1.7-3" target="_blank" rel="external">Android 性能模式 第三季(英字幕)</a>Google官方推出的性能优化视频，第三季。</p>
+</li>
+<li><p><a href="http://v.youku.com/v_show/id_XMTM1OTI3NDE2NA==.html?f=26144822&amp;from=y1.7-3" target="_blank" rel="external">Android 性能模式 第四季(英字幕)</a>Google官方推出的性能优化视频，第四季。</p>
+</li>
+<li><p><a href="http://hukai.me/" target="_blank" rel="external">胡凯的博客</a>胡凯大神，腾讯Android高级开发，做了许多优质的分享，发起了翻译Android Training Course的活动。</p>
+</li>
+<li><p><a href="http://a.codekk.com/" target="_blank" rel="external">CodeKK</a>国内Android开源领袖级的人物，博客中有许多眼前一亮的干货。</p>
+</li>
+<li><p><a href="http://litesuits.com/" target="_blank" rel="external">Lite Your Android</a>博主倡导极简生活，开源了一些极简概念的Android库。</p>
+</li>
+<li><p><a href="http://www.vmatianyu.cn/" target="_blank" rel="external">Liter’s Blog</a>这是上一条推荐项目的博主的个人博客，前辈的博文语重心长，非常诚恳。</p>
+</li>
+<li><p><a href="http://keeganlee.me/" target="_blank" rel="external">Keegan小钢</a>博客中又对Android动画以及项目重构的实战讲解。</p>
+</li>
+<li><p><a href="http://it.deepinmind.com/index.html" target="_blank" rel="external">Java基础及深入</a>非常棒的一个博客，有关Java学习的博文质量很高。</p>
+</li>
+<li><p><a href="http://www.itechzero.com/google-mirror-sites-collect.html" target="_blank" rel="external">Google镜像集合</a>持续更新，让你不翻墙也可以用Google搜索。</p>
+</li>
+<li><p><a href="http://blog.knownsec.com/Knownsec_RD_Checklist/v3.0.html" target="_blank" rel="external">知道创宇研发技能表v3.0</a>对于Programer或者Geeker来说，这个技能表是必备的。</p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[平时发现的优质blog和技术贴，会持续更新]]>
+    
+    </summary>
+    
+      <category term="Android进阶优质资源" scheme="http://www.xuanzhangjiong.xyz/tags/Android%E8%BF%9B%E9%98%B6%E4%BC%98%E8%B4%A8%E8%B5%84%E6%BA%90/"/>
+    
+      <category term="Android" scheme="http://www.xuanzhangjiong.xyz/categories/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[柚子房东，第一个从无到有的创业项目]]></title>
+    <link href="http://www.xuanzhangjiong.xyz/2015/12/01/%E6%9F%9A%E5%AD%90%E6%88%BF%E4%B8%9C%EF%BC%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89%E7%9A%84%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://www.xuanzhangjiong.xyz/2015/12/01/柚子房东，第一个从无到有的创业项目/</id>
+    <published>2015-12-01T06:52:05.000Z</published>
+    <updated>2015-12-20T08:52:02.000Z</updated>
+    <content type="html"><![CDATA[<p>七月中旬，在和导师的一番交流后，我加入了<code>柚子房东</code>这个项目，其实当时还不叫这个名字，叫<code>V-house</code>，来到了苏州金鸡湖边的一个酒店和一群从事房地产的人开始了我们的创业之路。</p>
+<p>记得当时，大学还刚毕业不久，便开始了长达一个多月的酒店式封闭开发。</p>
+<p>7月中旬，当时产品还没有确定最终的方向，大佬们还在讨论公司走向，作为码农，我只好先开始了各种填坑工作，对各种技术进行调研。一开始，我们曾经想过用<a href="http://ionicframework.com/" target="_blank" rel="external">Ionic</a>来开发，毕竟Hybrid的开发速度比原生的会快很多。在试过水之后，发现在没有遇到重大技术障碍的时候，Hybrid的应用确实可以迅速开发出来。但是遇到在用刀第三方服务的时候就会发现虽然有些第三方服务是支持<code>Codova</code>，但是遇到那些不支持的时候，开发显然会遇到问题，当然并不是说不可行，可以用Js去调用原生的API。在体验过一些用Ionic开发的项目之后发现，用户体验太！差！了！于是乎，果断放弃了这个坑，当然，那个时候还没有出现React Native不然，我可能会…</p>
+<p>言归正传，当时由于之前一直使用Eclipse进行开发，但是Eclipse的效率真的不敢恭维，Android Studio也比较成熟了，所以打算从这个项目入手，我的Android Studio填坑之路也开始了。</p>
+<h1 id="一、前期的技术调研">一、前期的技术调研</h1>]]></content>
+    <summary type="html">
+    <![CDATA[柚子房东这个项目，从7月中旬开始定需求，设计，开发，也经历了4个多月了，v1.0也算是上线了，来谈谈这几个月的感想吧。]]>
+    
+    </summary>
+    
+      <category term="创业项目，一个字“累”" scheme="http://www.xuanzhangjiong.xyz/tags/%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%AD%97%E2%80%9C%E7%B4%AF%E2%80%9D/"/>
+    
+      <category term="作品" scheme="http://www.xuanzhangjiong.xyz/categories/%E4%BD%9C%E5%93%81/"/>
+    
+      <category term="项目经历" scheme="http://www.xuanzhangjiong.xyz/categories/%E4%BD%9C%E5%93%81/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[MarkDown语法练习]]></title>
-    <link href="http://www.xuanzhangjiong.xyz/2015/12/20/MarkDown%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0/"/>
-    <id>http://www.xuanzhangjiong.xyz/2015/12/20/MarkDown语法练习/</id>
-    <published>2015-12-20T08:51:41.000Z</published>
-    <updated>2015-12-20T10:38:42.000Z</updated>
+    <link href="http://www.xuanzhangjiong.xyz/2015/10/10/MarkDown%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0/"/>
+    <id>http://www.xuanzhangjiong.xyz/2015/10/10/MarkDown语法练习/</id>
+    <published>2015-10-10T08:51:41.000Z</published>
+    <updated>2015-12-20T10:45:33.000Z</updated>
     <content type="html"><![CDATA[<p>写一些最简单，最实用的，下面的都是我用来写博客的。</p>
 <h1 id="强调">强调</h1><p>星号*与下划线_都可以，单是斜体，双是粗体，符号可跨行，符号可加空格</p>
 <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span>单星号是斜体<span class="keyword">*</span></span><br></pre></td></tr></table></figure>
@@ -142,130 +266,6 @@
       <category term="码农必备常识" scheme="http://www.xuanzhangjiong.xyz/tags/%E7%A0%81%E5%86%9C%E5%BF%85%E5%A4%87%E5%B8%B8%E8%AF%86/"/>
     
       <category term="MarkDown" scheme="http://www.xuanzhangjiong.xyz/categories/MarkDown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[参加腾讯Innovation Space比赛的感想]]></title>
-    <link href="http://www.xuanzhangjiong.xyz/2015/12/20/%E5%8F%82%E5%8A%A0%E8%85%BE%E8%AE%AFInnovation-Space%E6%AF%94%E8%B5%9B%E7%9A%84%E6%84%9F%E6%83%B3/"/>
-    <id>http://www.xuanzhangjiong.xyz/2015/12/20/参加腾讯Innovation-Space比赛的感想/</id>
-    <published>2015-12-20T05:45:52.000Z</published>
-    <updated>2015-12-20T08:13:28.000Z</updated>
-    <content type="html"><![CDATA[<p>2015年11月26日，我和几个小伙伴带着创意在线报名了腾讯的Innovation Space 比赛，几经筛选，我们从270多个创意中，进入了总决赛。</p>
-<p>12月11日，我们背上行囊奔赴上海腾讯，当然这也是第一次去腾讯，内心很激动。</p>
-<p>12月11日傍晚，腾讯的HR姐姐，带我们参观了上海腾讯的腾云大厦，以及比赛团队的介绍。</p>
-<p>12月12日上午，经历了半天的商业模式的洗礼。到了下午我们开始了58小时的封闭式开发。哦，忘了介绍我们的团队了：一名腾讯的产品姐姐，一名腾讯的前端大牛，一名上大的研究生学长（后端开发），以及3名浙大的骚年，一名iOS开发，一名设计，还有做Android的我。</p>
-<p>我们做的产品是<code>刷脸加好友</code>,在那58小时里，我们配合的很默契，其中也出现了很多的问题：特别吐槽下腾讯的GuestWifi,慢的和乌龟一样，而且莫名地不定时地局域网无法ping通，在调试接口的时候，我们几经崩溃。最后迫于无奈，用的手机热点来，调试，是不是醉了，哈哈。</p>
-<p>58小时里，我们几乎都没怎么睡觉，一直在14号中午快开始路演的时候还在调试，心好累。。。。</p>
-<p>刷脸加好友的创意首先是来自于我们发现了腾讯的优图接口，我们想利用优图实现传统加好友的局限性，能够仅仅通过一张老照片，对仅仅只有一面之缘的又无法联系到的人通过社交平台添加好友，这是我们的初衷。</p>
-<p>说了半天，获奖没，并没有，当路演完，评审完，我们意识到了，哦，原来商业模式也是很重要的，不仅创意要好，产品要做出来，而且要能够让投资人能够了解到创意背后的商业价值，好吧，也许我们在这方面思考欠佳。</p>
-<p>但是这并不影响我对这次比赛的感受，还是很值得的，体验了58小时的封闭式开发，感受了BAT之一的大公司，了解了一个公司，认识了这么多小伙伴。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/innovation_space.png" alt="附上一张合照" title="合照"></p>
-<p>项目的客户端代码已经放到我的Github上了，需要的小伙伴可以自己下载，做的比较简陋，毕竟只有58小时，希望不要见怪。</p>
-<p>当然无图无真相：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_5.jpg?imageView2/2/w/360/h/640" alt="">    <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_4.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_3.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_6.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_2.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_1.jpg?imageView2/2/w/360/h/640" alt=""><br><br></p>
-<p>Git地址：<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;&#x3a;&#x54;&#111;&#112;&#74;&#x6f;&#104;&#110;&#x2f;&#x66;&#97;&#x63;&#x65;&#x53;&#x77;&#105;&#112;&#x69;&#110;&#103;&#x2e;&#x67;&#105;&#116;">&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;&#x3a;&#x54;&#111;&#112;&#74;&#x6f;&#104;&#110;&#x2f;&#x66;&#97;&#x63;&#x65;&#x53;&#x77;&#105;&#112;&#x69;&#110;&#103;&#x2e;&#x67;&#105;&#116;</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[虽然并没有获奖，但是认识了一群小伙伴，经历了，很值得...]]>
-    
-    </summary>
-    
-      <category term="生活感言" scheme="http://www.xuanzhangjiong.xyz/tags/%E7%94%9F%E6%B4%BB%E6%84%9F%E8%A8%80/"/>
-    
-      <category term="项目经历" scheme="http://www.xuanzhangjiong.xyz/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/"/>
-    
-      <category term="作品" scheme="http://www.xuanzhangjiong.xyz/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/%E4%BD%9C%E5%93%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Android技术贴总汇]]></title>
-    <link href="http://www.xuanzhangjiong.xyz/2015/12/19/android%E5%AD%A6%E4%B9%A0%E6%80%BB%E6%B1%87/"/>
-    <id>http://www.xuanzhangjiong.xyz/2015/12/19/android学习总汇/</id>
-    <published>2015-12-19T08:12:38.000Z</published>
-    <updated>2015-12-19T11:53:04.000Z</updated>
-    <content type="html"><![CDATA[<p>收藏夹里积攒了好多自己喜欢的blog和帖子，是时候找个时间整理下了，方便他人学习，为他人填坑，也方便自己以后的回顾，so,let’s begin…</p>
-<ul>
-<li><p><a href="http://www.stormzhang.com/android/2014/07/07/learn-android-from-rookie/" target="_blank" rel="external">Android学习之路</a>从android开发入门，到后来的进阶，stormzhang提供了许多自己宝贵的经验，值得拜读。</p>
-</li>
-<li><p><a href="http://tech.meituan.com/" target="_blank" rel="external">美团技术团队</a>美团在做一些技术上的分享，在国内属于领先的地位，里面有一些和移动开发相关高质量文章。</p>
-</li>
-<li><p><a href="http://bugly.qq.com/blog/" target="_blank" rel="external">腾讯Bugly博客</a>腾讯Bugly博客</p>
-</li>
-<li><p><a href="http://tools.android.com/recent" target="_blank" rel="external">Recent Changes</a>了解Android新动态，需要翻墙。</p>
-</li>
-<li><p><a href="http://androidweekly.net/" target="_blank" rel="external">Android Weekly</a>Android周报，英文，邮箱订阅。</p>
-</li>
-<li><p><a href="http://www.androidweekly.cn/" target="_blank" rel="external">Android 开发技术周报</a>国内的开发周报。</p>
-</li>
-<li><p><a href="http://www.androiddevtools.cn/" target="_blank" rel="external">AndroidDevTools</a>提供了不翻墙下载Android相关工具的服务。</p>
-</li>
-<li><p><a href="http://android-developers.blogspot.ca/" target="_blank" rel="external">Android Blog</a>Android 官方的开发博客。</p>
-</li>
-<li><p><a href="http://developer.android.com/intl/zh-cn/index.html" target="_blank" rel="external">Android官网</a>官网对开发者提供了许多教程以及开发实例，坚持阅读，相信会受益匪浅。毋庸置疑，官网需要翻墙。</p>
-</li>
-<li><p><a href="https://github.com/pcqpcq/open-source-android-apps" target="_blank" rel="external">Android开源项目</a>提供了众多不同领域的开源项目，值得学习。</p>
-</li>
-<li><p><a href="http://www.jianshu.com/p/1078568e859f" target="_blank" rel="external">Android Material Design 最佳实践项目</a>对于Material Design众多组件的使用给出了详细的讲解说明，是MD入门的利器。</p>
-</li>
-<li><p><a href="http://v.youku.com/v_show/id_XODk2NjkwNjM2.html?f=23494296&amp;from=y1.7-1.3" target="_blank" rel="external">Android 性能模式 第一季(中字幕)</a>Google官方推出的性能优化视频，第一季。最初发布在Youtube，Google为了方便天朝人民观看，在优酷上也放了一份。</p>
-</li>
-<li><p><a href="http://v.youku.com/v_show/id_XMTMxNDIzODcxMg==.html?f=26016201&amp;from=y1.7-3" target="_blank" rel="external">Android 性能模式 第二季(中字幕)</a>Google官方推出的性能优化视频，第二季。</p>
-</li>
-<li><p><a href="http://v.youku.com/v_show/id_XMTMwMTYzNDQwMA==.html?f=25972284&amp;from=y1.7-3" target="_blank" rel="external">Android 性能模式 第三季(英字幕)</a>Google官方推出的性能优化视频，第三季。</p>
-</li>
-<li><p><a href="http://v.youku.com/v_show/id_XMTM1OTI3NDE2NA==.html?f=26144822&amp;from=y1.7-3" target="_blank" rel="external">Android 性能模式 第四季(英字幕)</a>Google官方推出的性能优化视频，第四季。</p>
-</li>
-<li><p><a href="http://hukai.me/" target="_blank" rel="external">胡凯的博客</a>胡凯大神，腾讯Android高级开发，做了许多优质的分享，发起了翻译Android Training Course的活动。</p>
-</li>
-<li><p><a href="http://a.codekk.com/" target="_blank" rel="external">CodeKK</a>国内Android开源领袖级的人物，博客中有许多眼前一亮的干货。</p>
-</li>
-<li><p><a href="http://litesuits.com/" target="_blank" rel="external">Lite Your Android</a>博主倡导极简生活，开源了一些极简概念的Android库。</p>
-</li>
-<li><p><a href="http://www.vmatianyu.cn/" target="_blank" rel="external">Liter’s Blog</a>这是上一条推荐项目的博主的个人博客，前辈的博文语重心长，非常诚恳。</p>
-</li>
-<li><p><a href="http://keeganlee.me/" target="_blank" rel="external">Keegan小钢</a>博客中又对Android动画以及项目重构的实战讲解。</p>
-</li>
-<li><p><a href="http://it.deepinmind.com/index.html" target="_blank" rel="external">Java基础及深入</a>非常棒的一个博客，有关Java学习的博文质量很高。</p>
-</li>
-<li><p><a href="http://www.itechzero.com/google-mirror-sites-collect.html" target="_blank" rel="external">Google镜像集合</a>持续更新，让你不翻墙也可以用Google搜索。</p>
-</li>
-<li><p><a href="http://blog.knownsec.com/Knownsec_RD_Checklist/v3.0.html" target="_blank" rel="external">知道创宇研发技能表v3.0</a>对于Programer或者Geeker来说，这个技能表是必备的。</p>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[平时发现的优质blog和技术贴，会持续更新]]>
-    
-    </summary>
-    
-      <category term="Android进阶优质资源" scheme="http://www.xuanzhangjiong.xyz/tags/Android%E8%BF%9B%E9%98%B6%E4%BC%98%E8%B4%A8%E8%B5%84%E6%BA%90/"/>
-    
-      <category term="Android" scheme="http://www.xuanzhangjiong.xyz/categories/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[柚子房东，第一个从无到有的创业项目]]></title>
-    <link href="http://www.xuanzhangjiong.xyz/2015/12/01/%E6%9F%9A%E5%AD%90%E6%88%BF%E4%B8%9C%EF%BC%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89%E7%9A%84%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE/"/>
-    <id>http://www.xuanzhangjiong.xyz/2015/12/01/柚子房东，第一个从无到有的创业项目/</id>
-    <published>2015-12-01T06:52:05.000Z</published>
-    <updated>2015-12-20T08:52:02.000Z</updated>
-    <content type="html"><![CDATA[<p>七月中旬，在和导师的一番交流后，我加入了<code>柚子房东</code>这个项目，其实当时还不叫这个名字，叫<code>V-house</code>，来到了苏州金鸡湖边的一个酒店和一群从事房地产的人开始了我们的创业之路。</p>
-<p>记得当时，大学还刚毕业不久，便开始了长达一个多月的酒店式封闭开发。</p>
-<p>7月中旬，当时产品还没有确定最终的方向，大佬们还在讨论公司走向，作为码农，我只好先开始了各种填坑工作，对各种技术进行调研。一开始，我们曾经想过用<a href="http://ionicframework.com/" target="_blank" rel="external">Ionic</a>来开发，毕竟Hybrid的开发速度比原生的会快很多。在试过水之后，发现在没有遇到重大技术障碍的时候，Hybrid的应用确实可以迅速开发出来。但是遇到在用刀第三方服务的时候就会发现虽然有些第三方服务是支持<code>Codova</code>，但是遇到那些不支持的时候，开发显然会遇到问题，当然并不是说不可行，可以用Js去调用原生的API。在体验过一些用Ionic开发的项目之后发现，用户体验太！差！了！于是乎，果断放弃了这个坑，当然，那个时候还没有出现React Native不然，我可能会…</p>
-<p>言归正传，当时由于之前一直使用Eclipse进行开发，但是Eclipse的效率真的不敢恭维，Android Studio也比较成熟了，所以打算从这个项目入手，我的Android Studio填坑之路也开始了。</p>
-<h1 id="一、前期的技术调研">一、前期的技术调研</h1>]]></content>
-    <summary type="html">
-    <![CDATA[柚子房东这个项目，从7月中旬开始定需求，设计，开发，也经历了4个多月了，v1.0也算是上线了，来谈谈这几个月的感想吧。]]>
-    
-    </summary>
-    
-      <category term="创业项目，一个字“累”" scheme="http://www.xuanzhangjiong.xyz/tags/%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%AD%97%E2%80%9C%E7%B4%AF%E2%80%9D/"/>
-    
-      <category term="作品" scheme="http://www.xuanzhangjiong.xyz/categories/%E4%BD%9C%E5%93%81/"/>
-    
-      <category term="项目经历" scheme="http://www.xuanzhangjiong.xyz/categories/%E4%BD%9C%E5%93%81/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/"/>
     
   </entry>
   
