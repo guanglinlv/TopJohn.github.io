@@ -1,0 +1,630 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>MarkDown语法练习 | TopJohn&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="John">
+    
+
+    
+    <meta name="description" content="MarkDown语法现在越来越常见了，Github的Readme，SegmentFault、Coding、OSChina、简书都要用...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MarkDown语法练习">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/12/20/MarkDown语法练习/index.html">
+<meta property="og:site_name" content="TopJohn'Blog">
+<meta property="og:description" content="MarkDown语法现在越来越常见了，Github的Readme，SegmentFault、Coding、OSChina、简书都要用...">
+<meta property="og:image" content="http://github.global.ssl.fastly.net/images/modules/logos_page/GitHub-Mark.png">
+<meta property="og:image" content="http://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
+<meta property="og:updated_time" content="2015-12-20T10:38:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MarkDown语法练习">
+<meta name="twitter:description" content="MarkDown语法现在越来越常见了，Github的Readme，SegmentFault、Coding、OSChina、简书都要用...">
+<link rel="publisher" href="114979210024559900000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="TopJohn&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/apple.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/apple.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="TopJohn&#39;Blog">TopJohn&#39;Blog</a></h1>
+				<h2 class="blog-motto">Coding的路上，至少我乐在其中...</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/pay">打赏</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.xuanzhangjiong.xyz">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/12/20/MarkDown语法练习/" title="MarkDown语法练习" itemprop="url">MarkDown语法练习</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-20T08:51:41.000Z" itemprop="datePublished"> 发表于 2015-12-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#强调"><span class="toc-number">1.</span> <span class="toc-text">强调</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分割线"><span class="toc-number">2.</span> <span class="toc-text">分割线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#引用"><span class="toc-number">3.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#标题"><span class="toc-number">4.</span> <span class="toc-text">标题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大标题"><span class="toc-number">5.</span> <span class="toc-text">大标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#小标题"><span class="toc-number">5.1.</span> <span class="toc-text">小标题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#无序列表"><span class="toc-number">6.</span> <span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#有序列表"><span class="toc-number">7.</span> <span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#嵌套列表"><span class="toc-number">8.</span> <span class="toc-text">嵌套列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文字超链：Inline方式"><span class="toc-number">9.</span> <span class="toc-text">文字超链：Inline方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片超链"><span class="toc-number">10.</span> <span class="toc-text">图片超链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#索引超链：Reference方式"><span class="toc-number">11.</span> <span class="toc-text">索引超链：Reference方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自动链接"><span class="toc-number">12.</span> <span class="toc-text">自动链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-number">13.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#段落代码"><span class="toc-number">14.</span> <span class="toc-text">段落代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo代码"><span class="toc-number">15.</span> <span class="toc-text">hexo代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注释"><span class="toc-number">16.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#转义字符"><span class="toc-number">17.</span> <span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其它"><span class="toc-number">18.</span> <span class="toc-text">其它</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#one_more_thing：表格"><span class="toc-number">19.</span> <span class="toc-text">one more thing：表格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">20.</span> <span class="toc-text">参考文献</span></a></li></ol>
+		
+		</div>
+		
+		<p>写一些最简单，最实用的，下面的都是我用来写博客的。</p>
+<h1 id="强调">强调</h1><p>星号*与下划线_都可以，单是斜体，双是粗体，符号可跨行，符号可加空格</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span>单星号是斜体<span class="keyword">*</span></span><br></pre></td></tr></table></figure>
+<p><em>单星号是斜体</em></p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span>双星号是粗体<span class="keyword">*</span><span class="keyword">*</span></span><br></pre></td></tr></table></figure>
+<p><strong>双星号是粗体</strong></p>
+<h1 id="分割线">分割线</h1><p>三个或更多_*，必须单独一行，可含空格</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">---</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="引用">引用</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">翻译成html就是<span class="tag">&lt;<span class="title">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="title">blockquote</span>&gt;</span>，符号&gt;后的空格可不要</span><br><span class="line">&gt;引用</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<p>注意使用空行结束</p>
+<p>内层符号前的空格必须要</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 引用</span><br><span class="line"> <span class="prompt">&gt;&gt;</span>引用中的引用</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>引用</p>
+<blockquote>
+<p>引用中的引用</p>
+</blockquote>
+</blockquote>
+<h1 id="标题">标题</h1><p>Setext方式<br>三个=-或更多</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">大标题</span><br><span class="line">===</span></span><br></pre></td></tr></table></figure>
+<h1 id="大标题">大标题</h1><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">小标题</span><br><span class="line">---</span></span><br></pre></td></tr></table></figure>
+<h2 id="小标题">小标题</h2><p>标题Atx方式<br>符号#必须加空格</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 一级标题</span></span><br><span class="line"><span class="preprocessor">## 二级标题</span></span><br><span class="line"><span class="preprocessor">### 三级标题</span></span><br><span class="line"><span class="preprocessor">#### 四级标题</span></span><br><span class="line"><span class="preprocessor">##### 五级标题</span></span><br><span class="line"><span class="preprocessor">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+<h1 id="无序列表">无序列表</h1><p>符号之后的空格不能少，-+*效果一样，但不能混合使用，因混合是嵌套列表，内容可超长</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">+ </span>无序列表</span><br><span class="line"><span class="bullet">+ </span>无序列表</span><br><span class="line"><span class="bullet">+ </span>无序列表</span><br><span class="line"><span class="bullet">+ </span>无序列表：我很长。我也很长！那比一比啊？比就比！我有这么长，你有我长吗？我有这么这么长！好吧，你赢了！</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无序列表</li>
+<li>无序列表</li>
+<li>无序列表</li>
+<li>无序列表：我很长。我也很长！那比一比啊？比就比！我有这么长，你有我长吗？我有这么这么长！好吧，你赢了！</li>
+</ul>
+<h1 id="有序列表">有序列表</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 有序列表</span><br><span class="line"><span class="number">2.</span> 有序列表</span><br><span class="line"><span class="number">3.</span> 有序列表</span><br><span class="line"><span class="number">4.</span> 有序列表</span><br></pre></td></tr></table></figure>
+<ol>
+<li>有序列表</li>
+<li>有序列表</li>
+<li>有序列表</li>
+<li>有序列表</li>
+</ol>
+<h1 id="嵌套列表">嵌套列表</h1><p>+*-可循环使用，但符号之后的空格不能少，次级列表中符号之前的空格也不能少</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> 嵌套列表</span><br><span class="line"></span> + 嵌套列表</span><br><span class="line"> + 嵌套列表</span><br><span class="line">  -<span class="ruby"> 嵌套列表</span><br><span class="line"></span>   * 嵌套列表</span><br><span class="line">-<span class="ruby"> 嵌套列表</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>嵌套列表<ul>
+<li>嵌套列表</li>
+<li>嵌套列表</li>
+</ul>
+<ul>
+<li>嵌套列表<ul>
+<li>嵌套列表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>嵌套列表</li>
+</ul>
+<h1 id="文字超链：Inline方式">文字超链：Inline方式</h1><p>Tooltips可省略</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="collection">[]</span><span class="list">(<span class="keyword">http://blog.xuanzhangjiong.xyz</span>)</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.xuanzhangjiong.xyz" target="_blank" rel="external"></a></p>
+<h1 id="图片超链">图片超链</h1><p>多个感叹号，Tooltips可省略，要设置大小只能借助HTML标记</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="link_label">GitHub Mark</span>](<span class="link_url">http://github.global.ssl.fastly.net/images/modules/logos_page/GitHub-Mark.png "GitHub Mark"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://github.global.ssl.fastly.net/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Mark" title="GitHub Mark"></p>
+<h1 id="索引超链：Reference方式">索引超链：Reference方式</h1><p>索引，1 2可以是任意字符</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="link_label">Stepway's Notes</span>][<span class="link_reference">1</span>]</span><br><span class="line">![<span class="link_label">GitHub Octocat</span>][<span class="link_reference">2</span>]</span><br><span class="line">[<span class="link_reference">1</span>]:<span class="link_url">http://blog.xuanzhangjiong.xyz</span></span><br><span class="line">[<span class="link_reference">2</span>]:<span class="link_url">http://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.xuanzhangjiong.xyz" target="_blank" rel="external">TopJohn’s Blog</a><br><img src="http://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png" alt="GitHub Octocat"></p>
+<h1 id="自动链接">自动链接</h1><p>尖括号</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="string">http:</span><span class="comment">//blog.xuanzhangjiong.xyz&gt;</span></span><br><span class="line">&lt;<span class="string">http:</span><span class="comment">//TopJohn.github.io&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="代码">代码</h1><p>行内代码 使用符号`</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="escape">`v</span>al s = <span class="string">"hello Markdown"</span><span class="escape">`</span><br><span class="line"></span><span class="escape">``</span>val s = <span class="string">"hello Markdown"</span> 需要显示(<span class="escape">`)</span><span class="escape">``</span></span><br></pre></td></tr></table></figure>
+<p><code>val s = &quot;hello Markdown&quot;</code><br><code>val s = &quot;hello Markdown&quot; 需要显示(`)</code></p>
+<h1 id="段落代码">段落代码</h1><p>每行文字前加4个空格或者1个Tab，并用空行开始</p>
+<p>这是一个普通段落：<br>    这是一个代码区块。<br>    这是一个代码区块。</p>
+<h1 id="hexo代码">hexo代码</h1><p>可指定编程语言，{ % % }代表左右大括号</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:php] [url] [link text]%&#125;</span><br><span class="line">  <span class="variable">$word</span> = <span class="string">'hello'</span></span><br><span class="line">  echo <span class="variable">$word</span>;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><figcaption><span>php</span><a href="http://blog.xuanzhangjiong.xyz" target="_blank" rel="external">link php</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$word</span> = <span class="string">'hello'</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$word</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="注释">注释</h1><p>用html的注释<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 对当前编辑文件(.md)的注释 --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="转义字符">转义字符</h1><p>Markdown中的转义字符为\，转义的有：<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="command">\\</span> 反斜杠</span><br><span class="line"><span class="command">\`</span> 反引号</span><br><span class="line"><span class="command">\*</span> 星号</span><br><span class="line"><span class="command">\_</span> 下划线</span><br><span class="line"><span class="command">\&#123;</span><span class="command">\&#125;</span> 大括号</span><br><span class="line"><span class="command">\[</span><span class="command">\]</span> 中括号</span><br><span class="line"><span class="command">\(</span><span class="command">\)</span> 小括号</span><br><span class="line"><span class="command">\#</span> 井号</span><br><span class="line"><span class="command">\+</span> 加号</span><br><span class="line"><span class="command">\-</span> 减号</span><br><span class="line"><span class="command">\.</span> 英文句号</span><br><span class="line"><span class="command">\!</span> 感叹号</span><br></pre></td></tr></table></figure></p>
+<h1 id="其它">其它</h1><p>文本中可直接用html标签，但是要前后加上空行。<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="keyword">type</span>=<span class="string">'text</span>'&gt;</span><br></pre></td></tr></table></figure></p>
+<input type="text">
+
+<h1 id="one_more_thing：表格">one more thing：表格</h1><p>Markdown的扩展语法，hexo不支持<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> Tables        </span>|<span class="string"> Are           </span>|<span class="string"> Cool  </span>|</span><br><span class="line">|<span class="string"> ------------- </span>|<span class="string">:-------------:</span>|<span class="string"> -----:</span>|</span><br><span class="line">|<span class="string"> col 3 is      </span>|<span class="string"> right-aligned </span>|<span class="string"> $1600 </span>|</span><br><span class="line">|<span class="string"> col 2 is      </span>|<span class="string"> centered      </span>|<span class="string">   $12 </span>|</span><br><span class="line">|<span class="string"> zebra stripes </span>|<span class="string"> are neat      </span>|<span class="string">    $1 </span>|</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">right-aligned</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">$1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="参考文献">参考文献</h1><ol>
+<li><a href="http://ibruce.info/2013/11/26/markdown/" target="_blank" rel="external">Markdown简明语法</a></li>
+<li><a href="http://www.appinn.com/markdown/" target="_blank" rel="external">Markdown语法说明</a></li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/MarkDown/">MarkDown</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/码农必备常识/">码农必备常识</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuanzhangjiong.xyz/2015/12/20/MarkDown语法练习/" data-title="MarkDown语法练习 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/12/20/参加腾讯Innovation-Space比赛的感想/"  title="参加腾讯Innovation Space比赛的感想">
+ <strong>下一篇：</strong><br/> 
+ <span>参加腾讯Innovation Space比赛的感想
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/12/20/MarkDown语法练习/" data-title="MarkDown语法练习" data-url="http://www.xuanzhangjiong.xyz/2015/12/20/MarkDown语法练习/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#强调"><span class="toc-number">1.</span> <span class="toc-text">强调</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分割线"><span class="toc-number">2.</span> <span class="toc-text">分割线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#引用"><span class="toc-number">3.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#标题"><span class="toc-number">4.</span> <span class="toc-text">标题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大标题"><span class="toc-number">5.</span> <span class="toc-text">大标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#小标题"><span class="toc-number">5.1.</span> <span class="toc-text">小标题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#无序列表"><span class="toc-number">6.</span> <span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#有序列表"><span class="toc-number">7.</span> <span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#嵌套列表"><span class="toc-number">8.</span> <span class="toc-text">嵌套列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文字超链：Inline方式"><span class="toc-number">9.</span> <span class="toc-text">文字超链：Inline方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片超链"><span class="toc-number">10.</span> <span class="toc-text">图片超链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#索引超链：Reference方式"><span class="toc-number">11.</span> <span class="toc-text">索引超链：Reference方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自动链接"><span class="toc-number">12.</span> <span class="toc-text">自动链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-number">13.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#段落代码"><span class="toc-number">14.</span> <span class="toc-text">段落代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo代码"><span class="toc-number">15.</span> <span class="toc-text">hexo代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注释"><span class="toc-number">16.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#转义字符"><span class="toc-number">17.</span> <span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其它"><span class="toc-number">18.</span> <span class="toc-text">其它</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#one_more_thing：表格"><span class="toc-number">19.</span> <span class="toc-text">one more thing：表格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">20.</span> <span class="toc-text">参考文献</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Git/" title="Git">Git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MarkDown/" title="MarkDown">MarkDown<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/作品/" title="作品">作品<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/作品/" title="作品">作品<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活小记/" title="生活小记">生活小记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/作品/项目经历/" title="项目经历">项目经历<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/" title="项目经历">项目经历<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/码农必备常识/" title="码农必备常识">码农必备常识<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/创业项目，一个字“累”/" title="创业项目，一个字“累”">创业项目，一个字“累”<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/毕业季/" title="毕业季">毕业季<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/生活感言/" title="生活感言">生活感言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android进阶优质资源/" title="Android进阶优质资源">Android进阶优质资源<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常见3种架构/" title="常见3种架构">常见3种架构<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/异步事件处理/" title="异步事件处理">异步事件处理<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1600625133&verifier=b349771a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 「一只笨鸟的成长史...」 <br/>
+			Better late than never.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1600625133" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/TopJohn" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/Top-John" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/shuai-jiong" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		<a href="https://plus.google.com/114979210024559900000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:xzj19922010@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="John">John</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"John"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

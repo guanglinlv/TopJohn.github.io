@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Coding的路上，至少我乐在其中...]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuanzhangjiong.xyz/"/>
-  <updated>2015-12-20T08:13:28.000Z</updated>
+  <updated>2015-12-20T10:38:42.000Z</updated>
   <id>http://www.xuanzhangjiong.xyz/</id>
   
   <author>
@@ -13,6 +13,137 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[MarkDown语法练习]]></title>
+    <link href="http://www.xuanzhangjiong.xyz/2015/12/20/MarkDown%E8%AF%AD%E6%B3%95%E7%BB%83%E4%B9%A0/"/>
+    <id>http://www.xuanzhangjiong.xyz/2015/12/20/MarkDown语法练习/</id>
+    <published>2015-12-20T08:51:41.000Z</published>
+    <updated>2015-12-20T10:38:42.000Z</updated>
+    <content type="html"><![CDATA[<p>写一些最简单，最实用的，下面的都是我用来写博客的。</p>
+<h1 id="强调">强调</h1><p>星号*与下划线_都可以，单是斜体，双是粗体，符号可跨行，符号可加空格</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span>单星号是斜体<span class="keyword">*</span></span><br></pre></td></tr></table></figure>
+<p><em>单星号是斜体</em></p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span>双星号是粗体<span class="keyword">*</span><span class="keyword">*</span></span><br></pre></td></tr></table></figure>
+<p><strong>双星号是粗体</strong></p>
+<h1 id="分割线">分割线</h1><p>三个或更多_*，必须单独一行，可含空格</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">---</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="引用">引用</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">翻译成html就是<span class="tag">&lt;<span class="title">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="title">blockquote</span>&gt;</span>，符号&gt;后的空格可不要</span><br><span class="line">&gt;引用</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<p>注意使用空行结束</p>
+<p>内层符号前的空格必须要</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 引用</span><br><span class="line"> <span class="prompt">&gt;&gt;</span>引用中的引用</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>引用</p>
+<blockquote>
+<p>引用中的引用</p>
+</blockquote>
+</blockquote>
+<h1 id="标题">标题</h1><p>Setext方式<br>三个=-或更多</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">大标题</span><br><span class="line">===</span></span><br></pre></td></tr></table></figure>
+<h1 id="大标题">大标题</h1><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">小标题</span><br><span class="line">---</span></span><br></pre></td></tr></table></figure>
+<h2 id="小标题">小标题</h2><p>标题Atx方式<br>符号#必须加空格</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 一级标题</span></span><br><span class="line"><span class="preprocessor">## 二级标题</span></span><br><span class="line"><span class="preprocessor">### 三级标题</span></span><br><span class="line"><span class="preprocessor">#### 四级标题</span></span><br><span class="line"><span class="preprocessor">##### 五级标题</span></span><br><span class="line"><span class="preprocessor">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+<h1 id="无序列表">无序列表</h1><p>符号之后的空格不能少，-+*效果一样，但不能混合使用，因混合是嵌套列表，内容可超长</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">+ </span>无序列表</span><br><span class="line"><span class="bullet">+ </span>无序列表</span><br><span class="line"><span class="bullet">+ </span>无序列表</span><br><span class="line"><span class="bullet">+ </span>无序列表：我很长。我也很长！那比一比啊？比就比！我有这么长，你有我长吗？我有这么这么长！好吧，你赢了！</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无序列表</li>
+<li>无序列表</li>
+<li>无序列表</li>
+<li>无序列表：我很长。我也很长！那比一比啊？比就比！我有这么长，你有我长吗？我有这么这么长！好吧，你赢了！</li>
+</ul>
+<h1 id="有序列表">有序列表</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 有序列表</span><br><span class="line"><span class="number">2.</span> 有序列表</span><br><span class="line"><span class="number">3.</span> 有序列表</span><br><span class="line"><span class="number">4.</span> 有序列表</span><br></pre></td></tr></table></figure>
+<ol>
+<li>有序列表</li>
+<li>有序列表</li>
+<li>有序列表</li>
+<li>有序列表</li>
+</ol>
+<h1 id="嵌套列表">嵌套列表</h1><p>+*-可循环使用，但符号之后的空格不能少，次级列表中符号之前的空格也不能少</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> 嵌套列表</span><br><span class="line"></span> + 嵌套列表</span><br><span class="line"> + 嵌套列表</span><br><span class="line">  -<span class="ruby"> 嵌套列表</span><br><span class="line"></span>   * 嵌套列表</span><br><span class="line">-<span class="ruby"> 嵌套列表</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>嵌套列表<ul>
+<li>嵌套列表</li>
+<li>嵌套列表</li>
+</ul>
+<ul>
+<li>嵌套列表<ul>
+<li>嵌套列表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>嵌套列表</li>
+</ul>
+<h1 id="文字超链：Inline方式">文字超链：Inline方式</h1><p>Tooltips可省略</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="collection">[]</span><span class="list">(<span class="keyword">http://blog.xuanzhangjiong.xyz</span>)</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.xuanzhangjiong.xyz" target="_blank" rel="external"></a></p>
+<h1 id="图片超链">图片超链</h1><p>多个感叹号，Tooltips可省略，要设置大小只能借助HTML标记</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="link_label">GitHub Mark</span>](<span class="link_url">http://github.global.ssl.fastly.net/images/modules/logos_page/GitHub-Mark.png "GitHub Mark"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://github.global.ssl.fastly.net/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Mark" title="GitHub Mark"></p>
+<h1 id="索引超链：Reference方式">索引超链：Reference方式</h1><p>索引，1 2可以是任意字符</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="link_label">Stepway's Notes</span>][<span class="link_reference">1</span>]</span><br><span class="line">![<span class="link_label">GitHub Octocat</span>][<span class="link_reference">2</span>]</span><br><span class="line">[<span class="link_reference">1</span>]:<span class="link_url">http://blog.xuanzhangjiong.xyz</span></span><br><span class="line">[<span class="link_reference">2</span>]:<span class="link_url">http://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.xuanzhangjiong.xyz" target="_blank" rel="external">TopJohn’s Blog</a><br><img src="http://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png" alt="GitHub Octocat"></p>
+<h1 id="自动链接">自动链接</h1><p>尖括号</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="string">http:</span><span class="comment">//blog.xuanzhangjiong.xyz&gt;</span></span><br><span class="line">&lt;<span class="string">http:</span><span class="comment">//TopJohn.github.io&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="代码">代码</h1><p>行内代码 使用符号`</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="escape">`v</span>al s = <span class="string">"hello Markdown"</span><span class="escape">`</span><br><span class="line"></span><span class="escape">``</span>val s = <span class="string">"hello Markdown"</span> 需要显示(<span class="escape">`)</span><span class="escape">``</span></span><br></pre></td></tr></table></figure>
+<p><code>val s = &quot;hello Markdown&quot;</code><br><code>val s = &quot;hello Markdown&quot; 需要显示(`)</code></p>
+<h1 id="段落代码">段落代码</h1><p>每行文字前加4个空格或者1个Tab，并用空行开始</p>
+<p>这是一个普通段落：<br>    这是一个代码区块。<br>    这是一个代码区块。</p>
+<h1 id="hexo代码">hexo代码</h1><p>可指定编程语言，{ % % }代表左右大括号</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:php] [url] [link text]%&#125;</span><br><span class="line">  <span class="variable">$word</span> = <span class="string">'hello'</span></span><br><span class="line">  echo <span class="variable">$word</span>;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><figcaption><span>php</span><a href="http://blog.xuanzhangjiong.xyz" target="_blank" rel="external">link php</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$word</span> = <span class="string">'hello'</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$word</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="注释">注释</h1><p>用html的注释<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 对当前编辑文件(.md)的注释 --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="转义字符">转义字符</h1><p>Markdown中的转义字符为\，转义的有：<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="command">\\</span> 反斜杠</span><br><span class="line"><span class="command">\`</span> 反引号</span><br><span class="line"><span class="command">\*</span> 星号</span><br><span class="line"><span class="command">\_</span> 下划线</span><br><span class="line"><span class="command">\&#123;</span><span class="command">\&#125;</span> 大括号</span><br><span class="line"><span class="command">\[</span><span class="command">\]</span> 中括号</span><br><span class="line"><span class="command">\(</span><span class="command">\)</span> 小括号</span><br><span class="line"><span class="command">\#</span> 井号</span><br><span class="line"><span class="command">\+</span> 加号</span><br><span class="line"><span class="command">\-</span> 减号</span><br><span class="line"><span class="command">\.</span> 英文句号</span><br><span class="line"><span class="command">\!</span> 感叹号</span><br></pre></td></tr></table></figure></p>
+<h1 id="其它">其它</h1><p>文本中可直接用html标签，但是要前后加上空行。<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="keyword">type</span>=<span class="string">'text</span>'&gt;</span><br></pre></td></tr></table></figure></p>
+<input type="text">
+
+<h1 id="one_more_thing：表格">one more thing：表格</h1><p>Markdown的扩展语法，hexo不支持<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> Tables        </span>|<span class="string"> Are           </span>|<span class="string"> Cool  </span>|</span><br><span class="line">|<span class="string"> ------------- </span>|<span class="string">:-------------:</span>|<span class="string"> -----:</span>|</span><br><span class="line">|<span class="string"> col 3 is      </span>|<span class="string"> right-aligned </span>|<span class="string"> $1600 </span>|</span><br><span class="line">|<span class="string"> col 2 is      </span>|<span class="string"> centered      </span>|<span class="string">   $12 </span>|</span><br><span class="line">|<span class="string"> zebra stripes </span>|<span class="string"> are neat      </span>|<span class="string">    $1 </span>|</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th style="text-align:center">Are</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td style="text-align:center">right-aligned</td>
+<td style="text-align:right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td style="text-align:center">centered</td>
+<td style="text-align:right">$12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td style="text-align:center">are neat</td>
+<td style="text-align:right">$1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="参考文献">参考文献</h1><ol>
+<li><a href="http://ibruce.info/2013/11/26/markdown/" target="_blank" rel="external">Markdown简明语法</a></li>
+<li><a href="http://www.appinn.com/markdown/" target="_blank" rel="external">Markdown语法说明</a></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[MarkDown语法现在越来越常见了，Github的Readme，SegmentFault、Coding、OSChina、简书都要用...]]>
+    
+    </summary>
+    
+      <category term="码农必备常识" scheme="http://www.xuanzhangjiong.xyz/tags/%E7%A0%81%E5%86%9C%E5%BF%85%E5%A4%87%E5%B8%B8%E8%AF%86/"/>
+    
+      <category term="MarkDown" scheme="http://www.xuanzhangjiong.xyz/categories/MarkDown/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[参加腾讯Innovation Space比赛的感想]]></title>
@@ -32,7 +163,7 @@
 <p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/innovation_space.png" alt="附上一张合照" title="合照"></p>
 <p>项目的客户端代码已经放到我的Github上了，需要的小伙伴可以自己下载，做的比较简陋，毕竟只有58小时，希望不要见怪。</p>
 <p>当然无图无真相：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_5.jpg?imageView2/2/w/360/h/640" alt="">    <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_4.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_3.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_6.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_2.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_1.jpg?imageView2/2/w/360/h/640" alt=""><br><br></p>
-<p>Git地址：<a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;&#x3a;&#x54;&#111;&#x70;&#74;&#111;&#x68;&#110;&#x2f;&#x66;&#x61;&#x63;&#101;&#x53;&#x77;&#105;&#x70;&#x69;&#110;&#103;&#x2e;&#103;&#105;&#x74;">&#103;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#111;&#x6d;&#x3a;&#x54;&#111;&#x70;&#74;&#111;&#x68;&#110;&#x2f;&#x66;&#x61;&#x63;&#101;&#x53;&#x77;&#105;&#x70;&#x69;&#110;&#103;&#x2e;&#103;&#105;&#x74;</a></p>
+<p>Git地址：<a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;&#x3a;&#x54;&#111;&#112;&#74;&#x6f;&#104;&#110;&#x2f;&#x66;&#97;&#x63;&#x65;&#x53;&#x77;&#105;&#112;&#x69;&#110;&#103;&#x2e;&#x67;&#105;&#116;">&#103;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;&#x3a;&#x54;&#111;&#112;&#74;&#x6f;&#104;&#110;&#x2f;&#x66;&#97;&#x63;&#x65;&#x53;&#x77;&#105;&#112;&#x69;&#110;&#103;&#x2e;&#x67;&#105;&#116;</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[虽然并没有获奖，但是认识了一群小伙伴，经历了，很值得...]]>
@@ -119,8 +250,12 @@
     <link href="http://www.xuanzhangjiong.xyz/2015/12/01/%E6%9F%9A%E5%AD%90%E6%88%BF%E4%B8%9C%EF%BC%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89%E7%9A%84%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE/"/>
     <id>http://www.xuanzhangjiong.xyz/2015/12/01/柚子房东，第一个从无到有的创业项目/</id>
     <published>2015-12-01T06:52:05.000Z</published>
-    <updated>2015-12-20T07:00:03.000Z</updated>
-    <content type="html"></content>
+    <updated>2015-12-20T08:52:02.000Z</updated>
+    <content type="html"><![CDATA[<p>七月中旬，在和导师的一番交流后，我加入了<code>柚子房东</code>这个项目，其实当时还不叫这个名字，叫<code>V-house</code>，来到了苏州金鸡湖边的一个酒店和一群从事房地产的人开始了我们的创业之路。</p>
+<p>记得当时，大学还刚毕业不久，便开始了长达一个多月的酒店式封闭开发。</p>
+<p>7月中旬，当时产品还没有确定最终的方向，大佬们还在讨论公司走向，作为码农，我只好先开始了各种填坑工作，对各种技术进行调研。一开始，我们曾经想过用<a href="http://ionicframework.com/" target="_blank" rel="external">Ionic</a>来开发，毕竟Hybrid的开发速度比原生的会快很多。在试过水之后，发现在没有遇到重大技术障碍的时候，Hybrid的应用确实可以迅速开发出来。但是遇到在用刀第三方服务的时候就会发现虽然有些第三方服务是支持<code>Codova</code>，但是遇到那些不支持的时候，开发显然会遇到问题，当然并不是说不可行，可以用Js去调用原生的API。在体验过一些用Ionic开发的项目之后发现，用户体验太！差！了！于是乎，果断放弃了这个坑，当然，那个时候还没有出现React Native不然，我可能会…</p>
+<p>言归正传，当时由于之前一直使用Eclipse进行开发，但是Eclipse的效率真的不敢恭维，Android Studio也比较成熟了，所以打算从这个项目入手，我的Android Studio填坑之路也开始了。</p>
+<h1 id="一、前期的技术调研">一、前期的技术调研</h1>]]></content>
     <summary type="html">
     <![CDATA[柚子房东这个项目，从7月中旬开始定需求，设计，开发，也经历了4个多月了，v1.0也算是上线了，来谈谈这几个月的感想吧。]]>
     
