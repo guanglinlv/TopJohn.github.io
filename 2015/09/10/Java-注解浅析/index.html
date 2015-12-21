@@ -1,0 +1,607 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java-注解浅析 | TopJohn&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="John">
+    
+
+    
+    <meta name="description" content="见惯了Android中的annotation，以及各种资源注解的框架，却没有深入了解其中的原理，深表惭愧...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java-注解浅析">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/09/10/Java-注解浅析/index.html">
+<meta property="og:site_name" content="TopJohn'Blog">
+<meta property="og:description" content="见惯了Android中的annotation，以及各种资源注解的框架，却没有深入了解其中的原理，深表惭愧...">
+<meta property="og:updated_time" content="2015-12-21T08:46:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java-注解浅析">
+<meta name="twitter:description" content="见惯了Android中的annotation，以及各种资源注解的框架，却没有深入了解其中的原理，深表惭愧...">
+<link rel="publisher" href="114979210024559900000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="TopJohn&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/apple.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/apple.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="TopJohn&#39;Blog">TopJohn&#39;Blog</a></h1>
+				<h2 class="blog-motto">Coding的路上，至少我乐在其中...</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/pay">打赏</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.xuanzhangjiong.xyz">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/10/Java-注解浅析/" title="Java-注解浅析" itemprop="url">Java-注解浅析</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-10T07:18:03.000Z" itemprop="datePublished"> 发表于 2015-09-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Annotation示例"><span class="toc-number">1.</span> <span class="toc-text">1.Annotation示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-_Annotation_概念及作用"><span class="toc-number">2.</span> <span class="toc-text">2. Annotation 概念及作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2_作用"><span class="toc-number">2.1.</span> <span class="toc-text">2.2 作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-_Annotation_分类"><span class="toc-number">3.</span> <span class="toc-text">3. Annotation 分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1_标准_Annotation，Override,_Deprecated,_SuppressWarnings"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 标准 Annotation，Override, Deprecated, SuppressWarnings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2_元_Annotation，@Retention,_@Target,_@Inherited,_@Documented"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 元 Annotation，@Retention, @Target, @Inherited, @Documented</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3_自定义_Annotation"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 自定义 Annotation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-_Annotation_自定义"><span class="toc-number">4.</span> <span class="toc-text">4. Annotation 自定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1_调用"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2_定义"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3_元_Annotation"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 元 Annotation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-_Annotation_解析"><span class="toc-number">5.</span> <span class="toc-text">5. Annotation 解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1_运行时_Annotation_解析"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 运行时 Annotation 解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2_编译时_Annotation_解析"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 编译时 Annotation 解析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-_几个_Android_开源库_Annotation_原理简析"><span class="toc-number">6.</span> <span class="toc-text">6. 几个 Android 开源库 Annotation 原理简析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1_Annotation_—_Retrofit"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 Annotation — Retrofit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2_Annotation_—_Butter_Knife"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 Annotation — Butter Knife</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3_Annotation_—_ActiveAndroid"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 Annotation — ActiveAndroid</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>有很多开源的库都利用注解来简化代码提升开发效率。</p>
+<p>下面，我就来谈谈我学习Java注解的一点点看法。</p>
+<p>本文简单介绍下 Annotation 示例、概念及作用、分类、自定义、解析，并对几个 Android 开源库 Annotation 原理进行简析。</p>
+<h1 id="1-Annotation示例">1.Annotation示例</h1><p>Override Annotation</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>Retrofit Annotation</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@GET</span>(<span class="string">"/users/&#123;username&#125;"</span>)</span><br><span class="line">User <span class="function">getUser</span>(<span class="variable">@Path</span>(<span class="string">"username"</span>) String username);</span><br></pre></td></tr></table></figure>
+<p>Butter Knife Annotation</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">InjectView(R.id.user)</span> EditText username</span>;</span><br></pre></td></tr></table></figure>
+<p>ActiveAndroid Annotation</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Column(<span class="keyword">name</span> = “<span class="keyword">Name</span><span class="string">") public String name;</span></span><br></pre></td></tr></table></figure>
+<p>Retrofit 为符合 RESTful 规范的网络请求框架<br>Butter Knife 为 View 及事件等依赖注入框架<br>Active Android 为 ORM 框架</p>
+<h1 id="2-_Annotation_概念及作用">2. Annotation 概念及作用</h1><blockquote>
+<p>An annotation is a form of metadata, that can be added to Java source code. Classes, methods, variables, parameters and packages may be annotated. Annotations have no direct effect on the operation of the code they annotate.</p>
+</blockquote>
+<p>能够添加到Java源代码的语法元数据。类、方法、变量、参数、包都可以被注解，可用来将信息元数据与程序元素进行关联。Annotation 中文常译为“注解”。</p>
+<h2 id="2-2_作用">2.2 作用</h2><p>a. 标记，用于告诉编译器一些信息<br>b. 编译时动态处理，如动态生成代码<br>c. 运行时动态处理，如得到注解信息<br>这里的三个作用实际对应着后面自定义 Annotation 时说的 @Retention 三种值分别表示的 Annotation</p>
+<h1 id="3-_Annotation_分类">3. Annotation 分类</h1><h2 id="3-1_标准_Annotation，Override,_Deprecated,_SuppressWarnings">3.1 标准 Annotation，Override, Deprecated, SuppressWarnings</h2><p>标准 Annotation 是指 Java 自带的几个 Annotation，上面三个分别表示重写函数，不鼓励使用(有更好方式、使用有风险或已不在维护)，忽略某项 Warning</p>
+<h2 id="3-2_元_Annotation，@Retention,_@Target,_@Inherited,_@Documented">3.2 元 Annotation，@Retention, @Target, @Inherited, @Documented</h2><p>元 Annotation 是指用来定义 Annotation 的 Annotation，在后面 Annotation 自定义部分会详细介绍含义</p>
+<h2 id="3-3_自定义_Annotation">3.3 自定义 Annotation</h2><p>自定义 Annotation 表示自己根据需要定义的 Annotation，定义时需要用到上面的元 Annotation<br>这里是一种分类而已，也可以根据作用域分为源码时、编译时、运行时 Annotation，后面在自定义 Annotation 时会具体介绍</p>
+<h1 id="4-_Annotation_自定义">4. Annotation 自定义</h1><h2 id="4-1_调用">4.1 调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@MethodInfo</span>(</span><br><span class="line">        author = “trinea.cn+android<span class="annotation">@gmail</span>.com”,</span><br><span class="line">        date = <span class="string">"2014/02/14"</span>,</span><br><span class="line">        version = <span class="number">2</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAppName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"trinea"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里是调用自定义 Annotation——MethodInfo 的示例。<br>MethodInfo Annotation 作用为给方法添加相关信息，包括 author、date、version。</p>
+<h2 id="4-2_定义">4.2 定义</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Documented</span></span><br><span class="line"><span class="annotation">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="annotation">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="annotation">@Inherited</span></span><br><span class="line"><span class="keyword">public</span> <span class="annotation">@interface</span> MethodInfo &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">author</span><span class="params">()</span> <span class="keyword">default</span> "trinea@gmail.com"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">date</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">version</span><span class="params">()</span> <span class="keyword">default</span> 1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里是 MethodInfo 的实现部分<br>(1). 通过 @interface 定义，注解名即为自定义注解名<br>(2). 注解配置参数名为注解类的方法名，且：<br>a. 所有方法没有方法体，没有参数没有修饰符，实际只允许 public &amp; abstract 修饰符，默认为 public，不允许抛异常<br>b. 方法返回值只能是基本类型，String, Class, annotation, enumeration 或者是他们的一维数组<br>c. 若只有一个默认属性，可直接用 value() 函数。一个属性都没有表示该 Annotation 为 Mark Annotation<br>(3). 可以加 default 表示默认值</p>
+<h2 id="4-3_元_Annotation">4.3 元 Annotation</h2><p>@Documented 是否会保存到 Javadoc 文档中<br>@Retention 保留时间，可选值 SOURCE（源码时），CLASS（编译时），RUNTIME（运行时），默认为 CLASS，SOURCE 大都为 Mark Annotation，这类 Annotation 大都用来校验，比如 Override, SuppressWarnings<br>@Target 可以用来修饰哪些程序元素，如 TYPE, METHOD, CONSTRUCTOR, FIELD, PARAMETER 等，未标注则表示可修饰所有<br>@Inherited 是否可以被继承，默认为 false</p>
+<h1 id="5-_Annotation_解析">5. Annotation 解析</h1><h2 id="5-1_运行时_Annotation_解析">5.1 运行时 Annotation 解析</h2><p>(1) 运行时 Annotation 指 @Retention 为 RUNTIME 的 Annotation，可手动调用下面常用 API 解析</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">method</span>.<span class="title">getAnnotation</span><span class="params">(AnnotationName.<span class="keyword">class</span>)</span>;</span></span><br><span class="line"><span class="function"><span class="keyword">method</span>.<span class="title">getAnnotations</span><span class="params">()</span>;</span></span><br><span class="line"><span class="function"><span class="keyword">method</span>.<span class="title">isAnnotationPresent</span><span class="params">(AnnotationName.<span class="keyword">class</span>)</span>;</span></span><br></pre></td></tr></table></figure>
+<p>其他 @Target 如 Field，Class 方法类似<br>getAnnotation(AnnotationName.class) 表示得到该 Target 某个 Annotation 的信息，因为一个 Target 可以被多个 Annotation 修饰<br>getAnnotations() 则表示得到该 Target 所有 Annotation<br>isAnnotationPresent(AnnotationName.class) 表示该 Target 是否被某个 Annotation 修饰</p>
+<p>(2) 解析示例如下：</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">static</span> <span class="type">void</span> main(<span class="type">String</span>[] args) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">Class</span> cls = <span class="type">Class</span>.forName(<span class="string">"cn.trinea.java.test.annotation.App"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">Method</span> <span class="keyword">method</span> : cls.getMethods()) &#123;</span><br><span class="line">            <span class="type">MethodInfo</span> methodInfo = <span class="keyword">method</span>.getAnnotation(</span><br><span class="line"><span class="type">MethodInfo</span>.class);</span><br><span class="line">            <span class="keyword">if</span> (methodInfo != null) &#123;</span><br><span class="line">                <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"method name:"</span> + <span class="keyword">method</span>.getName());</span><br><span class="line">                <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"method author:"</span> + methodInfo.author());</span><br><span class="line">                <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"method version:"</span> + methodInfo.version());</span><br><span class="line">                <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"method date:"</span> + methodInfo.date());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; catch (<span class="type">ClassNotFoundException</span> e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以之前自定义的 MethodInfo 为例，利用 Target（这里是 Method）getAnnotation 函数得到 Annotation 信息，然后就可以调用 Annotation 的方法得到响应属性值</p>
+<h2 id="5-2_编译时_Annotation_解析">5.2 编译时 Annotation 解析</h2><p>(1) 编译时 Annotation 指 @Retention 为 CLASS 的 Annotation，甴编译器自动解析。需要做的<br>a. 自定义类集成自 AbstractProcessor<br>b. 重写其中的 process 函数<br>这块很多同学不理解，实际是编译器在编译时自动查找所有继承自 AbstractProcessor 的类，然后调用他们的 process 方法去处理</p>
+<p>(2) 假设 MethodInfo 的 @Retention 为 CLASS，解析示例如下：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@SupportedAnnotationTypes</span>(&#123; <span class="string">"cn.trinea.java.test.annotation.MethodInfo"</span> &#125;)</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MethodInfoProcessor</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractProcessor</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public boolean process(<span class="type">Set</span>&lt;? <span class="keyword">extends</span> <span class="type">TypeElement</span>&gt; annotations, <span class="type">RoundEnvironment</span> env) &#123;</span><br><span class="line">        <span class="type">HashMap</span>&lt;<span class="type">String</span>, <span class="type">String</span>&gt; map = <span class="keyword">new</span> <span class="type">HashMap</span>&lt;<span class="type">String</span>, <span class="type">String</span>&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">TypeElement</span> te : annotations) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">Element</span> element : env.getElementsAnnotatedWith(te)) &#123;</span><br><span class="line">                <span class="type">MethodInfo</span> methodInfo = element.getAnnotation(<span class="type">MethodInfo</span>.<span class="keyword">class</span>);</span><br><span class="line">                map.put(element.getEnclosingElement().toString(), methodInfo.author());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>SupportedAnnotationTypes 表示这个 Processor 要处理的 Annotation 名字。<br>process 函数中参数 annotations 表示待处理的 Annotations，参数 env 表示当前或是之前的运行环境<br>process 函数返回值表示这组 annotations 是否被这个 Processor 接受，如果接受后续子的 rocessor 不会再对这个 Annotations 进行处理</p>
+<h1 id="6-_几个_Android_开源库_Annotation_原理简析">6. 几个 Android 开源库 Annotation 原理简析</h1><h2 id="6-1_Annotation_—_Retrofit">6.1 Annotation — Retrofit</h2><p>(1) 调用<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@GET</span>(<span class="string">"/users/&#123;username&#125;"</span>)</span><br><span class="line">User <span class="function">getUser</span>(<span class="variable">@Path</span>(<span class="string">"username"</span>) String username);</span><br></pre></td></tr></table></figure></p>
+<p>(2) 定义<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Documented</span><br><span class="line">@Target(<span class="function"><span class="keyword">METHOD</span>)</span><br><span class="line">@<span class="title">Retention</span><span class="params">(RUNTIME)</span></span><br><span class="line">@<span class="title">RestMethod</span><span class="params">("GET")</span></span><br><span class="line"><span class="title">public</span> @<span class="title">interface</span> <span class="title">GET</span> <span class="comment">&#123;</span><br><span class="line">  String value();</span><br><span class="line">&#125;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>从定义可看出 Retrofit 的 Get Annotation 是运行时 Annotation，并且只能用于修饰 Method</p>
+<p>(3) 原理</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private <span class="type">void</span> parseMethodAnnotations() &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">Annotation</span> methodAnnotation : <span class="keyword">method</span>.getAnnotations()) &#123;</span><br><span class="line">    <span class="type">Class</span>&lt;? extends <span class="type">Annotation</span>&gt; annotationType = methodAnnotation.annotationType();</span><br><span class="line">    <span class="type">RestMethod</span> methodInfo = null;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">Annotation</span> innerAnnotation : annotationType.getAnnotations()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="type">RestMethod</span>.class == innerAnnotation.annotationType()) &#123;</span><br><span class="line">            methodInfo = (<span class="type">RestMethod</span>) innerAnnotation;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ……</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>RestMethodInfo.java 的 parseMethodAnnotations 方法如上，会检查每个方法的每个 Annotation， 看是否被 RestMethod 这个 Annotation 修饰的 Annotation 修饰，这个有点绕，就是是否被 GET、DELETE、POST、PUT、HEAD、PATCH 这些 Annotation 修饰，然后得到 Annotation 信息，在对接口进行动态代理时会掉用到这些 Annotation 信息从而完成调用。</p>
+<h2 id="6-2_Annotation_—_Butter_Knife">6.2 Annotation — Butter Knife</h2><p>(1) 调用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">InjectView(R.id.user)</span></span><br><span class="line">EditText username</span>;</span><br></pre></td></tr></table></figure>
+<p>(2) 定义</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Retention</span>(CLASS)</span><br><span class="line"><span class="annotation">@Target</span>(FIELD)</span><br><span class="line"><span class="keyword">public</span> <span class="annotation">@interface</span> InjectView &#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可看出 Butter Knife 的 InjectView Annotation 是编译时 Annotation，并且只能用于修饰属性</p>
+<p>(3) 原理</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">process</span><span class="params">(Set&lt;? <span class="keyword">extends</span> TypeElement&gt; elements, RoundEnvironment env)</span> </span>&#123;</span><br><span class="line">    Map&lt;TypeElement, ViewInjector&gt; targetClassMap = findAndParseTargets(env);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;TypeElement, ViewInjector&gt; entry : targetClassMap.entrySet()) &#123;</span><br><span class="line">        TypeElement typeElement = entry.getKey();</span><br><span class="line">        ViewInjector viewInjector = entry.getValue();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            JavaFileObject jfo = filer.createSourceFile(viewInjector.getFqcn(), typeElement);</span><br><span class="line">            Writer writer = jfo.openWriter();</span><br><span class="line">            writer.write(viewInjector.brewJava());</span><br><span class="line">            writer.flush();</span><br><span class="line">            writer.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            <span class="keyword">error</span>(typeElement, <span class="string">"Unable to write injector for type %s: %s"</span>, typeElement, e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ButterKnifeProcessor.java 的 process 方法如上，编译时，在此方法中过滤 InjectView 这个 Annotation 到 targetClassMap 后，会根据 targetClassMap 中元素生成不同的 class 文件到最终的 APK 中，然后在运行时调用 ButterKnife.inject(x) 函数时会到之前编译时生成的类中去找。</p>
+<h2 id="6-3_Annotation_—_ActiveAndroid">6.3 Annotation — ActiveAndroid</h2><p>(1) 调用</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Column</span>(name = “Name")</span><br><span class="line">public String name;</span><br></pre></td></tr></table></figure>
+<p>(2) 定义</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Target</span>(ElementType.FIELD)</span><br><span class="line"><span class="variable">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line">public <span class="variable">@interface</span> Column &#123;</span><br><span class="line">  ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可看出 ActiveAndroid 的 Column Annotation 是运行时 Annotation，并且只能用于修饰属性。</p>
+<p>(3) 原理</p>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Field</span> idField = getIdField(type);</span><br><span class="line">mColumnNames.put(idField, mIdName);</span><br><span class="line"></span><br><span class="line">List&lt;<span class="keyword">Field</span>&gt; fields = <span class="keyword">new</span> LinkedList&lt;<span class="keyword">Field</span>&gt;(ReflectionUtils.getDeclaredColumnFields(type));</span><br><span class="line">Collections.reverse(fields);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">Field</span> <span class="keyword">field</span> : fields) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">field</span>.isAnnotationPresent(Column.class)) &#123;</span><br><span class="line">        <span class="keyword">final</span> Column columnAnnotation = <span class="keyword">field</span>.getAnnotation(Column.class);</span><br><span class="line">        String columnName = columnAnnotation.name();</span><br><span class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(columnName)) &#123;</span><br><span class="line">            columnName = <span class="keyword">field</span>.getName();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mColumnNames.put(<span class="keyword">field</span>, columnName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TableInfo.java 的构造函数如上，运行时，得到所有行信息并存储起来用来构件表信息。</p>
+<p>并没有深入了解这些框架的原理，只是粗浅的介绍，以后有时间再来沉下心研究。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Java/">Java</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/注解/">注解</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuanzhangjiong.xyz/2015/09/10/Java-注解浅析/" data-title="Java-注解浅析 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/10/10/MarkDown语法练习/" title="MarkDown语法练习">
+  <strong>上一篇：</strong><br/>
+  <span>
+  MarkDown语法练习</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/03/EventBus浅析/"  title="EventBus浅析">
+ <strong>下一篇：</strong><br/> 
+ <span>EventBus浅析
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/09/10/Java-注解浅析/" data-title="Java-注解浅析" data-url="http://www.xuanzhangjiong.xyz/2015/09/10/Java-注解浅析/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Annotation示例"><span class="toc-number">1.</span> <span class="toc-text">1.Annotation示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-_Annotation_概念及作用"><span class="toc-number">2.</span> <span class="toc-text">2. Annotation 概念及作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2_作用"><span class="toc-number">2.1.</span> <span class="toc-text">2.2 作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-_Annotation_分类"><span class="toc-number">3.</span> <span class="toc-text">3. Annotation 分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1_标准_Annotation，Override,_Deprecated,_SuppressWarnings"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 标准 Annotation，Override, Deprecated, SuppressWarnings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2_元_Annotation，@Retention,_@Target,_@Inherited,_@Documented"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 元 Annotation，@Retention, @Target, @Inherited, @Documented</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3_自定义_Annotation"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 自定义 Annotation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-_Annotation_自定义"><span class="toc-number">4.</span> <span class="toc-text">4. Annotation 自定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1_调用"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2_定义"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3_元_Annotation"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 元 Annotation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-_Annotation_解析"><span class="toc-number">5.</span> <span class="toc-text">5. Annotation 解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1_运行时_Annotation_解析"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 运行时 Annotation 解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2_编译时_Annotation_解析"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 编译时 Annotation 解析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-_几个_Android_开源库_Annotation_原理简析"><span class="toc-number">6.</span> <span class="toc-text">6. 几个 Android 开源库 Annotation 原理简析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1_Annotation_—_Retrofit"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 Annotation — Retrofit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2_Annotation_—_Butter_Knife"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 Annotation — Butter Knife</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3_Annotation_—_ActiveAndroid"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 Annotation — ActiveAndroid</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Git/" title="Git">Git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MarkDown/" title="MarkDown">MarkDown<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/作品/" title="作品">作品<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/作品/" title="作品">作品<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活小记/" title="生活小记">生活小记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/作品/项目经历/" title="项目经历">项目经历<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/" title="项目经历">项目经历<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/码农必备常识/" title="码农必备常识">码农必备常识<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/创业项目，一个字“累”/" title="创业项目，一个字“累”">创业项目，一个字“累”<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/毕业季/" title="毕业季">毕业季<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/生活感言/" title="生活感言">生活感言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android进阶优质资源/" title="Android进阶优质资源">Android进阶优质资源<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常见3种架构/" title="常见3种架构">常见3种架构<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/注解/" title="注解">注解<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/异步事件处理/" title="异步事件处理">异步事件处理<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://jiajixin.cn/" target="_blank" title="学长的博客">Jason&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.changhuiyuan.com/" target="_blank" title="好友的博客">Eric Libaray</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1600625133&verifier=b349771a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 「一只笨鸟的成长史...」 <br/>
+			Better late than never.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1600625133" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/TopJohn" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/Top-John" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/shuai-jiong" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		<a href="https://plus.google.com/114979210024559900000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:xzj19922010@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="John">John</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"John"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
