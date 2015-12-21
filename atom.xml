@@ -32,7 +32,7 @@
 <p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/innovation_space.png" alt="附上一张合照" title="合照"></p>
 <p>项目的客户端代码已经放到我的Github上了，需要的小伙伴可以自己下载，做的比较简陋，毕竟只有58小时，希望不要见怪。</p>
 <p>当然无图无真相：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_5.jpg?imageView2/2/w/360/h/640" alt="">    <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_4.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_3.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_6.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_2.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_1.jpg?imageView2/2/w/360/h/640" alt=""><br><br></p>
-<p>Git地址：<a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;&#58;&#84;&#x6f;&#x70;&#74;&#111;&#104;&#x6e;&#47;&#102;&#x61;&#x63;&#x65;&#x53;&#x77;&#x69;&#x70;&#x69;&#110;&#x67;&#46;&#x67;&#x69;&#116;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#109;&#58;&#84;&#x6f;&#x70;&#74;&#111;&#104;&#x6e;&#47;&#102;&#x61;&#x63;&#x65;&#x53;&#x77;&#x69;&#x70;&#x69;&#110;&#x67;&#46;&#x67;&#x69;&#116;</a></p>
+<p>Git地址：<a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#103;&#105;&#x74;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;&#58;&#84;&#111;&#x70;&#74;&#111;&#x68;&#110;&#47;&#x66;&#x61;&#x63;&#101;&#x53;&#119;&#105;&#112;&#105;&#x6e;&#x67;&#46;&#x67;&#x69;&#116;">&#103;&#105;&#x74;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;&#58;&#84;&#111;&#x70;&#74;&#111;&#x68;&#110;&#47;&#x66;&#x61;&#x63;&#101;&#x53;&#119;&#105;&#112;&#105;&#x6e;&#x67;&#46;&#x67;&#x69;&#116;</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[虽然并没有获奖，但是认识了一群小伙伴，经历了，很值得...]]>
@@ -119,8 +119,9 @@
     <link href="http://www.xuanzhangjiong.xyz/2015/12/01/%E6%9F%9A%E5%AD%90%E6%88%BF%E4%B8%9C%EF%BC%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89%E7%9A%84%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE/"/>
     <id>http://www.xuanzhangjiong.xyz/2015/12/01/柚子房东，第一个从无到有的创业项目/</id>
     <published>2015-12-01T06:52:05.000Z</published>
-    <updated>2015-12-21T07:00:42.000Z</updated>
-    <content type="html"><![CDATA[<p>七月中旬，在和导师的一番交流后，我加入了<code>柚子房东</code>这个项目，其实当时还不叫这个名字，叫<code>V-house</code>，来到了苏州金鸡湖边的一个酒店和一群从事房地产的人开始了我们的创业之路。</p>
+    <updated>2015-12-21T12:57:34.000Z</updated>
+    <content type="html"><![CDATA[<p>开篇先贴个网站首页先：<br><a href="http://www.inyouzi.com" target="_blank" rel="external">http://www.inyouzi.com</a></p>
+<p>七月中旬，在和导师的一番交流后，我加入了<code>柚子房东</code>这个项目，其实当时还不叫这个名字，叫<code>V-house</code>，来到了苏州金鸡湖边的一个酒店和一群从事房地产的人开始了我们的创业之路。</p>
 <p>记得当时，大学还刚毕业不久，便开始了长达一个多月的酒店式封闭开发。</p>
 <p>7月中旬，当时产品还没有确定最终的方向，大佬们还在讨论公司走向，作为码农，我只好先开始了各种填坑工作，对各种技术进行调研。一开始，我们曾经想过用<a href="http://ionicframework.com/" target="_blank" rel="external">Ionic</a>来开发，毕竟Hybrid的开发速度比原生的会快很多。在试过水之后，发现在没有遇到重大技术障碍的时候，Hybrid的应用确实可以迅速开发出来。但是遇到在用刀第三方服务的时候就会发现虽然有些第三方服务是支持<code>Codova</code>，但是遇到那些不支持的时候，开发显然会遇到问题，当然并不是说不可行，可以用Js去调用原生的API。在体验过一些用Ionic开发的项目之后发现，用户体验太！差！了！于是乎，果断放弃了这个坑，当然，那个时候还没有出现React Native不然，我可能会…</p>
 <p>言归正传，当时由于之前一直使用Eclipse进行开发，但是Eclipse的效率真的不敢恭维，Android Studio也比较成熟了，所以打算从这个项目入手，我的Android Studio填坑之路也开始了。</p>
@@ -178,6 +179,7 @@
 <h1 id="六、多渠道打包">六、多渠道打包</h1><p>最近app要上线了，要发不到各大应用商店，我们的运营和我说，需要统计从每个渠道的下载量，和活跃度。我隐约想到了好像有个多渠道打包，也看过类似的文章，但是一直没有机会实践一下。那就乘着这个项目实践一下吧。</p>
 <p>我用的是友盟统计，貌似还有个百度统计，发现用了Android Studio之后什么都变的方便了，在build.gradle中<code>productFlavors</code>里写相应的渠道名就可以替换<code>Manifest</code>中的相应渠道名了，总之不难，然后根据不同的渠道生成不同的apk名字就可以了，一天搞定。</p>
 <h1 id="七、总结">七、总结</h1><p>陆陆续续从苏州到宁波，开发了4个多月，差不多一套成熟的开发套路，我也走了一遍了，其中收获了很多，用了很多第三方的服务，视野也变开阔了，Git的使用频率变多了，GitHub逛的次数变多了，翻墙的频率是更多了。对Android的认识也更加进了一步。项目告一段落，是时候静心好好沉淀一下了。。。<br>貌似小米应用商店已经上线了：<br><a href="http://app.mi.com/detail/121871?ref=search" target="_blank" rel="external">http://app.mi.com/detail/121871?ref=search</a></p>
+<p>团队介绍：<br><a href="http://www.inyouzi.com" target="_blank" rel="external">http://www.inyouzi.com</a></p>
 <p>忘了最后的截图了，毕竟无图无真相:<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_1.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_2.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_3.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_4.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_5.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_6.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_7.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_8.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_9.jpg?imageView2/2/w/240/h/427" alt=""></p>
 ]]></content>
     <summary type="html">
