@@ -17,7 +17,16 @@
 <meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/12/01/柚子房东，第一个从无到有的创业项目/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
 <meta property="og:description" content="柚子房东这个项目，从7月中旬开始定需求，设计，开发，也经历了4个多月了，v1.0也算是上线了，来谈谈这几个月的感想吧。">
-<meta property="og:updated_time" content="2015-12-20T08:52:02.000Z">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_1.jpg?imageView2/2/w/240/h/427">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_2.jpg?imageView2/2/w/240/h/427">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_3.jpg?imageView2/2/w/240/h/427">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_4.jpg?imageView2/2/w/240/h/427">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_5.jpg?imageView2/2/w/240/h/427">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_6.jpg?imageView2/2/w/240/h/427">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_7.jpg?imageView2/2/w/240/h/427">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_8.jpg?imageView2/2/w/240/h/427">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_9.jpg?imageView2/2/w/240/h/427">
+<meta property="og:updated_time" content="2015-12-21T07:00:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="柚子房东，第一个从无到有的创业项目">
 <meta name="twitter:description" content="柚子房东这个项目，从7月中旬开始定需求，设计，开发，也经历了4个多月了，v1.0也算是上线了，来谈谈这几个月的感想吧。">
@@ -99,7 +108,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前期的技术调研"><span class="toc-number">1.</span> <span class="toc-text">一、前期的技术调研</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前期的技术调研"><span class="toc-number">1.</span> <span class="toc-text">一、前期的技术调研</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、系统框架的搭建"><span class="toc-number">2.</span> <span class="toc-text">二、系统框架的搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、老生常谈，适配问题如何解决呢"><span class="toc-number">3.</span> <span class="toc-text">三、老生常谈，适配问题如何解决呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、漫长的代码之旅"><span class="toc-number">4.</span> <span class="toc-text">四、漫长的代码之旅</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、混淆"><span class="toc-number">5.</span> <span class="toc-text">五、混淆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、多渠道打包"><span class="toc-number">6.</span> <span class="toc-text">六、多渠道打包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、总结"><span class="toc-number">7.</span> <span class="toc-text">七、总结</span></a></li></ol>
 		
 		</div>
 		
@@ -107,7 +116,62 @@
 <p>记得当时，大学还刚毕业不久，便开始了长达一个多月的酒店式封闭开发。</p>
 <p>7月中旬，当时产品还没有确定最终的方向，大佬们还在讨论公司走向，作为码农，我只好先开始了各种填坑工作，对各种技术进行调研。一开始，我们曾经想过用<a href="http://ionicframework.com/" target="_blank" rel="external">Ionic</a>来开发，毕竟Hybrid的开发速度比原生的会快很多。在试过水之后，发现在没有遇到重大技术障碍的时候，Hybrid的应用确实可以迅速开发出来。但是遇到在用刀第三方服务的时候就会发现虽然有些第三方服务是支持<code>Codova</code>，但是遇到那些不支持的时候，开发显然会遇到问题，当然并不是说不可行，可以用Js去调用原生的API。在体验过一些用Ionic开发的项目之后发现，用户体验太！差！了！于是乎，果断放弃了这个坑，当然，那个时候还没有出现React Native不然，我可能会…</p>
 <p>言归正传，当时由于之前一直使用Eclipse进行开发，但是Eclipse的效率真的不敢恭维，Android Studio也比较成熟了，所以打算从这个项目入手，我的Android Studio填坑之路也开始了。</p>
-<h1 id="一、前期的技术调研">一、前期的技术调研</h1>  
+<h1 id="一、前期的技术调研">一、前期的技术调研</h1><p>在项目开始之前，调研了相关的第三方服务</p>
+<p>短信推送服务：</p>
+<ul>
+<li>Submail、LeanCloud等第三方服务，相比价格，确定使用LeanCloud。</li>
+</ul>
+<p>由于考虑到这是一个二房东的房源管理平台，对房源图片的存储也是必不可少的，所以即使使用阿里云，使用Nginx作负载均衡，带宽也是不够的。所以需要选择一个云存储作为图床，这样的好处是可以利用第三方服务商为我们提供CDN加速，使得我们的应用服务器在较小的带宽的情况下，以较快的速度运行。</p>
+<p>所以我选择了几个云存储供应商作为比较：</p>
+<ul>
+<li>阿里云，当然是第一反应，其次是七牛云存储，然后还有青云等等。<br>经过详细浏览后发现，阿里云虽然业务较广，但是对图片存储做的不是很细致，而且价格也比较贵，相反，七牛和青云在价格上面相对较低。我选择了七牛，因为七牛对图片的处理十分细致，使用七牛可以为以后的业务拓展奠定基础。</li>
+</ul>
+<h1 id="二、系统框架的搭建">二、系统框架的搭建</h1><p>一个商业化的项目，当然少不了一个完善的框架做支撑，先来谈谈UI框架吧，在和我们的设计师进行沟通之后，我便提前设计开始搭建UI框架了（项目初期，我们的设计师即兼任交互又担任UI设计，后期才招了专门的UI和视觉）。<br>和一般的商业项目一样，项目UI主要是一个SplashActivity,然后主界面是4个Tab中间是一个可弹出对话框的<code>+</code>号。所以，主界面我才用了FragmentTabHost，然后里面分别是4个Fragment，里面具体细节只能在以后敲了。</p>
+<p>除了UI之外，肯定少不了一些其他的工具类，例如：字符串处理类，文件处理类，缓存处理，数据库处理，设备信息，日期处理，动画处理，对话框等等一系列。这些只能靠自己平时的积累了。这个项目里的这些工具类大部分都是我以前积累的一些好的开源项目中借鉴过来的，然后在空余时间根据自己的编码风格进行修改的。我并不喜欢重复造轮子，闭门造车。</p>
+<p>然后是网络请求框架了，当时我知道的2大著名的网络框架是：AsyncHttpClient和Volley。<br>我总结了一下:<br>Volley的特点主要有如下几点：</p>
+<ul>
+<li>能使网络通信更快，更简单，更健壮</li>
+<li>Get、Post网络请求及网络图像的高效异步处理请求</li>
+<li>可以对网络请求进行排序优先级管理</li>
+<li>网络请求的缓存</li>
+<li>多级别取消</li>
+<li>和Activity声明周期的联动（Activity结束时同时取消所有网络请求）</li>
+<li>使用Volley可以简化一些网络通信的开发，当然Volley不适合大数据（large payloads）和流媒体的网络请求。例如上百兆的文件、视频下载</li>
+</ul>
+<p>Asyn-cHttp是一款国外的开源框架。高效的网络数据请求，文件下载和上传。</p>
+<ul>
+<li>清晰的网络回调</li>
+<li>请求使用ThreadPool，限制并发资源使用情况</li>
+<li>Get/Post基于参数构建使用（RequestParams），方便</li>
+<li>Multipart 文件上传，大数据上传下载</li>
+<li>自动智能请求重试，优化了质量不一的移动连接</li>
+<li>内置响应解析成JSON,使用JsonHttpResponseHandler</li>
+<li>持久化cookie存储，保存cookie到你的应用程序的SharedPreferences</li>
+<li>二进制文件（图片等）的下载，使用BinaryHttpResponseHandler</li>
+</ul>
+<p>思前想后，我还是决定使用<a href="https://github.com/loopj/android-async-http" target="_blank" rel="external">loopj</a>大神的<code>android-async-http</code>，至于为什么，可能是在对两个框架进行体验的时候更喜欢<code>android-async-http</code>的参数化请求以及大文件的上传吧。其实要究其功能，并无什么大的差别。对其做了一些封装，封装了一个<code>ApiHttpClient</code>出来在里面对AsyncHttpClient使用了单例模式，因为毕竟网络请求在一个应用中十分常见，可以共用同一个实例，在类中注明了各个常量,例如Host,url前缀等等，然后对<code>Post</code>、<code>Put</code>、<code>Get</code>、<code>Delete</code>进行封装，然后对这四个方法进行多参数的重载，使得在实际使用过程中总能找到一个自己所需要的方法进行调用。</p>
+<p>然后我又写了一个类，对上述这个类进行调用，根据实际需求编写不同名称的网路请求的静态方法，对<code>ApiHttpClient</code>进行封装，每个方法都将网络请求返回时回调的AsynchttpHandler作为参数放入其中。这样对任何一个网络请求都可以进行简单明了的调用了。哦，忘了说了，在这个项目中采用了<code>stateless</code>的接口设计规范，和我之前做过的项目不一样，看了一篇博客感觉这样的设计将成为以后的主流，而且确实对于一部分需要用户认证，一部分不需要用户认证的API设计的时候，确实很有优势。博客地址如下,有兴趣的可以自己去看下：<br><a href="http://www.haomou.net/2014/08/13/2014_web_token/" target="_blank" rel="external">http://www.haomou.net/2014/08/13/2014_web_token/</a><br>其实说的通俗点，就是你在第一次登录的时候服务器给你返回一个按照相应规则生成的令牌，然后之后的请求，你就可以拿着这个令牌去访问服务器了。听着好傻，不过确实很实用。我的<code>token</code>是利用Java的<code>Property</code>存到文件中的，这样下次打开应用就无需重新登录了，第一次获取了<code>token</code>之后就把<code>token</code>存到Http协议的BasicAuth中可以了。</p>
+<p>还有图片缓存框架，<code>Picasso</code>、<code>UniversalImageLoader</code>、<code>KjBitmap</code>（小众，开源中国的开源实验室出品），我选的是啥，我选的是<code>UniversalImageLoader</code>，原因其实很奇葩：<br><code>Picasso</code>没怎么用过，<code>KjBitmap</code>貌似刚出来不久，勉强可以，但是使用不够灵活，重点说说<code>UniversalImageLoader</code>，大三的时候，我和同学一起合作写一个校园论坛的客户端，他负责朋友圈这一块，用了这个框架，然而还不是引入第三方包的方法，直接拷贝的源代码，还不和我说，害得我以为是他写的（太牛了），然后默默地读了好几天源代码。过了一段时间才焕然大悟，居然偷用框架！！！所以说，我对<code>UniversalImageLoader</code>相对来说更加了解，以后也会找个机会分析分析它。</p>
+<p>由于大型项目UI往往十分复杂，每个Activity或者Fragment中往往会有几十个控件，如果一个一个findViewById的话，累哭，现在不是很流行注解嘛，那就用一个，<a href="http://jakewharton.github.io/butterknife/" target="_blank" rel="external">ButterKnife</a>，看过相关资料，<code>ButterKnife</code>是一个编译级的注解，所以效率应该不会很差。</p>
+<h1 id="三、老生常谈，适配问题如何解决呢">三、老生常谈，适配问题如何解决呢</h1><p>屏幕适配，一直是Android的十分重要的问题，看过很多关于适配的文章，其中也有许多小技巧，有的甚至使用了一套代码来实现高质量的屏幕适配。但我觉得倒不必如此，在开发中尽量使用RelativeLayout、LinearLayout，多用weight属性，现在不是还出了百分比布局嘛，尺寸使用dp、sp，对于一些通常的机型这些都不是问题，像魅族这样比较特殊的可以单独适配。</p>
+<p>在这个项目中，设计师是用sketch设计的，全部采用的矢量图，站在现在看，sketch确实十分强大，是移动设计的利器啊。但是唯一美中不足的是设计师给的是iOS的设计稿，没办法，对于细节只能自己调了。sketch中的1x、1.5x、2x、3x对应的是android中的mdpi、hdpi、xhdpi、xxhdpi，想着切着么多份图apk会很大，然而现在手机的性能也不再是瓶颈，所以我只切了xxhdpi的图，虽然在低分辨率的手机中，这些图片多占了内存，但是鱼与熊掌总是不能兼得的。在后来和一些已经入职的童鞋的交谈中，得知貌似大众点评也仅仅放了xxhdpi的图，那就心安理得了。</p>
+<p>在sketch中切出的3x的图在android中显示的效果还不错。</p>
+<h1 id="四、漫长的代码之旅">四、漫长的代码之旅</h1><p>之后就是，无休止的业务逻辑，拿到高保真的设计稿，然后按照一比一的实现，在UI上倒真是花了不少功夫，一会贴图吧，这里只是抒发下开发的历程，细节就不讲了。</p>
+<p>开发过程中，印象比较深刻的是，有一个问题，我居然困扰了一个星期。GridView中的图片错位，如果是原生的GridView的话还好。但是我用的是需要自适应高度的网格布局，继承了GridView，导致GridView在绘制的过程中，会出现多次测量的问题，然而其中的图片又是异步加载的，2种情况的叠加导致我陷入了无限的遐想。。。</p>
+<p><a href="http://www.cnblogs.com/lesliefang/p/3619223.html" target="_blank" rel="external">http://www.cnblogs.com/lesliefang/p/3619223.html</a>这篇博客中的问题和我的问题大致类似，但并不完全一样，最后脑洞大开，直接用一个Holder保存每个item现实的时候加入判断就可以了。</p>
+<p>当然开发中肯定不止遇到这一个坑，一些小问题都能在<code>BaiDu</code>上找到，百度找不到，那就<code>Google</code>，一般都能在<code>stackoverflow</code>上找到，真是一个神奇的网站。</p>
+<p>但是有一个问题，我至今仍未解决，就是关于<code>JSON</code>解析的。当时用阿里的<code>FastJson</code>，原因是它自称是最快的解析框架，但是在解析范型嵌套类的时候居然不定时的出错，同样的代码执行时不定时出错，不能理解。后来去GitHub上面搜了一下，果然，吐槽的人一大堆。<br><a href="https://github.com/alibaba/fastjson/issues/330" target="_blank" rel="external">https://github.com/alibaba/fastjson/issues/330</a><br>当然我可以不用范型，但是我不愿放弃这么机智的通用的套路，尝试了一下<code>Gson</code>居然可以，那我就放弃了<code>FastJson</code>。希望有大神可以替我解答一下。</p>
+<p>项目里的重大事故还有就是<a href="http://www.getui.com" target="_blank" rel="external">个推</a>，当时选用个推的原因是，因为它是浙大学长开发的，那就用吧。第一次集成的时候，退出应用的时候居然收不到消息通知和透穿消息，郁闷，然后从官网找到了技术支持，绕了半天，貌似是他们那里出了点问题，问题总算解决了。</p>
+<p>后来项目快做完了，在做一些细化的工作，消息通知的设置，当时测试小米的时候，惊奇地发现，按照官方文档写的代码，小米手机退出应用后居然不能接收消息通知了。瞬间不开心了，去官网浏览了一下没有解决，换了一个测试机，华为荣耀、1+手机，我去，2个都可以，退出后依然可以收到。我深深体会到了android平台的多样性，多么广阔的天空啊，啥鸟都有～～。</p>
+<p>一个星期之后，又去浏览官网，发现了一个新版本记得是2.6.1，试了一下，退出后小米手机倒是可以收到推送通知了。貌似应用退出后强制重启了进程。好吧，也就是说关不了了。不知道现在2.7.0这个版本改进了没。</p>
+<h1 id="五、混淆">五、混淆</h1><p>之前开发，从未混淆过，以至于，在引入第三方库的时候也没有注意需要<code>-keep</code>什么，导致结束时要一下子理清楚，谈何容易，于是乎，在和朋友交谈过程中，找到了一个偷懒的办法，<a href="http://dev.360.cn/m/protect.html" target="_blank" rel="external">360加壳技术</a>，很方便，直接相当于混淆了。原本以为万事大吉了，但是后来居然要搞自动化部署，用这个加壳技术显然是行不通了。于是乎又被迫走上了<code>Proguard</code>的混淆之路了。我没有特意修改混淆规则，貌似也不简单，用的是android的混淆规则。从头一个一个理清引用的第三方库的混淆配置，一个一个写到<code>proguard-rules.pro</code>里去，写了134行。终于可以了，谢天谢地。</p>
+<p>知道怎么做了，当然要想为什么了，仅仅会写，就叫不思进取。。。其实仔细想一下也不难，混淆无非就是把你源代码中的类名、方法名、参数名按照一定规则改的面目全非，让人难以阅读嘛。改了之后，比如在<code>xml</code>中使用了自定义的控件，那么在代码中经过混淆，然而<code>xml</code>中并没有修改，所以就出错了。还有在<code>JSON</code>解析的时候，一般使用框架的话大多用到了范型机制，从网络传输过来的字符串肯定是按照没有混淆的时候写的，然而混淆过了之后，想用反射去实例化一个对象，那肯定不行了咯。我的理解大概就是这样的。如果有朋友了解的更深的话，欢迎探讨。</p>
+<p>最近用<code>apktool</code>尝试了下对著名的一些app的反编译，发现大多对资源也进行混淆了。越来越机智了。这里给出一篇美团技术团队的资源混淆的教程。<br><a href="http://tech.meituan.com/mt-android-resource-obfuscation.html" target="_blank" rel="external">http://tech.meituan.com/mt-android-resource-obfuscation.html</a></p>
+<h1 id="六、多渠道打包">六、多渠道打包</h1><p>最近app要上线了，要发不到各大应用商店，我们的运营和我说，需要统计从每个渠道的下载量，和活跃度。我隐约想到了好像有个多渠道打包，也看过类似的文章，但是一直没有机会实践一下。那就乘着这个项目实践一下吧。</p>
+<p>我用的是友盟统计，貌似还有个百度统计，发现用了Android Studio之后什么都变的方便了，在build.gradle中<code>productFlavors</code>里写相应的渠道名就可以替换<code>Manifest</code>中的相应渠道名了，总之不难，然后根据不同的渠道生成不同的apk名字就可以了，一天搞定。</p>
+<h1 id="七、总结">七、总结</h1><p>陆陆续续从苏州到宁波，开发了4个多月，差不多一套成熟的开发套路，我也走了一遍了，其中收获了很多，用了很多第三方的服务，视野也变开阔了，Git的使用频率变多了，GitHub逛的次数变多了，翻墙的频率是更多了。对Android的认识也更加进了一步。项目告一段落，是时候静心好好沉淀一下了。。。<br>貌似小米应用商店已经上线了：<br><a href="http://app.mi.com/detail/121871?ref=search" target="_blank" rel="external">http://app.mi.com/detail/121871?ref=search</a></p>
+<p>忘了最后的截图了，毕竟无图无真相:<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_1.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_2.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_3.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_4.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_5.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_6.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_7.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_8.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_9.jpg?imageView2/2/w/240/h/427" alt=""></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -173,7 +237,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前期的技术调研"><span class="toc-number">1.</span> <span class="toc-text">一、前期的技术调研</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、前期的技术调研"><span class="toc-number">1.</span> <span class="toc-text">一、前期的技术调研</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、系统框架的搭建"><span class="toc-number">2.</span> <span class="toc-text">二、系统框架的搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、老生常谈，适配问题如何解决呢"><span class="toc-number">3.</span> <span class="toc-text">三、老生常谈，适配问题如何解决呢</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、漫长的代码之旅"><span class="toc-number">4.</span> <span class="toc-text">四、漫长的代码之旅</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、混淆"><span class="toc-number">5.</span> <span class="toc-text">五、混淆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、多渠道打包"><span class="toc-number">6.</span> <span class="toc-text">六、多渠道打包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、总结"><span class="toc-number">7.</span> <span class="toc-text">七、总结</span></a></li></ol>
  
   </div>
 
@@ -262,6 +326,25 @@
 		</ul>
 </div>
 
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://jiajixin.cn/" target="_blank" title="学长的博客">Jason&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.changhuiyuan.com/" target="_blank" title="好友的博客">Eric Libaray</a>
+            
+          </li>
+        
+    </ul>
+</div>
 
   <div class="rsspart">
 	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
