@@ -4,30 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>MVC、MVP、MVVM的个人理解 | TopJohn&#39;Blog</title>
+    <title>单例模式 | TopJohn&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John">
     
 
     
-    <meta name="description" content="对3种系统架构的浅显理解">
+    <meta name="description" content="单例模式在Android中应用的十分广泛，今天抽空整理一下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MVC、MVP、MVVM的个人理解">
-<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/07/15/MVC、MVP、MVVM的个人理解/index.html">
+<meta property="og:title" content="单例模式">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/11/01/单例模式/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
-<meta property="og:description" content="对3种系统架构的浅显理解">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_1.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_2.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_3.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_4.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_5.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvp.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvvm.png">
-<meta property="og:updated_time" content="2015-12-19T13:05:54.000Z">
+<meta property="og:description" content="单例模式在Android中应用的十分广泛，今天抽空整理一下。">
+<meta property="og:updated_time" content="2015-12-30T12:54:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MVC、MVP、MVVM的个人理解">
-<meta name="twitter:description" content="对3种系统架构的浅显理解">
+<meta name="twitter:title" content="单例模式">
+<meta name="twitter:description" content="单例模式在Android中应用的十分广泛，今天抽空整理一下。">
 <link rel="publisher" href="114979210024559900000">
 
     
@@ -90,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/15/MVC、MVP、MVVM的个人理解/" title="MVC、MVP、MVVM的个人理解" itemprop="url">MVC、MVP、MVVM的个人理解</a>
+      <a href="/2015/11/01/单例模式/" title="单例模式" itemprop="url">单例模式</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-15T12:32:08.000Z" itemprop="datePublished"> 发表于 2015-07-15</time>
+    <time datetime="2015-11-01T11:37:54.000Z" itemprop="datePublished"> 发表于 2015-11-01</time>
     
   </p>
 </header>
@@ -106,49 +99,36 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E00_u3001MVC"><span class="toc-number">1.</span> <span class="toc-text">一、MVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E8C_u3001_u4E92_u52A8_u6A21_u5F0F"><span class="toc-number">2.</span> <span class="toc-text">二、互动模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E09_u3001_u5B9E_u4F8B_uFF1ABackbone"><span class="toc-number">3.</span> <span class="toc-text">三、实例：Backbone</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u56DB_u3001MVP"><span class="toc-number">4.</span> <span class="toc-text">四、MVP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E94_u3001MVVM"><span class="toc-number">5.</span> <span class="toc-text">五、MVVM</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E00_u3001_u5355_u4F8B_u6A21_u5F0F_u7684_u5B9A_u4E49"><span class="toc-number">1.</span> <span class="toc-text">一、单例模式的定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u5E94_u7528"><span class="toc-number">2.</span> <span class="toc-text">单例模式的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u4F18_u70B9"><span class="toc-number">2.1.</span> <span class="toc-text">单例模式的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u7F3A_u70B9"><span class="toc-number">2.2.</span> <span class="toc-text">单例模式的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u4F7F_u7528_u573A_u666F"><span class="toc-number">2.3.</span> <span class="toc-text">单例模式的使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u6CE8_u610F_u4E8B_u9879"><span class="toc-number">2.4.</span> <span class="toc-text">单例模式的注意事项</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>从最初的只要把功能实现出来可以不择手段，到代码太乱了，整理整理吧，再到看看别人写的代码，那就把每个类分分类吧。嗯，再看看那些开源的项目，自己不得不开始思考系统架构了，因为，它就好比代码中的书法，然而它比书法更重要，因为，有一个好的架构不仅可以使得项目更加便于阅读，理解，甚至在有些时候执行效率也更好，so…..</p>
-<p>MVC（Model-View-Controller）是最常见的软件架构之一，业界有着广泛应用。它本身很容易理解，但是要讲清楚，它与衍生的 MVP 和 MVVM 架构的区别就不容易了。</p>
-<h1 id="u4E00_u3001MVC"><a href="#u4E00_u3001MVC" class="headerlink" title="一、MVC"></a>一、MVC</h1><p>MVC模式的意思是，软件可以分成三个部分。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_1.png" alt=""></p>
-<ul>
-<li>视图（View）：用户界面。</li>
-<li>控制器（Controller）：业务逻辑</li>
-<li>模型（Model）：数据保存<br><br></li>
+		<h1 id="u4E00_u3001_u5355_u4F8B_u6A21_u5F0F_u7684_u5B9A_u4E49"><a href="#u4E00_u3001_u5355_u4F8B_u6A21_u5F0F_u7684_u5B9A_u4E49" class="headerlink" title="一、单例模式的定义"></a>一、单例模式的定义</h1><p>单例模式在Web开发和Android开发中，实在是太常见了，抽空把各种单例模式都整理一遍。</p>
+<p>首先，单例模式（Singleton Pattern）是一个比较简单的模式，其定义如下：</p>
+<p>Ensure a class has only one instance,and provide a global point of access to it.(确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。)</p>
+<p>Singleton类称为单例类，通过使用private的构造函数确保了在一个应用中只产生一个实例，并且是自行实例化的（在Singleton中自己使用new Singleton()。单例模式的通用源代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">  <span class="comment">//限制产生多个对象</span></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//通过该方法获得实例对象</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> singleton;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//类中其他方法，尽量是static</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">dosomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="u5355_u4F8B_u6A21_u5F0F_u7684_u5E94_u7528"><a href="#u5355_u4F8B_u6A21_u5F0F_u7684_u5E94_u7528" class="headerlink" title="单例模式的应用"></a>单例模式的应用</h1><h2 id="u5355_u4F8B_u6A21_u5F0F_u7684_u4F18_u70B9"><a href="#u5355_u4F8B_u6A21_u5F0F_u7684_u4F18_u70B9" class="headerlink" title="单例模式的优点"></a>单例模式的优点</h2><ul>
+<li>由于单例模式在内存中只有一个实例，减少了内存开支，特别是一个对象需要频繁地创建、销毁时，而且创建或销毁时性能又无法优化，单例模式的优势就非常明显。</li>
+<li>由于单例模式只生成一个实例，所以减少了系统的性能开销，当一个对象的产生需要比较多的资源时，如读取配置、产生其他依赖对象时，则可以通过在应用启动时直接产生一个单例对象，然后用永久驻留内存的方式来解决（在Java EE中采用单例模式时需要注意JVM垃圾回收机制）。</li>
+<li>单例模式可以避免对资源的多重占用，例如一个写文件动作，由于只有一个实例存在内存中，避免对同一个资源文件的同时写操作。</li>
+<li>单例模式可以在系统设置全局的访问点，优化和共享资源访问，例如可以设计一个单例类，负责所有数据表的映射处理。</li>
 </ul>
-<hr>
-<p>各部分之间的通信方式如下。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_2.png" alt=""></p>
-<ol>
-<li>View 传送指令到 Controller</li>
-<li>Controller 完成业务逻辑后，要求 Model 改变状态</li>
-<li>Model 将新的数据发送到 View，用户得到反馈</li>
-</ol>
-<p>所有通信都是单向的。</p>
-<h1 id="u4E8C_u3001_u4E92_u52A8_u6A21_u5F0F"><a href="#u4E8C_u3001_u4E92_u52A8_u6A21_u5F0F" class="headerlink" title="二、互动模式"></a>二、互动模式</h1><p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_3.png" alt=""></p>
-<p>另一种是直接通过controller接受指令。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_4.png" alt=""></p>
-<h1 id="u4E09_u3001_u5B9E_u4F8B_uFF1ABackbone"><a href="#u4E09_u3001_u5B9E_u4F8B_uFF1ABackbone" class="headerlink" title="三、实例：Backbone"></a>三、实例：Backbone</h1><p>但是实际项目往往采取更加灵活的方式，以 Backbone.js 为例。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_5.png" alt=""></p>
-<ol>
-<li>用户可以向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。</li>
-<li>用户也可以直接向 Controller 发送指令（改变 URL 触发 hashChange 事件），再由 Controller 发送给 View。</li>
-<li>Controller 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 View。所以，Backbone 索性取消了 Controller，只保留一个 Router（路由器） 。</li>
-</ol>
-<h1 id="u56DB_u3001MVP"><a href="#u56DB_u3001MVP" class="headerlink" title="四、MVP"></a>四、MVP</h1><p>MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvp.png" alt=""></p>
-<ol>
-<li>各部分之间的通信，都是双向的。</li>
-<li>View 与 Model 不发生联系，都通过 Presenter 传递。</li>
-<li>View 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</li>
-</ol>
-<h1 id="u4E94_u3001MVVM"><a href="#u4E94_u3001MVVM" class="headerlink" title="五、MVVM"></a>五、MVVM</h1><p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvvm.png" alt=""></p>
-<p>唯一的区别是，它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。Angular 和 Ember 都采用这种模式。</p>
+<h2 id="u5355_u4F8B_u6A21_u5F0F_u7684_u7F3A_u70B9"><a href="#u5355_u4F8B_u6A21_u5F0F_u7684_u7F3A_u70B9" class="headerlink" title="单例模式的缺点"></a>单例模式的缺点</h2><ul>
+<li>单例模式一般没有接口，扩展很困难，若要扩展，除了修改代码基本上没有第二种途径可以实现。单例模式为什么不能增加接口呢？因为接口对单例模式是没有任何意义的，它要求“自行实例化”，并且提供单一实例、接口或抽象类是不可能被实例化的。当然，在特殊情况下，单例模式可以实现接口、被继承等，需要在系统开发中根据环境判断。</li>
+<li>单例模式对测试是不利的。在并行开发环境中，如果单例模式没有完成，是不能进行测试的，没有接口也不能使用mock的方式虚拟一个对象。</li>
+<li>单例模式与单一职责原则有冲突。一个类应该只实现一个逻辑，而不关心它是否是单例的，是不是要单例取决于环境，单例模式把“要单例”和业务逻辑融合在一个类中。</li>
+</ul>
+<h2 id="u5355_u4F8B_u6A21_u5F0F_u7684_u4F7F_u7528_u573A_u666F"><a href="#u5355_u4F8B_u6A21_u5F0F_u7684_u4F7F_u7528_u573A_u666F" class="headerlink" title="单例模式的使用场景"></a>单例模式的使用场景</h2><p>在一个系统中，要求一个类有且仅有一个对象，如果出现多个对象就会出现“不良反应”，可以采用单例模式，具体的场景如下：</p>
+<ul>
+<li>要求生成唯一序列号的环境；</li>
+<li>在整个项目中需要一个共享访问点或共享数据，例如一个Web页面上的计数器，可以不用把每次刷新都记录到数据库中，使用单例模式保持计数器的值，并且保证是线程安全的；</li>
+<li>创建一个对象需要消耗的资源过多，如要访问IO和数据库等资源；</li>
+<li>需要定义大量的静态常量和静态方法（如工具类）的环境，可以采用单例模式（当然，页可以直接声明为static的方式）。</li>
+</ul>
+<h2 id="u5355_u4F8B_u6A21_u5F0F_u7684_u6CE8_u610F_u4E8B_u9879"><a href="#u5355_u4F8B_u6A21_u5F0F_u7684_u6CE8_u610F_u4E8B_u9879" class="headerlink" title="单例模式的注意事项"></a>单例模式的注意事项</h2><p>首先，在高并发情况下，请注意单例模式的线程同步问题。单例模式有几种不同的实现方式，上面的例子不会出现多个实例的情况，但是下面的情况：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Singleton</span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">null</span>;</span><br><span class="line">  <span class="comment">//限制产生多个对象</span></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//通过该方法获得实例对象</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(singleton==<span class="keyword">null</span>)&#123;</span><br><span class="line">      singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> singleton;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>该单例模式在低并发的情况下尚不会出现问题，若系统压力增大，并发量增加时则可能在内存中出现多个实例，破坏了最初的预期。</p>
+<p>解决线程不安全的方法有很多，可以在<code>getSingleton</code>方法前加<code>synchronized</code>关键字，也可以在<code>getSingleton</code>方法内增加<code>synchronized</code>来实现。</p>
+<p>其次，需要考虑对象的复制情况。在Java中，对象默认是不可以被复制的，若实现了Cloneable接口，并实现了clone方法，则可以直接通过对象复制方式创建一个新对象，对象复制是不用调用类构造方法，因此即使是私有的构造方法，对象仍然可以被复制，在一般情况下，类复制的情况不需要考虑，很少会出现一个单例类会主动要求被复制的情况，解决该问题的最好方法就是单例类不要实现Cloneable接口。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -156,13 +136,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/架构/">架构</a>
+  <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/常见3种架构/">常见3种架构</a>
+  <span></span> <a href="/tags/单例模式/">单例模式</a>
   </div>
 
 </div>
@@ -171,7 +151,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.xuanzhangjiong.xyz/2015/07/15/MVC、MVP、MVVM的个人理解/" data-title="MVC、MVP、MVVM的个人理解 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  <div data-url="http://www.xuanzhangjiong.xyz/2015/11/01/单例模式/" data-title="单例模式 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -185,18 +165,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/07/20/Android-MVVM/" title="Android MVVM">
+ <a href="/2015/12/01/柚子房东，第一个从无到有的创业项目/" title="柚子房东，第一个从无到有的创业项目">
   <strong>上一篇：</strong><br/>
   <span>
-  Android MVVM</span>
+  柚子房东，第一个从无到有的创业项目</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/06/20/开篇/"  title="开篇">
+<a href="/2015/10/10/MarkDown语法练习/"  title="MarkDown语法练习">
  <strong>下一篇：</strong><br/> 
- <span>开篇
+ <span>MarkDown语法练习
 </span>
 </a>
 </div>
@@ -205,7 +185,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/07/15/MVC、MVP、MVVM的个人理解/" data-title="MVC、MVP、MVVM的个人理解" data-url="http://www.xuanzhangjiong.xyz/2015/07/15/MVC、MVP、MVVM的个人理解/"></div>
+	<div class="ds-thread" data-thread-key="2015/11/01/单例模式/" data-title="单例模式" data-url="http://www.xuanzhangjiong.xyz/2015/11/01/单例模式/"></div>
 </section>
 
 
@@ -215,7 +195,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E00_u3001MVC"><span class="toc-number">1.</span> <span class="toc-text">一、MVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E8C_u3001_u4E92_u52A8_u6A21_u5F0F"><span class="toc-number">2.</span> <span class="toc-text">二、互动模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E09_u3001_u5B9E_u4F8B_uFF1ABackbone"><span class="toc-number">3.</span> <span class="toc-text">三、实例：Backbone</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u56DB_u3001MVP"><span class="toc-number">4.</span> <span class="toc-text">四、MVP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E94_u3001MVVM"><span class="toc-number">5.</span> <span class="toc-text">五、MVVM</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E00_u3001_u5355_u4F8B_u6A21_u5F0F_u7684_u5B9A_u4E49"><span class="toc-number">1.</span> <span class="toc-text">一、单例模式的定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u5E94_u7528"><span class="toc-number">2.</span> <span class="toc-text">单例模式的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u4F18_u70B9"><span class="toc-number">2.1.</span> <span class="toc-text">单例模式的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u7F3A_u70B9"><span class="toc-number">2.2.</span> <span class="toc-text">单例模式的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u4F7F_u7528_u573A_u666F"><span class="toc-number">2.3.</span> <span class="toc-text">单例模式的使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5355_u4F8B_u6A21_u5F0F_u7684_u6CE8_u610F_u4E8B_u9879"><span class="toc-number">2.4.</span> <span class="toc-text">单例模式的注意事项</span></a></li></ol></li></ol>
  
   </div>
 
