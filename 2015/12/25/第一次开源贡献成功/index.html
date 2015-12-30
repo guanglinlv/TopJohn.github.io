@@ -11,16 +11,17 @@
     
 
     
-    <meta name="description" content="写个博客，记录自己在开发过程中的点点滴滴...">
+    <meta name="description" content="在开源中国上学习了好久了，上面的帖子博客也看了N篇，开源项目，也借鉴了不少，第一次在oschina上发起Pull Request，也希望自己为开源做点小贡献。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一次开源贡献成功">
-<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/12/30/第一次开源贡献成功/index.html">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/12/25/第一次开源贡献成功/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
-<meta property="og:description" content="写个博客，记录自己在开发过程中的点点滴滴...">
-<meta property="og:updated_time" content="2015-12-30T09:23:01.000Z">
+<meta property="og:description" content="在开源中国上学习了好久了，上面的帖子博客也看了N篇，开源项目，也借鉴了不少，第一次在oschina上发起Pull Request，也希望自己为开源做点小贡献。">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/open_source_1.jpg">
+<meta property="og:updated_time" content="2015-12-30T11:22:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一次开源贡献成功">
-<meta name="twitter:description" content="写个博客，记录自己在开发过程中的点点滴滴...">
+<meta name="twitter:description" content="在开源中国上学习了好久了，上面的帖子博客也看了N篇，开源项目，也借鉴了不少，第一次在oschina上发起Pull Request，也希望自己为开源做点小贡献。">
 <link rel="publisher" href="114979210024559900000">
 
     
@@ -83,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/12/30/第一次开源贡献成功/" title="第一次开源贡献成功" itemprop="url">第一次开源贡献成功</a>
+      <a href="/2015/12/25/第一次开源贡献成功/" title="第一次开源贡献成功" itemprop="url">第一次开源贡献成功</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
 		
   <p class="article-time">
-    <time datetime="2015-12-30T09:23:01.000Z" itemprop="datePublished"> 发表于 2015-12-30</time>
+    <time datetime="2015-12-25T09:23:01.000Z" itemprop="datePublished"> 发表于 2015-12-25</time>
     
   </p>
 </header>
@@ -99,15 +100,45 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bug_u51FA_u73B0_u7684_u8FC7_u7A0B"><span class="toc-number">2.</span> <span class="toc-text">Bug出现的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u7F13_u5B58_u5217_u8868_u6F0F_u9875_u73B0_u8C61"><span class="toc-number">2.1.</span> <span class="toc-text">缓存列表漏页现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u90E8_u5206Activity_u672A_u9500_u6BC1"><span class="toc-number">2.2.</span> <span class="toc-text">部分Activity未销毁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>前一阵子做项目，没少看<code>oschina-android-app</code>这个开源项目，看久了，似乎也发现了其中的一些小问题，主要的问题大概有2个：</p>
+<ol>
+<li><p>列表缓存的Bug，在无网络的时候，滚动到底部时，当前的页数先自加了，然而在失败的时候却未减回来，如果刻意在无网络的情况下不断上拉，会出现严重的漏页现象。</p>
+</li>
+<li><p>管理Activity销毁的AppManager的中销毁activity不完全，存在部分activity未销毁的情况。</p>
+</li>
+</ol>
+<h1 id="Bug_u51FA_u73B0_u7684_u8FC7_u7A0B"><a href="#Bug_u51FA_u73B0_u7684_u8FC7_u7A0B" class="headerlink" title="Bug出现的过程"></a>Bug出现的过程</h1><h2 id="u7F13_u5B58_u5217_u8868_u6F0F_u9875_u73B0_u8C61"><a href="#u7F13_u5B58_u5217_u8868_u6F0F_u9875_u73B0_u8C61" class="headerlink" title="缓存列表漏页现象"></a>缓存列表漏页现象</h2><p>开源中国项目中的分页缓存机制的实现是在BaseListFragment中实现的.</p>
+<p>首先在<code>onCreateView</code>中调用<code>initView</code>方法里的<code>requestData()</code>,如果没有网络则读取对应分页的缓存，如果有网络且不是主动下拉刷新，则判断是否为第一页，如果是第一页，则优先读取缓存，如果不是第一页，如果缓存存在切没有失效，则优先读取缓存（Wi-Fi环境下缓存时间为5分钟，其他网络环境为1小时），每个半天会自动刷新一次。</p>
+<p>当列表滚动到最下面的时候当前页数自动加1，但是当请求失败的时候执行<code>executeOnLoadDataError</code>方法时，并未将当前页数减回来，导致重复下拉的时候，当前分页不断增加。当有网络加载的时候，中间漏掉n页。所以最简单的解决办法，直接减回来。<br>看似没有难度，但是这个缓存机制，我也看了好几天才理清楚其中的原理。</p>
+<h2 id="u90E8_u5206Activity_u672A_u9500_u6BC1"><a href="#u90E8_u5206Activity_u672A_u9500_u6BC1" class="headerlink" title="部分Activity未销毁"></a>部分Activity未销毁</h2><p><code>oschina-android-app</code>这个开源项目的Activity采用AppManager这个类进行管理，内部维护了一个Activity的堆栈，采用单例模式，从而可以轻易销毁所有Activity.</p>
+<p>原来的代码如下：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">  * 结束所有Activity</span><br><span class="line">  */</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> finishAllActivity() &#123;</span><br><span class="line">     <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>, <span class="built_in">size</span> = activityStack.<span class="built_in">size</span>(); i &lt; <span class="built_in">size</span>; i++) &#123;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">null</span> != activityStack.<span class="built_in">get</span>(i)) &#123;</span><br><span class="line">           finishActivity(activityStack.<span class="built_in">get</span>(i));</span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     activityStack.<span class="built_in">clear</span>();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>先不说<code>finishActivity</code>方法有没有错，在第一次循环的时候就有 <code>break;</code>语句了，也就是说，最多也就销毁一个Activity，所以我把它注视掉。本以为问题可以轻松解决，但是发现我在使用的过程中，总是有那么几个<code>Activity</code>没有被销毁。</p>
+<p>finishActivity源码:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 结束指定的Activity</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">finishActivity</span>(<span class="params">Activity activity</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (activity != <span class="keyword">null</span> &amp;&amp; !activity.isFinishing()) &#123;</span><br><span class="line">        activityStack.remove(activity);</span><br><span class="line">        activity.finish();</span><br><span class="line">        activity = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>尝试修改了其中的代码，去猜测这个bug的由来，发现去掉<code>activity.isFinishing</code>方法就可以全部销毁，<code>activity.isFinishing</code>这个方法是判断activity是否正在被销毁，或者暂停，但是不知道为什么，某些activity会出现这个状态，从而导致判断的时候漏掉了几个activity，产生了历史遗留，所以干脆点直接去掉判断，就能完全销毁了。</p>
+<h1 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h1><p>在做完一个项目，或者长时间敲代码的过程中，最好停下来，好好休整下，有空多去看看开源项目中的源码，不仅能看到别人是如何编码的，而且当发现其中的问题的时候，你也可以尝试着去修改其中的代码，为开源贡献自己的力量。</p>
+<p>终于贡献了自己的处女作了,也是头一次在开源项目中的git log中看到自己的提交。</p>
+<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/open_source_1.jpg" alt=""></p>
+<p>项目地址：<br><a href="http://git.oschina.net/oschina/android-app" target="_blank" rel="external">http://git.oschina.net/oschina/android-app</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/开源贡献/">开源贡献</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/oschina-android-app/">oschina-android-app</a>
+  </div>
 
 </div>
 
@@ -115,7 +146,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.xuanzhangjiong.xyz/2015/12/30/第一次开源贡献成功/" data-title="第一次开源贡献成功 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  <div data-url="http://www.xuanzhangjiong.xyz/2015/12/25/第一次开源贡献成功/" data-title="第一次开源贡献成功 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -141,7 +172,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/12/30/第一次开源贡献成功/" data-title="第一次开源贡献成功" data-url="http://www.xuanzhangjiong.xyz/2015/12/30/第一次开源贡献成功/"></div>
+	<div class="ds-thread" data-thread-key="2015/12/25/第一次开源贡献成功/" data-title="第一次开源贡献成功" data-url="http://www.xuanzhangjiong.xyz/2015/12/25/第一次开源贡献成功/"></div>
 </section>
 
 
@@ -151,7 +182,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bug_u51FA_u73B0_u7684_u8FC7_u7A0B"><span class="toc-number">2.</span> <span class="toc-text">Bug出现的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u7F13_u5B58_u5217_u8868_u6F0F_u9875_u73B0_u8C61"><span class="toc-number">2.1.</span> <span class="toc-text">缓存列表漏页现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u90E8_u5206Activity_u672A_u9500_u6BC1"><span class="toc-number">2.2.</span> <span class="toc-text">部分Activity未销毁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
@@ -181,11 +212,15 @@
 		  
 		
 		  
+			<li><a href="/categories/项目经历/作品/" title="作品">作品<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/作品/" title="作品">作品<sup>1</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/项目经历/作品/" title="作品">作品<sup>1</sup></a></li>
+			<li><a href="/categories/开源贡献/" title="开源贡献">开源贡献<sup>1</sup></a></li>
 		  
 		
 		  
@@ -247,6 +282,10 @@
 		
 			
 				<li><a href="/tags/MVVM/" title="MVVM">MVVM<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/oschina-android-app/" title="oschina-android-app">oschina-android-app<sup>1</sup></a></li>
 			
 		
 		</ul>
