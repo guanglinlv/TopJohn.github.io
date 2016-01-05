@@ -71,7 +71,7 @@
 <p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/innovation_space.png" alt="附上一张合照" title="合照"></p>
 <p>项目的客户端代码已经放到我的Github上了，需要的小伙伴可以自己下载，做的比较简陋，毕竟只有58小时，希望不要见怪。</p>
 <p>当然无图无真相：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_5.jpg?imageView2/2/w/360/h/640" alt="">    <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_4.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_3.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_6.jpg?imageView2/2/w/360/h/640" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_2.jpg?imageView2/2/w/360/h/640" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/faceswiping_1.jpg?imageView2/2/w/360/h/640" alt=""><br><br></p>
-<p>Git地址：<a href="/&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;&#58;&#x54;&#111;&#x70;&#74;&#111;&#104;&#110;&#x2f;&#x66;&#97;&#99;&#x65;&#x53;&#x77;&#105;&#112;&#105;&#110;&#x67;&#46;&#x67;&#x69;&#116;">&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;&#58;&#x54;&#111;&#x70;&#74;&#111;&#104;&#110;&#x2f;&#x66;&#97;&#99;&#x65;&#x53;&#x77;&#105;&#112;&#105;&#110;&#x67;&#46;&#x67;&#x69;&#116;</a></p>
+<p>Git地址：<a href="/&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;&#58;&#x54;&#111;&#x70;&#74;&#111;&#104;&#110;&#x2f;&#x66;&#97;&#99;&#101;&#83;&#119;&#105;&#112;&#x69;&#110;&#103;&#46;&#103;&#105;&#116;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;&#58;&#x54;&#111;&#x70;&#74;&#111;&#104;&#110;&#x2f;&#x66;&#97;&#99;&#101;&#83;&#119;&#105;&#112;&#x69;&#110;&#103;&#46;&#103;&#105;&#116;</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[虽然并没有获奖，但是认识了一群小伙伴，经历了，很值得...]]>
@@ -481,6 +481,36 @@
       <category term="注解" scheme="http://www.xuanzhangjiong.xyz/tags/%E6%B3%A8%E8%A7%A3/"/>
     
       <category term="Java" scheme="http://www.xuanzhangjiong.xyz/categories/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android无线调试方法]]></title>
+    <link href="http://www.xuanzhangjiong.xyz/2015/09/05/Android%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/"/>
+    <id>http://www.xuanzhangjiong.xyz/2015/09/05/Android无线调试方法/</id>
+    <published>2015-09-05T04:15:48.000Z</published>
+    <updated>2016-01-05T04:26:20.000Z</updated>
+    <content type="html"><![CDATA[<p>自从用了Mac之后usb接口果断不够用了，能省一个是一个，发现原来在同一局域网下，可以无线调试，果断学习了。</p>
+<p>步骤很简单：</p>
+<ol>
+<li>先用USB连上手机。</li>
+<li>然后<code>adb tcpip 5555</code>，当然端口自己设，没有限死。</li>
+<li>拔掉USB线，<code>adb connect 192.168.31.137:5555</code>，你手机的局域网IP加端口号，搞定。</li>
+<li>Android Studio中是不是已经可以无线调试了。</li>
+<li>如果要切换回USB调试的话也很简单，<code>adb usb</code>即可。</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>自从用了Mac之后usb接口果断不够用了，能省一个是一个，发现原来在同一局域网下，可以无线调试，果断学习了。</p>
+<p>步骤很简单：</p>
+<ol>
+<li>先用USB连上手机。</li>
+<li>然后<code>adb tcpip 5555</code>，当然端口自]]>
+    </summary>
+    
+      <category term="调试" scheme="http://www.xuanzhangjiong.xyz/tags/%E8%B0%83%E8%AF%95/"/>
+    
+      <category term="Android" scheme="http://www.xuanzhangjiong.xyz/categories/Android/"/>
     
   </entry>
   
