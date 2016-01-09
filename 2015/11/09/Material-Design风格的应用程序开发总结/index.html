@@ -1,0 +1,648 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Material Design风格的应用程序开发总结 | TopJohn&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="John">
+    
+
+    
+    <meta name="description" content="Material Design初识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Material Design风格的应用程序开发总结">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/11/09/Material-Design风格的应用程序开发总结/index.html">
+<meta property="og:site_name" content="TopJohn'Blog">
+<meta property="og:description" content="Material Design初识">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_1.gif">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_2.jpg">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_3.jpg">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_4.jpg">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_5.jpg">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_6.jpg">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_7.jpg">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_8.jpg">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_9.gif">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/material_10.jpg">
+<meta property="og:updated_time" content="2016-01-09T13:03:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Material Design风格的应用程序开发总结">
+<meta name="twitter:description" content="Material Design初识">
+<link rel="publisher" href="114979210024559900000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="TopJohn&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/apple.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/apple.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="TopJohn&#39;Blog">TopJohn&#39;Blog</a></h1>
+				<h2 class="blog-motto">Coding的路上，至少我乐在其中...</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/pay">打赏</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.xuanzhangjiong.xyz">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/09/Material-Design风格的应用程序开发总结/" title="Material Design风格的应用程序开发总结" itemprop="url">Material Design风格的应用程序开发总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-09T11:55:39.000Z" itemprop="datePublished"> 发表于 2015-11-09</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E3B_u9898_u548C_u63A7_u4EF6_uFF0C_u4F7F_u7528_App_Compat_v21"><span class="toc-number">1.</span> <span class="toc-text">主题和控件，使用 App Compat v21</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E3B_u9898"><span class="toc-number">1.1.</span> <span class="toc-text">主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u63A7_u4EF6"><span class="toc-number">1.2.</span> <span class="toc-text">控件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android_Asset_Studio__u751F_u6210_u7684_u56FE_u6807"><span class="toc-number">1.3.</span> <span class="toc-text">Android Asset Studio 生成的图标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4F7F_u7528_u514D_u8D39_u5F00_u6E90_u5E93_u7684_u4E2D_u7684_u7EC4_u4EF6"><span class="toc-number">2.</span> <span class="toc-text">使用免费开源库的中的组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BOTTOMSHEET"><span class="toc-number">2.1.</span> <span class="toc-text">BOTTOMSHEET</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SNACKBAR"><span class="toc-number">2.2.</span> <span class="toc-text">SNACKBAR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FLOATING_ACTION_BUTTON"><span class="toc-number">2.3.</span> <span class="toc-text">FLOATING ACTION BUTTON</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u8BBE_u8BA1_u6A21_u5F0F_uFF1AGoogle_Support__u81EA_u5E26_u7684_u4E0B_u62C9_u5237_u65B0_uFF08Swipe_to_refresh_uFF09"><span class="toc-number">3.</span> <span class="toc-text">设计模式：Google Support 自带的下拉刷新（Swipe to refresh）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5B57_u4F53_uFF1ARoboto"><span class="toc-number">4.</span> <span class="toc-text">字体：Roboto</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u52A8_u753B_u548C_u9634_u5F71_uFF08elevation_uFF09_u4E00_u89C8"><span class="toc-number">5.</span> <span class="toc-text">动画和阴影（elevation）一览</span></a></li></ol>
+		
+		</div>
+		
+		<p>我大爱 Material Design，Google 已经在这里给出了使用它的官方指导。如果你还没有看过的话，我建议你通读一下，因为它更加偏向讲述一个“好的设计”，而不是仅仅讲述如何去实现 Material Design。如果我是第一次看到，我一定会在角落那块地方或者对话框的按钮上点个大大的赞。</p>
+<p>Kitkat 和 Jellybean 仍然主导着大部分市场（至少在我写这篇文章的时候），并且我们的应用还是需要支持运行着这两个版本系统的设备。Lollipop 已经出来一段时间了，我估计你也已经想到了一些办法把 Material Design 运用到你的应用上来，并且支持较老版本的系统。然后呢，这里也有一些办法，可以让你在几乎不用干任何设计活儿的情况下，使应用更加 “material”：</p>
+<ol>
+<li>使用 App Compat v21 的主题和控件</li>
+<li>Android Asset Studio 生成的图标</li>
+<li>使用免费开源库的中的组件</li>
+<li>设计模式：Google Support 自带的下拉刷新（Swipe to refresh）</li>
+<li>字体：Roboto</li>
+</ol>
+<h1 id="u4E3B_u9898_u548C_u63A7_u4EF6_uFF0C_u4F7F_u7528_App_Compat_v21"><a href="#u4E3B_u9898_u548C_u63A7_u4EF6_uFF0C_u4F7F_u7528_App_Compat_v21" class="headerlink" title="主题和控件，使用 App Compat v21"></a>主题和控件，使用 App Compat v21</h1><h2 id="u4E3B_u9898"><a href="#u4E3B_u9898" class="headerlink" title="主题"></a>主题</h2><p>Support 支持库的 V21版本已经伴随着 5.0 SDK 一起发布了。引用它便可以搞定应用“material 化”将近一半的工作。你将会得到不包含阴影的操作栏（ActionBar），并且在应用名称旁边也没有应用图标，还有由三个小圆点组成的更多（overflow）图标。菜单被放置在它们弹出的选项外边，这样当前被选中的菜单项就可以出现在所有项目或者控件等等元素的最上面。</p>
+<p>新的 Support V21 包里总共有两套主题可用：暗色调（默认主题， 通过 Theme.AppCompat 来启用）和亮色调 (Theme.AppCompat.Light)</p>
+<p>你的 styles.xml 现在需要这样写：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme"</span> <span class="attribute">parent</span>=<span class="value">"AppTheme.Base"</span>/&gt;</span><span class="css"></span><br><span class="line"></span><br><span class="line">    &lt;<span class="tag">style</span> <span class="tag">name</span>="<span class="tag">AppTheme</span><span class="class">.Base</span>" <span class="tag">parent</span>="<span class="tag">Theme</span><span class="class">.AppCompat</span>"&gt;</span><br><span class="line">        &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">colorPrimary</span>"&gt;<span class="at_rule">@<span class="keyword">color/colorPrimary&lt;/item&gt;</span></span><br><span class="line">        &lt;item name=<span class="string">"colorPrimaryDark"</span>&gt;@color/colorPrimaryDark&lt;/item&gt;</span><br><span class="line">        &lt;item name=<span class="string">"colorAccent"</span>&gt;@color/colorAccent&lt;/item&gt;</span><br><span class="line">    </span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>colorPrimary 代表 ActionBar 的颜色, colorPrimaryDark 代表状态栏（StatusBar）的颜色， colorAccent 是染色控件（tinted widgets）的颜色. 比较可惜的是，colorPrimaryDark 属性在 Lollipop 之前的版本中是不能使用的。</p>
+<p>你编写的 Activity 现在必须继承 ActionBarActivity ，如果要引用 操作栏（ActionBar）你需要调用 getSupportActionBar(); 方法。如果你的应用有导航抽屉（navigation drawer），使用 getSupportActionBar().setDisplayHomeAsUpEnabled(true); 来获得。可以看到，当抽屉被打开的时候，抽屉图标会变成一个返回箭头，关闭的时候则相反。<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_1.gif" alt=""><br>抽屉图标变成返回箭头的时候还有一个萌萌哒的动画</p>
+<h2 id="u63A7_u4EF6"><a href="#u63A7_u4EF6" class="headerlink" title="控件"></a>控件</h2><p>看到上面列表里面是不是忘了什么重要的东西？是的，按钮！</p>
+<p>如何设置 App Compat library：<a href="https://developer.android.com/tools/support-library/setup.html" target="_blank" rel="external">Support Library Setup</a></p>
+<h2 id="Android_Asset_Studio__u751F_u6210_u7684_u56FE_u6807"><a href="#Android_Asset_Studio__u751F_u6210_u7684_u56FE_u6807" class="headerlink" title="Android Asset Studio 生成的图标"></a>Android Asset Studio 生成的图标</h2><p>我做独立应用开发的时候从来没有错过这款工具，它包含一个图标生成器和一个点 9 图（ nine patch ）生成器。 你可以用它从你的图像或文本中生成扁平化的应用图标、action bar 图标、剪切画，或者通用图标， (Android 的系统图标除外) 。 在生成通用图标的时候你还可以指定 DPI， 但是 actionbar/tab 的图标暂时还不行，因为它都是有标准大小的 (xxhdpi, xhdpi, hdpi &amp; mdpi)。 可以看下这里：<a href="http://romannurik.github.io/AndroidAssetStudio/" target="_blank" rel="external">Android Asset Studio</a></p>
+<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_2.jpg" alt=""></p>
+<p>使用 Android Asset Studio 生成的不同 DPI 一套图标</p>
+<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_3.jpg" alt=""></p>
+<p>使用 Android Asset Studio 生成的应用程序（Launcher）图标</p>
+<h1 id="u4F7F_u7528_u514D_u8D39_u5F00_u6E90_u5E93_u7684_u4E2D_u7684_u7EC4_u4EF6"><a href="#u4F7F_u7528_u514D_u8D39_u5F00_u6E90_u5E93_u7684_u4E2D_u7684_u7EC4_u4EF6" class="headerlink" title="使用免费开源库的中的组件"></a>使用免费开源库的中的组件</h1><p>不在 support 库中的一些组件，我们就得去看看其它开源库了。这里介绍一些我用过的挺棒的开源库</p>
+<h2 id="BOTTOMSHEET"><a href="#BOTTOMSHEET" class="headerlink" title="BOTTOMSHEET"></a>BOTTOMSHEET</h2><p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_4.jpg" alt=""></p>
+<p>链接: <a href="https://github.com/soarcn/BottomSheet" target="_blank" rel="external">BOTTOMSHEET</a></p>
+<h2 id="SNACKBAR"><a href="#SNACKBAR" class="headerlink" title="SNACKBAR"></a>SNACKBAR</h2><p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_5.jpg" alt=""></p>
+<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_6.jpg" alt=""><br>链接：<a href="https://github.com/nispok/snackbar" target="_blank" rel="external">SNACKBAR</a></p>
+<h2 id="FLOATING_ACTION_BUTTON"><a href="#FLOATING_ACTION_BUTTON" class="headerlink" title="FLOATING ACTION BUTTON"></a>FLOATING ACTION BUTTON</h2><p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_7.jpg" alt=""></p>
+<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_8.jpg" alt=""></p>
+<p>链接： <a href="https://github.com/futuresimple/android-floating-action-button" target="_blank" rel="external">FLOATING ACTION BUTTON</a></p>
+<h1 id="u8BBE_u8BA1_u6A21_u5F0F_uFF1AGoogle_Support__u81EA_u5E26_u7684_u4E0B_u62C9_u5237_u65B0_uFF08Swipe_to_refresh_uFF09"><a href="#u8BBE_u8BA1_u6A21_u5F0F_uFF1AGoogle_Support__u81EA_u5E26_u7684_u4E0B_u62C9_u5237_u65B0_uFF08Swipe_to_refresh_uFF09" class="headerlink" title="设计模式：Google Support 自带的下拉刷新（Swipe to refresh）"></a>设计模式：Google Support 自带的下拉刷新（Swipe to refresh）</h1><p>如果你在你的 App 中用到了 Google 自带的下拉刷新，用 v4 Support 库的第 V21 版便会自动帮你添加一个 Material Design’s 的 Spinner。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);</span><br><span class="line">swipeLayout.setOnRefreshListener(<span class="keyword">this</span>);</span><br><span class="line">swipeLayout.setColorSchemeResources(R.<span class="built_in">color</span>.<span class="built_in">red</span>, R.<span class="built_in">color</span>.<span class="built_in">green</span>, R.<span class="built_in">color</span>.<span class="built_in">blue</span>);</span><br></pre></td></tr></table></figure></p>
+<p>布局 XML：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.v4</span><span class="class">.widget</span><span class="class">.SwipeRefreshLayout</span></span><br><span class="line">    xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:id=<span class="string">"@+id/swipe_refresh_layout"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"match_parent"</span>&gt;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.v4</span><span class="class">.widget</span><span class="class">.SwipeRefreshLayout</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>颜色 colors.xml：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">color</span> <span class="attribute">name</span>=<span class="value">"red"</span>&gt;</span>#f44336<span class="tag">&lt;/<span class="title">color</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">color</span> <span class="attribute">name</span>=<span class="value">"green"</span>&gt;</span>#4caf50<span class="tag">&lt;/<span class="title">color</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">color</span> <span class="attribute">name</span>=<span class="value">"blue"</span>&gt;</span>#03a9f4<span class="tag">&lt;/<span class="title">color</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_9.gif" alt=""></p>
+<h1 id="u5B57_u4F53_uFF1ARoboto"><a href="#u5B57_u4F53_uFF1ARoboto" class="headerlink" title="字体：Roboto"></a>字体：Roboto</h1><p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/material_10.jpg" alt=""></p>
+<p>随着 Material Design 一起发布的 Roboto 字体<br>Roboto 也跟着新的 Material Design 一起被更新了。Google 表示这款字体已经被调整到从手表到桌面、到电视、到汽车，以至于在更多的屏幕尺寸和条件下都能正常表现。 要使用它或者任何自定义字体，把你的字体文件拖到 assets 文件夹。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Typeface robotoRegular = Typeface.createFromAsset<span class="comment">(getAssets()</span>, <span class="string">"Roboto-Regular.ttf"</span>);</span><br><span class="line"><span class="comment">//Then set it, for example to a TextView</span></span><br><span class="line">textView.setTypeface<span class="comment">(robotoRegular)</span>;</span><br></pre></td></tr></table></figure>
+<p>从<a href="http://www.google.com/design/spec/resources/roboto-noto-fonts.html" target="_blank" rel="external">此处</a>获得 Roboto。</p>
+<h1 id="u52A8_u753B_u548C_u9634_u5F71_uFF08elevation_uFF09_u4E00_u89C8"><a href="#u52A8_u753B_u548C_u9634_u5F71_uFF08elevation_uFF09_u4E00_u89C8" class="headerlink" title="动画和阴影（elevation）一览"></a>动画和阴影（elevation）一览</h1><p>Lollipop 中最惊艳的应该就是动画了。拥有全新的 activity 动画（activity transitions）, 触摸时的水波纹动画（ripple animations），还有很多其它的！ 而且还有阴影（elevation）属性，使得视图（View）终于有了“深度”的概念。动画全部由一个系统级的渲染线程（RenderThread）来管理。 引用 Android Developers 博客中的原话： “RippleDrawable 能流畅运行的最大功臣就是 Android 5.0 的渲染线程（RenderThread）。直到现在才发布是因为我们一直在优化它在较老 Android 版本上运行时的表现。” 阴影（elevation）效果也是如此。但是实现这样的动画有很多方法，特别是著名的水波纹效果（Ripple effect），而且有很多开源库也可以帮到你，但是我选择在这里不讨论它们，因为我觉得如果用开源库的方式来实现就背离我的初衷了。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Android/">Android</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Material-Design/">Material Design</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuanzhangjiong.xyz/2015/11/09/Material-Design风格的应用程序开发总结/" data-title="Material Design风格的应用程序开发总结 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/11/18/Android快捷方式解密/" title="Android快捷方式解密">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Android快捷方式解密</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/11/01/单例模式/"  title="单例模式">
+ <strong>下一篇：</strong><br/> 
+ <span>单例模式
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/11/09/Material-Design风格的应用程序开发总结/" data-title="Material Design风格的应用程序开发总结" data-url="http://www.xuanzhangjiong.xyz/2015/11/09/Material-Design风格的应用程序开发总结/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E3B_u9898_u548C_u63A7_u4EF6_uFF0C_u4F7F_u7528_App_Compat_v21"><span class="toc-number">1.</span> <span class="toc-text">主题和控件，使用 App Compat v21</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u4E3B_u9898"><span class="toc-number">1.1.</span> <span class="toc-text">主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u63A7_u4EF6"><span class="toc-number">1.2.</span> <span class="toc-text">控件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android_Asset_Studio__u751F_u6210_u7684_u56FE_u6807"><span class="toc-number">1.3.</span> <span class="toc-text">Android Asset Studio 生成的图标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4F7F_u7528_u514D_u8D39_u5F00_u6E90_u5E93_u7684_u4E2D_u7684_u7EC4_u4EF6"><span class="toc-number">2.</span> <span class="toc-text">使用免费开源库的中的组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BOTTOMSHEET"><span class="toc-number">2.1.</span> <span class="toc-text">BOTTOMSHEET</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SNACKBAR"><span class="toc-number">2.2.</span> <span class="toc-text">SNACKBAR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FLOATING_ACTION_BUTTON"><span class="toc-number">2.3.</span> <span class="toc-text">FLOATING ACTION BUTTON</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u8BBE_u8BA1_u6A21_u5F0F_uFF1AGoogle_Support__u81EA_u5E26_u7684_u4E0B_u62C9_u5237_u65B0_uFF08Swipe_to_refresh_uFF09"><span class="toc-number">3.</span> <span class="toc-text">设计模式：Google Support 自带的下拉刷新（Swipe to refresh）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5B57_u4F53_uFF1ARoboto"><span class="toc-number">4.</span> <span class="toc-text">字体：Roboto</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u52A8_u753B_u548C_u9634_u5F71_uFF08elevation_uFF09_u4E00_u89C8"><span class="toc-number">5.</span> <span class="toc-text">动画和阴影（elevation）一览</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Git/" title="Git">Git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MarkDown/" title="MarkDown">MarkDown<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/作品/" title="作品">作品<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/开源贡献/" title="开源贡献">开源贡献<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活小记/" title="生活小记">生活小记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/" title="项目经历">项目经历<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/码农必备常识/" title="码农必备常识">码农必备常识<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android进阶优质资源/" title="Android进阶优质资源">Android进阶优质资源<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/创业项目，一个字“累”/" title="创业项目，一个字“累”">创业项目，一个字“累”<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/校园网账号抓取/" title="校园网账号抓取">校园网账号抓取<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/毕业季/" title="毕业季">毕业季<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/作品/" title="作品">作品<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/生活感言/" title="生活感言">生活感言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单例模式/" title="单例模式">单例模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/md5/" title="md5">md5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/oschina-android-app/" title="oschina-android-app">oschina-android-app<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Material-Design/" title="Material Design">Material Design<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常见3种架构/" title="常见3种架构">常见3种架构<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/注解/" title="注解">注解<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/异步事件处理/" title="异步事件处理">异步事件处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/调试/" title="调试">调试<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/性能/" title="性能">性能<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android快捷方式/" title="Android快捷方式">Android快捷方式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常见问题总结/" title="常见问题总结">常见问题总结<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MVVM/" title="MVVM">MVVM<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://jiajixin.cn/" target="_blank" title="学长的博客">Jason&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.changhuiyuan.com/" target="_blank" title="好友的博客">Eric Libaray</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1600625133&verifier=b349771a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 「一只笨鸟的成长史...」 <br/>
+			Better late than never.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1600625133" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/TopJohn" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/Top-John" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/shuai-jiong" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		<a href="https://plus.google.com/114979210024559900000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:xzj19922010@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="John">John</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"John"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
