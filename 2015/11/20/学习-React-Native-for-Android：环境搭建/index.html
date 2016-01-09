@@ -1,0 +1,707 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>学习 React Native for Android：环境搭建 | TopJohn&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="John">
+    
+
+    
+    <meta name="description" content="之前试过用ionic做开发，心想开发速度快一套顶多套，省事，完事了才发现是个坑，果断放弃，fb出了React Native总不至于又坑吧，先来试试水。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习 React Native for Android：环境搭建">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/11/20/学习-React-Native-for-Android：环境搭建/index.html">
+<meta property="og:site_name" content="TopJohn'Blog">
+<meta property="og:description" content="之前试过用ionic做开发，心想开发速度快一套顶多套，省事，完事了才发现是个坑，果断放弃，fb出了React Native总不至于又坑吧，先来试试水。">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-1.png">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_2.png">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_3.png">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_4.png">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_5.png">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_6.png">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_7.png">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_8.png">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_9.png">
+<meta property="og:updated_time" content="2016-01-09T13:47:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习 React Native for Android：环境搭建">
+<meta name="twitter:description" content="之前试过用ionic做开发，心想开发速度快一套顶多套，省事，完事了才发现是个坑，果断放弃，fb出了React Native总不至于又坑吧，先来试试水。">
+<link rel="publisher" href="114979210024559900000">
+
+    
+    <link rel="alternative" href="/atom.xml" title="TopJohn&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/apple.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/apple.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="TopJohn&#39;Blog">TopJohn&#39;Blog</a></h1>
+				<h2 class="blog-motto">Coding的路上，至少我乐在其中...</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/pay">打赏</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.xuanzhangjiong.xyz">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/20/学习-React-Native-for-Android：环境搭建/" title="学习 React Native for Android：环境搭建" itemprop="url">学习 React Native for Android：环境搭建</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-20T13:07:42.000Z" itemprop="datePublished"> 发表于 2015-11-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u51C6_u5907_u5DE5_u4F5C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u57FA_u672C_u5F00_u53D1_u73AF_u5883_u642D_u5EFA"><span class="toc-number">2.</span> <span class="toc-text">基本开发环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Homebrew"><span class="toc-number">2.1.</span> <span class="toc-text">安装 Homebrew</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Node-js"><span class="toc-number">2.2.</span> <span class="toc-text">安装 Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5_nvm"><span class="toc-number">2.2.1.</span> <span class="toc-text">安装 nvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5_Node-js-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">安装 Node.js</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_watchman"><span class="toc-number">2.3.</span> <span class="toc-text">安装 watchman</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_flow"><span class="toc-number">2.4.</span> <span class="toc-text">安装 flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Android_SDK"><span class="toc-number">2.5.</span> <span class="toc-text">安装 Android SDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_React_Native"><span class="toc-number">2.6.</span> <span class="toc-text">安装 React Native</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nuclide_IDE__u7684_u5B89_u88C5_u548C_u914D_u7F6E_uFF08_u53EF_u9009_uFF09"><span class="toc-number">3.</span> <span class="toc-text">Nuclide IDE 的安装和配置（可选）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Atom"><span class="toc-number">3.1.</span> <span class="toc-text">安装 Atom</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Nuclide"><span class="toc-number">3.2.</span> <span class="toc-text">安装 Nuclide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5176_u4ED6_u63A8_u8350_u63D2_u4EF6"><span class="toc-number">3.3.</span> <span class="toc-text">其他推荐插件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B2C_u4E00_u4E2A_u5C0F_u7A0B_u5E8F_uFF1AAwesomeProject"><span class="toc-number">4.</span> <span class="toc-text">第一个小程序：AwesomeProject</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5C0F_u6280_u5DE7"><span class="toc-number">5.</span> <span class="toc-text">小技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u6DFB_u52A0_Alias"><span class="toc-number">5.1.</span> <span class="toc-text">添加 Alias</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u81EA_u52A8_u5237_u65B0_u754C_u9762"><span class="toc-number">5.2.</span> <span class="toc-text">自动刷新界面</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>Facebook 于 2015 年 9 月 15 日发布了 React Native for Android 。React Native 让开发者使用 JavaScript 和 React 编写应用，利用相同的核心代码就可以创建 Web，iOS 和 Android 平台的原生应用。注意这里的 核心 两个词，它指的是那些底层的、与界面无关的逻辑。与 ionic / PhoneGap 这类 Web App 开发框架不同，React Native 主张使用 React 的开发方式来开发 Native 应用，因为在现阶段 Web App 还无法达到 Native App 的体验。所以，React Native 并不强调 write Once, run everywhere ，而是 learn once, write everywhere ：上层使用 JS 和 React 开发不同平台的 UI，下层则可以编写能够复用的核心代码，从而大幅提高开发效率。</p>
+<p>关于 React Native 的好处，唐巧在 <a href="http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/" target="_blank" rel="external">《谈谈 React Native》</a> 里已经有比较深刻的总结，本文不再赘述。本文将作为一个 React Native for Android 学习系列的一个开篇，从零开始学习 React Native 。我尽量不偷懒，保证文章及时更新。</p>
+<h1 id="u51C6_u5907_u5DE5_u4F5C"><a href="#u51C6_u5907_u5DE5_u4F5C" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
+<li>操作系统：当前仅支持 OS X；</li>
+<li>由于 atom 的 package 服务 apm 国内不可用，因此国内的朋友需要做好 Cross the Wall 的准备。</li>
+</ol>
+<h1 id="u57FA_u672C_u5F00_u53D1_u73AF_u5883_u642D_u5EFA"><a href="#u57FA_u672C_u5F00_u53D1_u73AF_u5883_u642D_u5EFA" class="headerlink" title="基本开发环境搭建"></a>基本开发环境搭建</h1><h2 id="u5B89_u88C5_Homebrew"><a href="#u5B89_u88C5_Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h2><p>Homebrew 是一个方便开发者在 MAC OS X 系统上面安装 Linux 工具包的 ruby 脚本，如果你的机器还没有安装 Homebrew ，则需要执行下面的命令安装：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>完成后可以试试执行 brew -v 检查下 brew 是否安装成功。</p>
+<p>如果你的机器已经安装过 Homebrew ，强烈建议 对 Homebrew 的包做一下更新：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">brew </span>update &amp;&amp; <span class="keyword">brew </span>upgrade</span><br></pre></td></tr></table></figure></p>
+<h2 id="u5B89_u88C5_Node-js"><a href="#u5B89_u88C5_Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2><p>建议使用 Node 的版本管理器 nvm 来安装新版本的 Node.js 。</p>
+<h3 id="u5B89_u88C5_nvm"><a href="#u5B89_u88C5_nvm" class="headerlink" title="安装 nvm"></a>安装 nvm</h3><p>首先需要安装 nvm 。官方推荐的做法是通过 <code>curl</code> 或者 <code>wget</code> 来安装：</p>
+<p>通过 curl 安装</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>brew install curl  <span class="comment"># 确保安装了 curl</span></span><br><span class="line"><span class="variable">$ </span>curl -o- <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span>0.<span class="number">29.0</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>通过 wget 安装</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>brew install wget  <span class="comment"># 确保安装了 wget</span></span><br><span class="line"><span class="variable">$ </span>wget -qO- <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/creationix</span><span class="regexp">/nvm/v</span>0.<span class="number">29.0</span>/install.sh | bash</span><br></pre></td></tr></table></figure>
+<p>完成后可以试试执行 <code>nvm --version</code> 检查下 nvm 是否安装成功。</p>
+<h3 id="u5B89_u88C5_Node-js-1"><a href="#u5B89_u88C5_Node-js-1" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>使用 nvm 安装 Node.js：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm install <span class="keyword">node</span><span class="identifier"> </span><span class="title">&amp;&amp; nvm</span> alias default <span class="keyword">node</span><span class="identifier"></span><span class="title"></span></span><br></pre></td></tr></table></figure>
+<h2 id="u5B89_u88C5_watchman"><a href="#u5B89_u88C5_watchman" class="headerlink" title="安装 watchman"></a>安装 watchman</h2><p>watchman 是 Facebook 的一个用于监控文件变更并触发指定操作的工具：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">brew </span>install watchman</span><br></pre></td></tr></table></figure>
+<h2 id="u5B89_u88C5_flow"><a href="#u5B89_u88C5_flow" class="headerlink" title="安装 flow"></a>安装 flow</h2><p>Flow 是一个 JavaScript 的静态类型检查器，建议安装它，以方便找出代码中可能存在的类型错误：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">brew </span>install flow</span><br></pre></td></tr></table></figure>
+<h2 id="u5B89_u88C5_Android_SDK"><a href="#u5B89_u88C5_Android_SDK" class="headerlink" title="安装 Android SDK"></a>安装 Android SDK</h2><p>如果你之前已经装过 Android SDK ，打开 Android SDK Manager，确保如下工具和开发包已经安装：</p>
+<p>SDK：</p>
+<ul>
+<li>Android SDK Build-tools version 23.0.1</li>
+<li>Android 6.0 (API 23)</li>
+<li><p>Android Support Repository<br>模拟器：</p>
+</li>
+<li><p>Intel x86 Atom System Image (for Android 5.1.1 - API 22)</p>
+</li>
+<li>Intel x86 Emulator Accelerator (HAXM installer)<br>如果之前没有装过 Android SDK ，可以通过如下步骤安装：</li>
+</ul>
+<ol>
+<li>安装最新的 JDK.</li>
+<li>使用 brew install android-sdk 来安装安卓 SDK。</li>
+<li>将它添加到 ~/.bashrc, ~/.zshrc 或者任何其他您的 shell 所使用的路径：export ANDROID_HOME=/usr/local/opt/android-sdk</li>
+<li>启动一个新的 shell 并且运行 android ，在出现窗口中勾选上面列出的 SDK 和模拟器。</li>
+<li>点击 “Install Packages”。<br>详细介绍可以参考 这篇文章 。</li>
+</ol>
+<h2 id="u5B89_u88C5_React_Native"><a href="#u5B89_u88C5_React_Native" class="headerlink" title="安装 React Native"></a>安装 React Native</h2><p>最后到了关键一步，安装 React Native：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> react-<span class="keyword">native</span>-cli</span></span><br></pre></td></tr></table></figure></p>
+<p>至此完成 React Native 基本开发环境的搭建。</p>
+<h1 id="Nuclide_IDE__u7684_u5B89_u88C5_u548C_u914D_u7F6E_uFF08_u53EF_u9009_uFF09"><a href="#Nuclide_IDE__u7684_u5B89_u88C5_u548C_u914D_u7F6E_uFF08_u53EF_u9009_uFF09" class="headerlink" title="Nuclide IDE 的安装和配置（可选）"></a>Nuclide IDE 的安装和配置（可选）</h1><p>Nuclide 是 Facebook 专门为 React 开发的 IDE ，既然是官方提供的 IDE ，就意味着拥有更好的语法补全、类型检查等支持。为了开发效率，不妨尝试一下这个 IDE 。</p>
+<h2 id="u5B89_u88C5_Atom"><a href="#u5B89_u88C5_Atom" class="headerlink" title="安装 Atom"></a>安装 Atom</h2><p>本质上，Nuclide 其实是在 Atom 的基础上提供的一系列插件集。要使用 Nuclide ，首先需要先安装 Atom 。Atom 是 Github 所推出的一个开源编辑器，其最大的特点是使用 node.js 来作为其插件语言。</p>
+<p>到Atom的官网下载 Atom 并安装。</p>
+<h2 id="u5B89_u88C5_Nuclide"><a href="#u5B89_u88C5_Nuclide" class="headerlink" title="安装 Nuclide"></a>安装 Nuclide</h2><p>安装完 Atom 后，打开 Settings 面板，并点击 Install 选项卡，然后在搜索框中键入 nuclide-installer ，如图所示：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-1.png" alt="搜索 nuclide-installer"></p>
+<p>第一个结果就是我们需要安装的插件，点击该插件旁边的蓝色 Install 按钮进行安装。</p>
+<p>另一种方法是直接利用 Atom 的包管理器 <code>apm</code> 安装：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apm <span class="keyword">install</span> nuclide-installer</span><br></pre></td></tr></table></figure></p>
+<p>完成后重启一下 Atom ，Atom 就会开始完成对 Nuclide 所有插件的下载安装，这个过程可能耗时比较长。完成后可以再次进入 Setting 面板，并点击 Packages 选项卡，你将可以看到一堆的 <code>Nuclide-</code> 开头的插件。</p>
+<p>为了方便编译 React Native 的工程，建议再安装一个终端插件，用于快速打开终端并定位到当前项目根路径。根据你的操作系统版本选择安装如下插件之一：</p>
+<ul>
+<li>atom-terminal：适合 Mac OSX 10.9 （Mavericks） 及以下的操作系统；</li>
+<li><p>atomerinal：atom-terminal 在 Mac OSX Yosmite 和 EI Capitan 下不能准确定位路径，这个插件是对 atom-terminal 的 fork 和修改，适合版本更高的操作系统；</p>
+<h2 id="u5176_u4ED6_u63A8_u8350_u63D2_u4EF6"><a href="#u5176_u4ED6_u63A8_u8350_u63D2_u4EF6" class="headerlink" title="其他推荐插件"></a>其他推荐插件</h2><p>除了 Nuclide 之外，还可以根据你的需求安装其他的一些插件，这里推荐一些插件：</p>
+</li>
+<li><p>react：React 的语法补全和智能重排；</p>
+</li>
+<li>react-snippets：React 的代码段；</li>
+<li>highlight-selected：高亮当前双击选中的标记；</li>
+<li>jshint：检查 JavaScript 的语法，支持 JSX （需要在插件设置中开启 Support Linting JSX）；</li>
+<li>emmet：用 emmet （Zen Coding）方式快速编写页面；</li>
+<li>save-session：让 Atom 记住上一次打开的会话；</li>
+<li>browser-plus：在 Atom 中内嵌一个浏览器窗口，方便页面调试（其实 Atom 本身就是一个浏览器）；</li>
+<li>minimap：如果你对 Sublime Text 的 minimap 念念不忘；</li>
+<li>atomic-emacs：Emacs 键盘布局，适合 Emacs 用户使用；</li>
+<li>vim-mode：Vim 键盘布局，适合 Vim 用户使用。<br>但要注意，Atom 目前的性能还比较差强人意，安装太多的插件会影响整个编辑器的启动速度，所以建议只安装必需的插件。</li>
+</ul>
+<h1 id="u7B2C_u4E00_u4E2A_u5C0F_u7A0B_u5E8F_uFF1AAwesomeProject"><a href="#u7B2C_u4E00_u4E2A_u5C0F_u7A0B_u5E8F_uFF1AAwesomeProject" class="headerlink" title="第一个小程序：AwesomeProject"></a>第一个小程序：AwesomeProject</h1><p>执行如下命令生成一个工程：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ react-<span class="keyword">native</span> init AwesomeProject</span><br></pre></td></tr></table></figure>
+<p>该命令将会下载 React Native 工程源码和依赖，生成的工程文件如下图所示：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_2.png" alt="生成的示例工程"></p>
+<p>仔细观察这个工程，你会发现如下的内容：</p>
+<ul>
+<li>node_modules 文件夹，这是 Node.js 用来存放和管理 npm 包的文件夹，现在这里包含了 React Native 框架。</li>
+<li>index.android.js 文件和 index.ios.js 文件。这是 React Native CLI 工具分别为 Android 和 iOS 创建的空壳应用。</li>
+<li>android 文件夹和 ios 文件夹。包含了用于生成两个平台的 App 的 Bootstrap 型项目。</li>
+</ul>
+<p>现在打开 Atom ，点击 File 菜单的 【Add Project Folder…】 菜单项，导入 AwesomeProject 工程文件夹，如下图所示：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_3.png" alt=""><br>通过终端插件快速打开终端（快捷键是 <code>Alt</code> + <code>Shift</code> + <code>t</code>），然后执行如下命令运行 Android 应用程序：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ react-<span class="keyword">native</span> run-android</span><br></pre></td></tr></table></figure></p>
+<p>React Native 会开始构建这个工程，同时会启动 Running Packager 用于调试。如下图所示：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_4.png" alt=""><br>如果 Running Packager 提示 “Packager can’t listen on port 8081” ，说明 8081 端口被占用，可以检查是什么程序占用了这个端口并杀掉它：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo lsof -n -i4TCP:<span class="number">8081</span> | grep LISTEN</span><br><span class="line">$ kill -<span class="number">9</span> &lt;进程id&gt;</span><br></pre></td></tr></table></figure></p>
+<p>构建完成后，手机或模拟器将会自动运行这个 App 。如果你看到的是这样的画面：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_5.png" alt=""><br>你还需要进行如下设置：</p>
+<ol>
+<li>更新 brew 和 watchman ：<code>brew update &amp;&amp; brew upgrade watchman</code>；</li>
+<li>摇动手机或按下菜单按钮呼出菜单，然后点击 【DeviceID Settings】 菜单项进入应用的选项界面，再点击 【Debug server host for device】 选项，填入你的 Mac 主机的 ip ；<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_6.png" alt=""></li>
+<li>完成后重启一下应用，或者回到主界面再次呼出菜单，点击 【Reload JS】 。应用就会开始抓取主机上的 JS Bundle 并显示如下的界面：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_7.png" alt=""></li>
+</ol>
+<p>我们的第一个应用就成功执行起来了！</p>
+<p>现在试试对我们的工程做点改动。在 Atom 下打开 index.android.js 文件，并将第 20 行附件的<br><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">Hello</span> <span class="variable">World</span><span class="exclamation_mark">!</span></span><br></pre></td></tr></table></figure></p>
+<p>改成<br><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">Hello</span> <span class="variable">HaHack</span><span class="exclamation_mark">!</span></span><br></pre></td></tr></table></figure></p>
+<p>然后再次呼出菜单，点击 【Reload JS】 刷新下界面，此时界面中的<code>Hello World!</code> 就变成了 <code>Hello HaHack!</code> ：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_8.png" alt=""></p>
+<h1 id="u5C0F_u6280_u5DE7"><a href="#u5C0F_u6280_u5DE7" class="headerlink" title="小技巧"></a>小技巧</h1><h2 id="u6DFB_u52A0_Alias"><a href="#u6DFB_u52A0_Alias" class="headerlink" title="添加 Alias"></a>添加 Alias</h2><p>React Native 运行一个 App 的命令有点长，可以为其编写一些 Alias ，节省时间，方便记忆。将下面两行代码添加到你的 Shell 配置文件中（<code>.bashrc</code> 或 <code>.zshrc</code>）：<br><figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> <span class="title">rna</span>=<span class="string">"react-native run-android"</span></span><br><span class="line"><span class="keyword">alias</span> <span class="title">rni</span>=<span class="string">"react-native run-ios"</span></span><br></pre></td></tr></table></figure></p>
+<p>完成后重新打开终端，即可使用 <code>rna</code> 命令运行 React Native for Android 项目，用 <code>rni</code> 命令运行 React Native for iOS 项目。</p>
+<h2 id="u81EA_u52A8_u5237_u65B0_u754C_u9762"><a href="#u81EA_u52A8_u5237_u65B0_u754C_u9762" class="headerlink" title="自动刷新界面"></a>自动刷新界面</h2><p>如果希望每次修改 JS 脚本后自动刷新应用的界面，可以再次进入应用的选项界面，把 【Auto reload on JS Change】 选项打开：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native_9.png" alt=""></p>
+<p>这样当 watchman 发现你的 JS 文件发生更改时，就会让 Running Packager 重新加载应用的界面。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/React-Native/">React Native</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/新技术试水/">新技术试水</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuanzhangjiong.xyz/2015/11/20/学习-React-Native-for-Android：环境搭建/" data-title="学习 React Native for Android：环境搭建 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/12/01/柚子房东，第一个从无到有的创业项目/" title="柚子房东，第一个从无到有的创业项目">
+  <strong>上一篇：</strong><br/>
+  <span>
+  柚子房东，第一个从无到有的创业项目</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/11/18/Android快捷方式解密/"  title="Android快捷方式解密">
+ <strong>下一篇：</strong><br/> 
+ <span>Android快捷方式解密
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/11/20/学习-React-Native-for-Android：环境搭建/" data-title="学习 React Native for Android：环境搭建" data-url="http://www.xuanzhangjiong.xyz/2015/11/20/学习-React-Native-for-Android：环境搭建/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u51C6_u5907_u5DE5_u4F5C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u57FA_u672C_u5F00_u53D1_u73AF_u5883_u642D_u5EFA"><span class="toc-number">2.</span> <span class="toc-text">基本开发环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Homebrew"><span class="toc-number">2.1.</span> <span class="toc-text">安装 Homebrew</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Node-js"><span class="toc-number">2.2.</span> <span class="toc-text">安装 Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5_nvm"><span class="toc-number">2.2.1.</span> <span class="toc-text">安装 nvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u5B89_u88C5_Node-js-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">安装 Node.js</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_watchman"><span class="toc-number">2.3.</span> <span class="toc-text">安装 watchman</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_flow"><span class="toc-number">2.4.</span> <span class="toc-text">安装 flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Android_SDK"><span class="toc-number">2.5.</span> <span class="toc-text">安装 Android SDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_React_Native"><span class="toc-number">2.6.</span> <span class="toc-text">安装 React Native</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nuclide_IDE__u7684_u5B89_u88C5_u548C_u914D_u7F6E_uFF08_u53EF_u9009_uFF09"><span class="toc-number">3.</span> <span class="toc-text">Nuclide IDE 的安装和配置（可选）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Atom"><span class="toc-number">3.1.</span> <span class="toc-text">安装 Atom</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B89_u88C5_Nuclide"><span class="toc-number">3.2.</span> <span class="toc-text">安装 Nuclide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5176_u4ED6_u63A8_u8350_u63D2_u4EF6"><span class="toc-number">3.3.</span> <span class="toc-text">其他推荐插件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B2C_u4E00_u4E2A_u5C0F_u7A0B_u5E8F_uFF1AAwesomeProject"><span class="toc-number">4.</span> <span class="toc-text">第一个小程序：AwesomeProject</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5C0F_u6280_u5DE7"><span class="toc-number">5.</span> <span class="toc-text">小技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u6DFB_u52A0_Alias"><span class="toc-number">5.1.</span> <span class="toc-text">添加 Alias</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u81EA_u52A8_u5237_u65B0_u754C_u9762"><span class="toc-number">5.2.</span> <span class="toc-text">自动刷新界面</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Git/" title="Git">Git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/MarkDown/" title="MarkDown">MarkDown<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/React-Native/" title="React Native">React Native<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/java/" title="java">java<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/作品/" title="作品">作品<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/开源贡献/" title="开源贡献">开源贡献<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/架构/" title="架构">架构<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/生活小记/" title="生活小记">生活小记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/项目经历/" title="项目经历">项目经历<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/码农必备常识/" title="码农必备常识">码农必备常识<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android进阶优质资源/" title="Android进阶优质资源">Android进阶优质资源<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/创业项目，一个字“累”/" title="创业项目，一个字“累”">创业项目，一个字“累”<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/校园网账号抓取/" title="校园网账号抓取">校园网账号抓取<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/毕业季/" title="毕业季">毕业季<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/作品/" title="作品">作品<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/新技术试水/" title="新技术试水">新技术试水<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/生活感言/" title="生活感言">生活感言<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单例模式/" title="单例模式">单例模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/md5/" title="md5">md5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/oschina-android-app/" title="oschina-android-app">oschina-android-app<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Material-Design/" title="Material Design">Material Design<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常见3种架构/" title="常见3种架构">常见3种架构<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/注解/" title="注解">注解<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/异步事件处理/" title="异步事件处理">异步事件处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/调试/" title="调试">调试<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/性能/" title="性能">性能<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Android快捷方式/" title="Android快捷方式">Android快捷方式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/常见问题总结/" title="常见问题总结">常见问题总结<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MVVM/" title="MVVM">MVVM<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://jiajixin.cn/" target="_blank" title="学长的博客">Jason&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.changhuiyuan.com/" target="_blank" title="好友的博客">Eric Libaray</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1600625133&verifier=b349771a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 「一只笨鸟的成长史...」 <br/>
+			Better late than never.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1600625133" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/TopJohn" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/Top-John" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/shuai-jiong" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		<a href="https://plus.google.com/114979210024559900000?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:xzj19922010@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="John">John</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"John"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
