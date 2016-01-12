@@ -4,22 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>TopJohn&#39;Blog</title>
+    <title>React-Native之入坑经历 | TopJohn&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John">
     
 
     
-    <meta name="description" content="写个博客，记录自己在开发过程中的点点滴滴...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TopJohn'Blog">
-<meta property="og:url" content="http://www.xuanzhangjiong.xyz/page/3/index.html">
+    <meta name="description" content="每次尝试一项新技术总是会有小挫折。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Native之入坑经历">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/12/24/React-Native之入坑经历/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
-<meta property="og:description" content="写个博客，记录自己在开发过程中的点点滴滴...">
+<meta property="og:description" content="每次尝试一项新技术总是会有小挫折。。">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_1.jpg">
+<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_2.jpg">
+<meta property="og:updated_time" content="2016-01-12T02:45:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TopJohn'Blog">
-<meta name="twitter:description" content="写个博客，记录自己在开发过程中的点点滴滴...">
+<meta name="twitter:title" content="React-Native之入坑经历">
+<meta name="twitter:description" content="每次尝试一项新技术总是会有小挫折。。">
 <link rel="publisher" href="114979210024559900000">
 
     
@@ -76,95 +79,104 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/07/20/Android-MVVM/" title="Android MVVM" itemprop="url">
-  
-    <h1 itemprop="name">Android MVVM</h1>
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-      <p itemprop="description" >结合Android学习下MVVM</p>
-      
+      <a href="/2015/12/24/React-Native之入坑经历/" title="React-Native之入坑经历" itemprop="url">React-Native之入坑经历</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-24T10:59:21.000Z" itemprop="datePublished"> 发表于 2015-12-24</time>
     
-    <time datetime="2015-07-20T02:16:29.000Z" itemprop="datePublished">2015-07-20</time>
-  </a>
-</section>
-
-
-
-
-
-
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>这几天一直很郁闷，React-Native环境搭建比较坎坷，<code>npm</code>换源了之后效果依然不佳，翻过了厚厚的围墙，也是龟速，npm倒还好，不得不吐槽下，<code>atom</code>，<code>apm</code>安装插件比搭Android还慢，而且<code>atom</code>装多了插件就会很卡。</p>
+<p>过了N小时，总算搭建完了，想跑个HelloWorld，但是发现在传输本地服务器的js文件时总是<code>Unable to download JS bundle</code>，尝试了<code>GitHub</code>上的<code>Issue</code>，和<code>StackOverFlow</code>上的解答依然无果。就这样耗了几天，今天在React中文论坛上看到一篇帖子说<code>0.18.0-rc</code>版有问题，然后看了一下自己的，果然是这个版本，出于试试看的心态，我把它换成了<code>0.17.0</code>，就可以跑的通了。</p>
+<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_1.jpg" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_2.jpg" alt=""></p>
   
-<section class="post" itemscope itemprop="blogitem">
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/React-Native/">React Native</a>
+</div>
+
+
+  <div class="article-tags">
   
-    <a href="/2015/07/18/Android常见问题总结/" title="Android常见问题总结" itemprop="url">
-  
-    <h1 itemprop="name">Android常见问题总结</h1>
-    
-     
-           <p itemprop="description" >一、如果后台的Activity由于某原因被系统回收了，如何在被系统回收之前保存当前状态？在onSaveInstanceState()中保存其状态。activity被置于后台时，在执行onStop之前，通过onSaveInstacneState 保存当前activity状态。如果被</p>
-        
-    
-    <time datetime="2015-07-18T06:29:05.000Z" itemprop="datePublished">2015-07-18</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/07/15/MVC、MVP、MVVM的个人理解/" title="MVC、MVP、MVVM的个人理解" itemprop="url">
-  
-    <h1 itemprop="name">MVC、MVP、MVVM的个人理解</h1>
-    
-     
-      <p itemprop="description" >对3种系统架构的浅显理解</p>
-      
-    
-    <time datetime="2015-07-15T12:32:08.000Z" itemprop="datePublished">2015-07-15</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/06/20/开篇/" title="开篇" itemprop="url">
-  
-    <h1 itemprop="name">开篇</h1>
-    
-     
-      <p itemprop="description" >磨蹭了几个月的blog终于开篇了</p>
-      
-    
-    <time datetime="2015-06-20T11:50:11.000Z" itemprop="datePublished">2015-06-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix unexpand">
-    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  <span></span> <a href="/tags/入坑经历/">入坑经历</a>
+  </div>
 
 </div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuanzhangjiong.xyz/2015/12/24/React-Native之入坑经历/" data-title="React-Native之入坑经历 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/12/25/第一次开源贡献成功/" title="第一次开源贡献成功">
+  <strong>上一篇：</strong><br/>
+  <span>
+  第一次开源贡献成功</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/12/20/参加腾讯Innovation-Space比赛的感想/"  title="参加腾讯Innovation Space比赛的感想">
+ <strong>下一篇：</strong><br/> 
+ <span>参加腾讯Innovation Space比赛的感想
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/12/24/React-Native之入坑经历/" data-title="React-Native之入坑经历" data-url="http://www.xuanzhangjiong.xyz/2015/12/24/React-Native之入坑经历/"></div>
+</section>
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -441,12 +453,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -519,4 +608,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
