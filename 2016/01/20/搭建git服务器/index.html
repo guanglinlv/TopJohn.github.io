@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>TopJohn&#39;Blog</title>
+    <title>搭建git服务器 | TopJohn&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John">
     
 
     
-    <meta name="description" content="写个博客，记录自己在开发过程中的点点滴滴...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TopJohn'Blog">
-<meta property="og:url" content="http://www.xuanzhangjiong.xyz/page/2/index.html">
+    <meta name="description" content="想搭个自己的Git服务器玩玩，不为什么，就是任性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建git服务器">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2016/01/20/搭建git服务器/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
-<meta property="og:description" content="写个博客，记录自己在开发过程中的点点滴滴...">
+<meta property="og:description" content="想搭个自己的Git服务器玩玩，不为什么，就是任性。">
+<meta property="og:updated_time" content="2016-01-22T13:57:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TopJohn'Blog">
-<meta name="twitter:description" content="写个博客，记录自己在开发过程中的点点滴滴...">
+<meta name="twitter:title" content="搭建git服务器">
+<meta name="twitter:description" content="想搭个自己的Git服务器玩玩，不为什么，就是任性。">
 <link rel="publisher" href="114979210024559900000">
 
     
@@ -76,220 +77,122 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/12/01/柚子房东，第一个从无到有的创业项目/" title="柚子房东，第一个从无到有的创业项目" itemprop="url">
-  
-    <h1 itemprop="name">柚子房东，第一个从无到有的创业项目</h1>
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-      <p itemprop="description" >柚子房东这个项目，从7月中旬开始定需求，设计，开发，也经历了4个多月了，v1.0也算是上线了，来谈谈这几个月的感想吧。</p>
-      
+      <a href="/2016/01/20/搭建git服务器/" title="搭建git服务器" itemprop="url">搭建git服务器</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-20T11:55:23.000Z" itemprop="datePublished"> 发表于 2016-01-20</time>
     
-    <time datetime="2015-12-01T06:52:05.000Z" itemprop="datePublished">2015-12-01</time>
-  </a>
-</section>
-
-
-
-
-
-
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>从去年暑假第一次正式使用Git，现在空下来了，也有时间自己做做小实验了。</p>
+<p>废话不多说，连上服务器开敲，直播入坑。</p>
+<ol>
+<li><p>一般来说不更新<code>apt-get</code>肯定出错，果不其然。它也提示你要更新了，所以先敲一边</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后再安装git</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个Git用户，用来运行<code>git</code>服务：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">sudo</span> <span class="keyword">adduser </span>git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换到<code>git</code>用户，将你的公钥放到git用户目录下的<code>~/.ssh/authorized_keys</code>里，方法上一篇blog已经写了。</p>
+</li>
+<li><p>创建一个裸仓库</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init <span class="comment">--bare XXX</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成。找到类似下面的一行：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git:</span><span class="symbol">x:</span><span class="number">1001</span><span class="symbol">:</span><span class="number">1001</span><span class="symbol">:</span>,,,<span class="symbol">:/home/git</span><span class="symbol">:/bin/bash</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>一般是在最下面一行<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git:</span><span class="symbol">x:</span><span class="number">1001</span><span class="symbol">:</span><span class="number">1001</span><span class="symbol">:</span>,,,<span class="symbol">:/home/git</span><span class="symbol">:/usr/bin/git-shell</span></span><br></pre></td></tr></table></figure></p>
+<p>这样，git用户可以正常通过ssh使用git，但无法登录shell，因为我们为git用户指定的git-shell每次一登录就自动退出。<br>当然你要改回来，直接用root用户去改回来就好了。</p>
+<ol>
+<li>可以克隆远程仓库了<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@xxx<span class="class">.xxx</span><span class="class">.xxx</span><span class="class">.xxx</span>:~/xxx/xxx.git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>大概就是这样了，已然成功。</p>
+<p>自己用用这样足够了，那些大公司就要用Gitosis管理公钥了，权限控制：Gitolite了，作为个人开发者，足矣。</p>
   
-<section class="post" itemscope itemprop="blogitem">
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Git/">Git</a>
+</div>
+
+
+  <div class="article-tags">
   
-    <a href="/2015/11/20/学习-React-Native-for-Android：环境搭建/" title="学习 React Native for Android：环境搭建" itemprop="url">
-  
-    <h1 itemprop="name">学习 React Native for Android：环境搭建</h1>
-    
-     
-      <p itemprop="description" >之前试过用ionic做开发，心想开发速度快一套顶多套，省事，完事了才发现是个坑，果断放弃，fb出了React Native总不至于又坑吧，先来试试水。</p>
-      
-    
-    <time datetime="2015-11-20T13:07:42.000Z" itemprop="datePublished">2015-11-20</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/11/18/Android快捷方式解密/" title="Android快捷方式解密" itemprop="url">
-  
-    <h1 itemprop="name">Android快捷方式解密</h1>
-    
-     
-      <p itemprop="description" >Android快捷方式作为Android设备的杀手锏技能，一直都是非常重要的一个功能，也正是如此，各种流氓App也不断通过快捷方式霸占着这样一个用户入口。</p>
-      
-    
-    <time datetime="2015-11-18T08:20:14.000Z" itemprop="datePublished">2015-11-18</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/11/09/Material-Design风格的应用程序开发总结/" title="Material Design风格的应用程序开发总结" itemprop="url">
-  
-    <h1 itemprop="name">Material Design风格的应用程序开发总结</h1>
-    
-     
-      <p itemprop="description" >Material Design初识</p>
-      
-    
-    <time datetime="2015-11-09T11:55:39.000Z" itemprop="datePublished">2015-11-09</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/11/01/单例模式/" title="单例模式" itemprop="url">
-  
-    <h1 itemprop="name">单例模式</h1>
-    
-     
-      <p itemprop="description" >单例模式在Android中应用的十分广泛，今天抽空整理一下。</p>
-      
-    
-    <time datetime="2015-11-01T11:37:54.000Z" itemprop="datePublished">2015-11-01</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/10/10/MarkDown语法练习/" title="MarkDown语法练习" itemprop="url">
-  
-    <h1 itemprop="name">MarkDown语法练习</h1>
-    
-     
-      <p itemprop="description" >MarkDown语法现在越来越常见了，Github的Readme，SegmentFault、Coding、OSChina、简书都要用...</p>
-      
-    
-    <time datetime="2015-10-10T08:51:41.000Z" itemprop="datePublished">2015-10-10</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/10/Java-注解浅析/" title="Java-注解浅析" itemprop="url">
-  
-    <h1 itemprop="name">Java-注解浅析</h1>
-    
-     
-      <p itemprop="description" >见惯了Android中的annotation，以及各种资源注解的框架，却没有深入了解其中的原理，深表惭愧...</p>
-      
-    
-    <time datetime="2015-09-10T07:18:03.000Z" itemprop="datePublished">2015-09-10</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/05/Android无线调试方法/" title="Android无线调试方法" itemprop="url">
-  
-    <h1 itemprop="name">Android无线调试方法</h1>
-    
-     
-           <p itemprop="description" >自从用了Mac之后usb接口果断不够用了，能省一个是一个，发现原来在同一局域网下，可以无线调试，果断学习了。
-步骤很简单：
-
-先用USB连上手机。
-然后adb tcpip 5555，当然端口自己设，没有限死。
-拔掉USB线，adb connect 192.168.31.137:5</p>
-        
-    
-    <time datetime="2015-09-05T04:15:48.000Z" itemprop="datePublished">2015-09-05</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/03/EventBus浅析/" title="EventBus浅析" itemprop="url">
-  
-    <h1 itemprop="name">EventBus浅析</h1>
-    
-     
-      <p itemprop="description" >有空学习了一下EventBus,希望下个项目中可以试用下...</p>
-      
-    
-    <time datetime="2015-09-03T02:24:11.000Z" itemprop="datePublished">2015-09-03</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/09/01/常用Git命令清单/" title="常用Git命令清单" itemprop="url">
-  
-    <h1 itemprop="name">常用Git命令清单</h1>
-    
-     
-      <p itemprop="description" >看到别人写的挺好的，拿来敲一边，就当回顾总结吧，哈哈，太机智了...</p>
-      
-    
-    <time datetime="2015-09-01T13:07:23.000Z" itemprop="datePublished">2015-09-01</time>
-  </a>
-</section>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix unexpand">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
-  </nav>
+  <span></span> <a href="/tags/Git服务器搭建/">Git服务器搭建</a>
+  </div>
 
 </div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.xuanzhangjiong.xyz/2016/01/20/搭建git服务器/" data-title="搭建git服务器 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/01/14/Ubuntu配置ssh/"  title="Ubuntu配置ssh">
+ <strong>下一篇：</strong><br/> 
+ <span>Ubuntu配置ssh
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/01/20/搭建git服务器/" data-title="搭建git服务器" data-url="http://www.xuanzhangjiong.xyz/2016/01/20/搭建git服务器/"></div>
+</section>
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -570,12 +473,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -648,4 +628,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
