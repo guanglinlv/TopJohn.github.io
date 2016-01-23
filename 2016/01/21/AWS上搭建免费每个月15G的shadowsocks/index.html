@@ -4,30 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>MVC、MVP、MVVM的个人理解 | TopJohn&#39;Blog</title>
+    <title>AWS上搭建免费每个月15G的shadowsocks | TopJohn&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John">
     
 
     
-    <meta name="description" content="对3种系统架构的浅显理解">
+    <meta name="description" content="有一个自己的ss还是很必要的，因为真的是每天都在爬梯子。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MVC、MVP、MVVM的个人理解">
-<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/07/15/MVC、MVP、MVVM的个人理解/index.html">
+<meta property="og:title" content="AWS上搭建免费每个月15G的shadowsocks">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
-<meta property="og:description" content="对3种系统架构的浅显理解">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_1.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_2.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_3.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_4.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_5.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvp.png">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/mvvm.png">
-<meta property="og:updated_time" content="2015-12-19T13:05:54.000Z">
+<meta property="og:description" content="有一个自己的ss还是很必要的，因为真的是每天都在爬梯子。">
+<meta property="og:updated_time" content="2016-01-23T09:02:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MVC、MVP、MVVM的个人理解">
-<meta name="twitter:description" content="对3种系统架构的浅显理解">
+<meta name="twitter:title" content="AWS上搭建免费每个月15G的shadowsocks">
+<meta name="twitter:description" content="有一个自己的ss还是很必要的，因为真的是每天都在爬梯子。">
 <link rel="publisher" href="114979210024559900000">
 
     
@@ -90,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/15/MVC、MVP、MVVM的个人理解/" title="MVC、MVP、MVVM的个人理解" itemprop="url">MVC、MVP、MVVM的个人理解</a>
+      <a href="/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/" title="AWS上搭建免费每个月15G的shadowsocks" itemprop="url">AWS上搭建免费每个月15G的shadowsocks</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/114979210024559900000?rel=author" title="John" target="_blank" itemprop="author">John</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-15T12:32:08.000Z" itemprop="datePublished"> 发表于 2015-07-15</time>
+    <time datetime="2016-01-21T08:17:04.000Z" itemprop="datePublished"> 发表于 2016-01-21</time>
     
   </p>
 </header>
@@ -106,49 +99,25 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E00_u3001MVC"><span class="toc-number">1.</span> <span class="toc-text">一、MVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E8C_u3001_u4E92_u52A8_u6A21_u5F0F"><span class="toc-number">2.</span> <span class="toc-text">二、互动模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E09_u3001_u5B9E_u4F8B_uFF1ABackbone"><span class="toc-number">3.</span> <span class="toc-text">三、实例：Backbone</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u56DB_u3001MVP"><span class="toc-number">4.</span> <span class="toc-text">四、MVP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E94_u3001MVVM"><span class="toc-number">5.</span> <span class="toc-text">五、MVVM</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6CE8_u518CAWS"><span class="toc-number">2.</span> <span class="toc-text">注册AWS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u521B_u5EFAEC2_u5B9E_u4F8B"><span class="toc-number">3.</span> <span class="toc-text">创建EC2实例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5B89_u88C5shadowsocks_u4F9D_u8D56"><span class="toc-number">4.</span> <span class="toc-text">安装shadowsocks依赖</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u914D_u7F6Eshaodowsocks"><span class="toc-number">5.</span> <span class="toc-text">配置shaodowsocks</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5F00_u542FAWS_u5165_u7AD9_u7AEF_u53E3"><span class="toc-number">6.</span> <span class="toc-text">开启AWS入站端口</span></a></li></ol>
 		
 		</div>
 		
-		<p>从最初的只要把功能实现出来可以不择手段，到代码太乱了，整理整理吧，再到看看别人写的代码，那就把每个类分分类吧。嗯，再看看那些开源的项目，自己不得不开始思考系统架构了，因为，它就好比代码中的书法，然而它比书法更重要，因为，有一个好的架构不仅可以使得项目更加便于阅读，理解，甚至在有些时候执行效率也更好，so…..</p>
-<p>MVC（Model-View-Controller）是最常见的软件架构之一，业界有着广泛应用。它本身很容易理解，但是要讲清楚，它与衍生的 MVP 和 MVVM 架构的区别就不容易了。</p>
-<h1 id="u4E00_u3001MVC"><a href="#u4E00_u3001MVC" class="headerlink" title="一、MVC"></a>一、MVC</h1><p>MVC模式的意思是，软件可以分成三个部分。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_1.png" alt=""></p>
-<ul>
-<li>视图（View）：用户界面。</li>
-<li>控制器（Controller）：业务逻辑</li>
-<li>模型（Model）：数据保存<br><br></li>
-</ul>
-<hr>
-<p>各部分之间的通信方式如下。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_2.png" alt=""></p>
-<ol>
-<li>View 传送指令到 Controller</li>
-<li>Controller 完成业务逻辑后，要求 Model 改变状态</li>
-<li>Model 将新的数据发送到 View，用户得到反馈</li>
+		<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>最早的时候，我是用GoAgent的，那个体验真的是差！差！差！，还得经常换ip，而且只能代理http，后来用免费的VPN，毕竟没给钱，太慢了，上了研究僧，用了导师的shadowsocks大半年，感觉很好，发现AWS的ec2可以免费用一年，那就试试吧。</p>
+<h1 id="u6CE8_u518CAWS"><a href="#u6CE8_u518CAWS" class="headerlink" title="注册AWS"></a>注册AWS</h1><p>注册Aws把我坑惨了，绑定信用卡，人家扣了1美元，我扣了2美元，可能是我绑的不是visa的卡的缘故，管它呢，反正会退，当电话验证的时候，我去，死活打不过来，后来打10086，我国际长途没开，可能是这个原因，卡了1天，后来用别人的手机验证的，验证完了，又扣了2美元（他大爷的），难道隔天又要重新验证嘛～～！！不过也不是大事，预授权的费用，大概3个星期就能回来，不虚。</p>
+<h1 id="u521B_u5EFAEC2_u5B9E_u4F8B"><a href="#u521B_u5EFAEC2_u5B9E_u4F8B" class="headerlink" title="创建EC2实例"></a>创建EC2实例</h1><p>我选的是Ubuntu Server 14.04 LTS，下面的全部默认，别乱选，万一超过免费范围了呢！选择东京的节点，据说效果比较好，然后配个ssh密钥。<br>打开终端，进到amazon.pem文件所在目录，<br>执行<code>chmod 400 amazon.pem</code>修改文件权限<br>执行<code>ssh -i amazon.pem ubuntu@你的服务器节点ip</code>即可连接上远程服务器</p>
+<h1 id="u5B89_u88C5shadowsocks_u4F9D_u8D56"><a href="#u5B89_u88C5shadowsocks_u4F9D_u8D56" class="headerlink" title="安装shadowsocks依赖"></a>安装shadowsocks依赖</h1><ol>
+<li>sudo -s //获取超级管理员权限</li>
+<li>apt-get update //更新apt-get</li>
+<li>apt-get install python-pip //安装python包管理工具pip</li>
+<li>pip install shadowsocks // 安装shadowsocks</li>
+<li>ssserver -c /etc/shadowsocks.json -d start //启动shadowsocks<br>shadowsocks.json需要自己创建，默认是没有的</li>
 </ol>
-<p>所有通信都是单向的。</p>
-<h1 id="u4E8C_u3001_u4E92_u52A8_u6A21_u5F0F"><a href="#u4E8C_u3001_u4E92_u52A8_u6A21_u5F0F" class="headerlink" title="二、互动模式"></a>二、互动模式</h1><p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_3.png" alt=""></p>
-<p>另一种是直接通过controller接受指令。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_4.png" alt=""></p>
-<h1 id="u4E09_u3001_u5B9E_u4F8B_uFF1ABackbone"><a href="#u4E09_u3001_u5B9E_u4F8B_uFF1ABackbone" class="headerlink" title="三、实例：Backbone"></a>三、实例：Backbone</h1><p>但是实际项目往往采取更加灵活的方式，以 Backbone.js 为例。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvc_5.png" alt=""></p>
-<ol>
-<li>用户可以向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。</li>
-<li>用户也可以直接向 Controller 发送指令（改变 URL 触发 hashChange 事件），再由 Controller 发送给 View。</li>
-<li>Controller 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 View。所以，Backbone 索性取消了 Controller，只保留一个 Router（路由器） 。</li>
-</ol>
-<h1 id="u56DB_u3001MVP"><a href="#u56DB_u3001MVP" class="headerlink" title="四、MVP"></a>四、MVP</h1><p>MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvp.png" alt=""></p>
-<ol>
-<li>各部分之间的通信，都是双向的。</li>
-<li>View 与 Model 不发生联系，都通过 Presenter 传递。</li>
-<li>View 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</li>
-</ol>
-<h1 id="u4E94_u3001MVVM"><a href="#u4E94_u3001MVVM" class="headerlink" title="五、MVVM"></a>五、MVVM</h1><p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/mvvm.png" alt=""></p>
-<p>唯一的区别是，它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。Angular 和 Ember 都采用这种模式。</p>
+<h1 id="u914D_u7F6Eshaodowsocks"><a href="#u914D_u7F6Eshaodowsocks" class="headerlink" title="配置shaodowsocks"></a>配置shaodowsocks</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>shadowsocks.json</span><br></pre></td></tr></table></figure>
+<p>（ps. 可能有人不会用vi，这里简单说下，vi打开文件后，按i即可进入编辑状态，编辑完后，按esc退出编辑状态，按:进入命令状态，输入wq即可保存并退出，还不懂的话自行百度vi吧）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">server</span>":<span class="value"><span class="string">"0.0.0.0"</span></span>,</span><br><span class="line">    "<span class="attribute">server_port</span>":<span class="value">端口</span>,</span><br><span class="line">    "<span class="attribute">local_address</span>":<span class="value"><span class="string">"127.0.0.1"</span></span>,</span><br><span class="line">    "<span class="attribute">local_port</span>":<span class="value"><span class="number">1080</span></span>,</span><br><span class="line">    "<span class="attribute">password</span>":<span class="value"><span class="string">"连接密码"</span></span>,</span><br><span class="line">    "<span class="attribute">timeout</span>":<span class="value"><span class="number">300</span></span>,</span><br><span class="line">    "<span class="attribute">method</span>":<span class="value"><span class="string">"aes-256-cfb"</span></span>,</span><br><span class="line">    "<span class="attribute">fast_open</span>":<span class="value"><span class="literal">false</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="u5F00_u542FAWS_u5165_u7AD9_u7AEF_u53E3"><a href="#u5F00_u542FAWS_u5165_u7AD9_u7AEF_u53E3" class="headerlink" title="开启AWS入站端口"></a>开启AWS入站端口</h1><p>配置好shaodowsocks后，还需要将配置中的端口打开,这样客户端的服务才能链接得上EC2中的shadowsocks服务<br>首先打开正在运行的实例，向右滚动表格，最后一项，安全组，点击进入，编辑入站规则，默认是开启了一个22端口（这是给ssh访问的），再建一个如下图红框标示的端口，我的shadowsocks配置的端口是8388，所以这里就开启8388。</p>
+<p>如果不放心流量超限的话可以设置下账单报警。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -156,13 +125,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/架构/">架构</a>
+  <a class="article-category-link" href="/categories/shadowsocks/">shadowsocks</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/常见3种架构/">常见3种架构</a>
+  <span></span> <a href="/tags/开发必备/">开发必备</a><a href="/tags/科学上网/">科学上网</a>
   </div>
 
 </div>
@@ -171,7 +140,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.xuanzhangjiong.xyz/2015/07/15/MVC、MVP、MVVM的个人理解/" data-title="MVC、MVP、MVVM的个人理解 | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
+	  <div data-url="http://www.xuanzhangjiong.xyz/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/" data-title="AWS上搭建免费每个月15G的shadowsocks | TopJohn&#39;Blog" data-tsina="1600625133" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -184,19 +153,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/18/Android常见问题总结/" title="Android常见问题总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Android常见问题总结</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/06/20/开篇/"  title="开篇">
+<a href="/2016/01/20/搭建git服务器/"  title="搭建git服务器">
  <strong>下一篇：</strong><br/> 
- <span>开篇
+ <span>搭建git服务器
 </span>
 </a>
 </div>
@@ -205,7 +166,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/07/15/MVC、MVP、MVVM的个人理解/" data-title="MVC、MVP、MVVM的个人理解" data-url="http://www.xuanzhangjiong.xyz/2015/07/15/MVC、MVP、MVVM的个人理解/"></div>
+	<div class="ds-thread" data-thread-key="2016/01/21/AWS上搭建免费每个月15G的shadowsocks/" data-title="AWS上搭建免费每个月15G的shadowsocks" data-url="http://www.xuanzhangjiong.xyz/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/"></div>
 </section>
 
 
@@ -215,7 +176,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E00_u3001MVC"><span class="toc-number">1.</span> <span class="toc-text">一、MVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E8C_u3001_u4E92_u52A8_u6A21_u5F0F"><span class="toc-number">2.</span> <span class="toc-text">二、互动模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E09_u3001_u5B9E_u4F8B_uFF1ABackbone"><span class="toc-number">3.</span> <span class="toc-text">三、实例：Backbone</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u56DB_u3001MVP"><span class="toc-number">4.</span> <span class="toc-text">四、MVP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E94_u3001MVVM"><span class="toc-number">5.</span> <span class="toc-text">五、MVVM</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6CE8_u518CAWS"><span class="toc-number">2.</span> <span class="toc-text">注册AWS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u521B_u5EFAEC2_u5B9E_u4F8B"><span class="toc-number">3.</span> <span class="toc-text">创建EC2实例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5B89_u88C5shadowsocks_u4F9D_u8D56"><span class="toc-number">4.</span> <span class="toc-text">安装shadowsocks依赖</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u914D_u7F6Eshaodowsocks"><span class="toc-number">5.</span> <span class="toc-text">配置shaodowsocks</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5F00_u542FAWS_u5165_u7AD9_u7AEF_u53E3"><span class="toc-number">6.</span> <span class="toc-text">开启AWS入站端口</span></a></li></ol>
  
   </div>
 
