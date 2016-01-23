@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://www.xuanzhangjiong.xyz/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
 <meta property="og:description" content="有一个自己的ss还是很必要的，因为真的是每天都在爬梯子。">
-<meta property="og:updated_time" content="2016-01-23T09:02:29.000Z">
+<meta property="og:updated_time" content="2016-01-23T09:10:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AWS上搭建免费每个月15G的shadowsocks">
 <meta name="twitter:description" content="有一个自己的ss还是很必要的，因为真的是每天都在爬梯子。">
@@ -105,7 +105,7 @@
 		
 		<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>最早的时候，我是用GoAgent的，那个体验真的是差！差！差！，还得经常换ip，而且只能代理http，后来用免费的VPN，毕竟没给钱，太慢了，上了研究僧，用了导师的shadowsocks大半年，感觉很好，发现AWS的ec2可以免费用一年，那就试试吧。</p>
 <h1 id="u6CE8_u518CAWS"><a href="#u6CE8_u518CAWS" class="headerlink" title="注册AWS"></a>注册AWS</h1><p>注册Aws把我坑惨了，绑定信用卡，人家扣了1美元，我扣了2美元，可能是我绑的不是visa的卡的缘故，管它呢，反正会退，当电话验证的时候，我去，死活打不过来，后来打10086，我国际长途没开，可能是这个原因，卡了1天，后来用别人的手机验证的，验证完了，又扣了2美元（他大爷的），难道隔天又要重新验证嘛～～！！不过也不是大事，预授权的费用，大概3个星期就能回来，不虚。</p>
-<h1 id="u521B_u5EFAEC2_u5B9E_u4F8B"><a href="#u521B_u5EFAEC2_u5B9E_u4F8B" class="headerlink" title="创建EC2实例"></a>创建EC2实例</h1><p>我选的是Ubuntu Server 14.04 LTS，下面的全部默认，别乱选，万一超过免费范围了呢！选择东京的节点，据说效果比较好，然后配个ssh密钥。<br>打开终端，进到amazon.pem文件所在目录，<br>执行<code>chmod 400 amazon.pem</code>修改文件权限<br>执行<code>ssh -i amazon.pem ubuntu@你的服务器节点ip</code>即可连接上远程服务器</p>
+<h1 id="u521B_u5EFAEC2_u5B9E_u4F8B"><a href="#u521B_u5EFAEC2_u5B9E_u4F8B" class="headerlink" title="创建EC2实例"></a>创建EC2实例</h1><p>我选的是Ubuntu Server 14.04 LTS，下面的全部默认，别乱选，万一超过免费范围了呢！选择东京的节点，据说效果比较好，然后配个ssh密钥。<br>打开终端，进到amazon.pem文件所在目录，<br>执行<code>chmod 400 amazon.pem</code>修改文件权限<br>执行<code>ssh -i amazon.pem ubuntu@你的服务器节点ip</code>即可连接上远程服务器<br>(ssh $user@$host  -i $key   应该是限制了访问其他主机的时候都要用指定用户和指定的key文件)</p>
 <h1 id="u5B89_u88C5shadowsocks_u4F9D_u8D56"><a href="#u5B89_u88C5shadowsocks_u4F9D_u8D56" class="headerlink" title="安装shadowsocks依赖"></a>安装shadowsocks依赖</h1><ol>
 <li>sudo -s //获取超级管理员权限</li>
 <li>apt-get update //更新apt-get</li>
