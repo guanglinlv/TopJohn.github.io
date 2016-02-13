@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="开发必备,科学上网," />
+  <meta name="keywords" content="小技巧," />
 
 
 
@@ -61,16 +61,16 @@
 
 
 
-<meta name="description" content="有一个自己的ss还是很必要的，因为真的是每天都在爬梯子。">
+<meta name="description" content="正则表达式中的$1，$2...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AWS上搭建免费每个月15G的shadowsocks">
-<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/index.html">
+<meta property="og:title" content="正则表达式的含义">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2016/01/23/正则表达式的含义/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
-<meta property="og:description" content="有一个自己的ss还是很必要的，因为真的是每天都在爬梯子。">
-<meta property="og:updated_time" content="2016-01-23T09:10:58.000Z">
+<meta property="og:description" content="正则表达式中的$1，$2...">
+<meta property="og:updated_time" content="2016-02-13T05:07:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AWS上搭建免费每个月15G的shadowsocks">
-<meta name="twitter:description" content="有一个自己的ss还是很必要的，因为真的是每天都在爬梯子。">
+<meta name="twitter:title" content="正则表达式的含义">
+<meta name="twitter:description" content="正则表达式中的$1，$2...">
 
 
 
@@ -88,7 +88,7 @@
   };
 </script>
 
-  <title> AWS上搭建免费每个月15G的shadowsocks | TopJohn'Blog </title>
+  <title> 正则表达式的含义 | TopJohn'Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +255,7 @@
             
             
               
-                AWS上搭建免费每个月15G的shadowsocks
+                正则表达式的含义
               
             
           </h1>
@@ -267,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-21T16:17:04+08:00" content="2016-01-21">
-              2016-01-21
+            <time itemprop="dateCreated" datetime="2016-01-23T12:40:20+08:00" content="2016-01-23">
+              2016-01-23
             </time>
           </span>
 
@@ -281,8 +281,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/shadowsocks/" itemprop="url" rel="index">
-                    <span itemprop="name">shadowsocks</span>
+                  <a href="/categories/正则表达式/" itemprop="url" rel="index">
+                    <span itemprop="name">正则表达式</span>
                   </a>
                 </span>
 
@@ -297,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/21/AWS上搭建免费每个月15G的shadowsocks/" itemprop="commentsCount"></span>
+                <a href="/2016/01/23/正则表达式的含义/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/23/正则表达式的含义/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -319,21 +319,8 @@
       
 
       
-        <h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>最早的时候，我是用GoAgent的，那个体验真的是差！差！差！，还得经常换ip，而且只能代理http，后来用免费的VPN，毕竟没给钱，太慢了，上了研究僧，用了导师的shadowsocks大半年，感觉很好，发现AWS的ec2可以免费用一年，那就试试吧。</p>
-<h1 id="u6CE8_u518CAWS"><a href="#u6CE8_u518CAWS" class="headerlink" title="注册AWS"></a>注册AWS</h1><p>注册Aws把我坑惨了，绑定信用卡，人家扣了1美元，我扣了2美元，可能是我绑的不是visa的卡的缘故，管它呢，反正会退，当电话验证的时候，我去，死活打不过来，后来打10086，我国际长途没开，可能是这个原因，卡了1天，后来用别人的手机验证的，验证完了，又扣了2美元（他大爷的），难道隔天又要重新验证嘛～～！！不过也不是大事，预授权的费用，大概3个星期就能回来，不虚。</p>
-<h1 id="u521B_u5EFAEC2_u5B9E_u4F8B"><a href="#u521B_u5EFAEC2_u5B9E_u4F8B" class="headerlink" title="创建EC2实例"></a>创建EC2实例</h1><p>我选的是Ubuntu Server 14.04 LTS，下面的全部默认，别乱选，万一超过免费范围了呢！选择东京的节点，据说效果比较好，然后配个ssh密钥。<br>打开终端，进到amazon.pem文件所在目录，<br>执行<code>chmod 400 amazon.pem</code>修改文件权限<br>执行<code>ssh -i amazon.pem ubuntu@你的服务器节点ip</code>即可连接上远程服务器<br>(ssh $user@$host  -i $key   应该是限制了访问其他主机的时候都要用指定用户和指定的key文件)</p>
-<h1 id="u5B89_u88C5shadowsocks_u4F9D_u8D56"><a href="#u5B89_u88C5shadowsocks_u4F9D_u8D56" class="headerlink" title="安装shadowsocks依赖"></a>安装shadowsocks依赖</h1><ol>
-<li>sudo -s //获取超级管理员权限</li>
-<li>apt-get update //更新apt-get</li>
-<li>apt-get install python-pip //安装python包管理工具pip</li>
-<li>pip install shadowsocks // 安装shadowsocks</li>
-<li>ssserver -c /etc/shadowsocks.json -d start //启动shadowsocks<br>shadowsocks.json需要自己创建，默认是没有的</li>
-</ol>
-<h1 id="u914D_u7F6Eshaodowsocks"><a href="#u914D_u7F6Eshaodowsocks" class="headerlink" title="配置shaodowsocks"></a>配置shaodowsocks</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>shadowsocks.json</span><br></pre></td></tr></table></figure>
-<p>（ps. 可能有人不会用vi，这里简单说下，vi打开文件后，按i即可进入编辑状态，编辑完后，按esc退出编辑状态，按:进入命令状态，输入wq即可保存并退出，还不懂的话自行百度vi吧）</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">server</span>":<span class="value"><span class="string">"0.0.0.0"</span></span>,</span><br><span class="line">    "<span class="attribute">server_port</span>":<span class="value">端口</span>,</span><br><span class="line">    "<span class="attribute">local_address</span>":<span class="value"><span class="string">"127.0.0.1"</span></span>,</span><br><span class="line">    "<span class="attribute">local_port</span>":<span class="value"><span class="number">1080</span></span>,</span><br><span class="line">    "<span class="attribute">password</span>":<span class="value"><span class="string">"连接密码"</span></span>,</span><br><span class="line">    "<span class="attribute">timeout</span>":<span class="value"><span class="number">300</span></span>,</span><br><span class="line">    "<span class="attribute">method</span>":<span class="value"><span class="string">"aes-256-cfb"</span></span>,</span><br><span class="line">    "<span class="attribute">fast_open</span>":<span class="value"><span class="literal">false</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="u5F00_u542FAWS_u5165_u7AD9_u7AEF_u53E3"><a href="#u5F00_u542FAWS_u5165_u7AD9_u7AEF_u53E3" class="headerlink" title="开启AWS入站端口"></a>开启AWS入站端口</h1><p>配置好shaodowsocks后，还需要将配置中的端口打开,这样客户端的服务才能链接得上EC2中的shadowsocks服务<br>首先打开正在运行的实例，向右滚动表格，最后一项，安全组，点击进入，编辑入站规则，默认是开启了一个22端口（这是给ssh访问的），再建一个如下图红框标示的端口，我的shadowsocks配置的端口是8388，所以这里就开启8388。</p>
-<p>如果不放心流量超限的话可以设置下账单报警。</p>
+        <p>之前看到一段开源代码上有一段正则表达式中的replace方法中居然有$1这个符号，顿时没看懂：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">"abc正则mdb"</span>;</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">reg</span>=/(\w)正则(\w)/<span class="keyword">g</span>;</span><br><span class="line"><span class="keyword">var</span> str=str.<span class="keyword">replace</span>(<span class="keyword">reg</span>, <span class="string">"正则表达式$1, $2真的好难的"</span>);</span><br><span class="line">console.<span class="literal">log</span>(str);</span><br></pre></td></tr></table></figure></p>
+<p>查阅之后它的含义其实很简单,那么就开始对这个进行一下分析：<br>replace()的作用肯定是进行替换的，第二个参数替换第一个参数所匹配的内容<br>于是正则表达式$1, $2真的好难的就会替换字符串中的”c正则m”这一部分内容<br>但是正则表达式$1, $2真的好难的并不是那么单纯，首先$1和$2会被替换为正则表达式第一个和第二个子表达式所匹配的内容，然后再进行替换。<br>替换结果就是：<code>ab正则表达式c, m真的好难的db</code></p>
 
       
     </div>
@@ -342,9 +329,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/开发必备/" rel="tag">#开发必备</a>
-          
-            <a href="/tags/科学上网/" rel="tag">#科学上网</a>
+            <a href="/tags/小技巧/" rel="tag">#小技巧</a>
           
         </div>
       
@@ -353,17 +338,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/20/搭建git服务器/" rel="next" title="搭建git服务器">
-                <i class="fa fa-chevron-left"></i> 搭建git服务器
+              <a href="/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/" rel="next" title="AWS上搭建免费每个月15G的shadowsocks">
+                <i class="fa fa-chevron-left"></i> AWS上搭建免费每个月15G的shadowsocks
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/23/正则表达式的含义/" rel="prev" title="正则表达式的含义">
-                正则表达式的含义 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -378,10 +359,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/01/21/AWS上搭建免费每个月15G的shadowsocks/"
-     data-title="AWS上搭建免费每个月15G的shadowsocks"
+        <div class="ds-share flat" data-thread-key="2016/01/23/正则表达式的含义/"
+     data-title="正则表达式的含义"
      data-content=""
-     data-url="http://www.xuanzhangjiong.xyz/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/">
+     data-url="http://www.xuanzhangjiong.xyz/2016/01/23/正则表达式的含义/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -408,8 +389,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/21/AWS上搭建免费每个月15G的shadowsocks/"
-           data-title="AWS上搭建免费每个月15G的shadowsocks" data-url="http://www.xuanzhangjiong.xyz/2016/01/21/AWS上搭建免费每个月15G的shadowsocks/">
+      <div class="ds-thread" data-thread-key="2016/01/23/正则表达式的含义/"
+           data-title="正则表达式的含义" data-url="http://www.xuanzhangjiong.xyz/2016/01/23/正则表达式的含义/">
       </div>
     
   </div>
@@ -540,7 +521,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u524D_u8A00"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u6CE8_u518CAWS"><span class="nav-number">2.</span> <span class="nav-text">注册AWS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u521B_u5EFAEC2_u5B9E_u4F8B"><span class="nav-number">3.</span> <span class="nav-text">创建EC2实例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5B89_u88C5shadowsocks_u4F9D_u8D56"><span class="nav-number">4.</span> <span class="nav-text">安装shadowsocks依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u914D_u7F6Eshaodowsocks"><span class="nav-number">5.</span> <span class="nav-text">配置shaodowsocks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5F00_u542FAWS_u5165_u7AD9_u7AEF_u53E3"><span class="nav-number">6.</span> <span class="nav-text">开启AWS入站端口</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
