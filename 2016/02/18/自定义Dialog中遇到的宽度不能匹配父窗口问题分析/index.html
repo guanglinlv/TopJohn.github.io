@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="入坑经历," />
+  <meta name="keywords" content="Android实现原理," />
 
 
 
@@ -61,18 +61,16 @@
 
 
 
-<meta name="description" content="每次尝试一项新技术总是会有小挫折。。">
+<meta name="description" content="之前在做自定义对话框时Dialog的对话框时，如果不在代码中设置对话框的宽度，会出现奇葩的对话框被压扁的情况，当时以为对话框必须强制制定宽度，学习了View的绘制过程后，才恍然大悟，我好傻逼哦～！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React-Native之入坑经历">
-<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2015/12/24/React-Native之入坑经历/index.html">
+<meta property="og:title" content="自定义Dialog中遇到的宽度不能匹配父窗口问题分析">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2016/02/18/自定义Dialog中遇到的宽度不能匹配父窗口问题分析/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
-<meta property="og:description" content="每次尝试一项新技术总是会有小挫折。。">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_1.jpg">
-<meta property="og:image" content="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_2.jpg">
-<meta property="og:updated_time" content="2016-01-12T02:45:09.000Z">
+<meta property="og:description" content="之前在做自定义对话框时Dialog的对话框时，如果不在代码中设置对话框的宽度，会出现奇葩的对话框被压扁的情况，当时以为对话框必须强制制定宽度，学习了View的绘制过程后，才恍然大悟，我好傻逼哦～！">
+<meta property="og:updated_time" content="2016-02-18T08:01:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React-Native之入坑经历">
-<meta name="twitter:description" content="每次尝试一项新技术总是会有小挫折。。">
+<meta name="twitter:title" content="自定义Dialog中遇到的宽度不能匹配父窗口问题分析">
+<meta name="twitter:description" content="之前在做自定义对话框时Dialog的对话框时，如果不在代码中设置对话框的宽度，会出现奇葩的对话框被压扁的情况，当时以为对话框必须强制制定宽度，学习了View的绘制过程后，才恍然大悟，我好傻逼哦～！">
 
 
 
@@ -90,7 +88,7 @@
   };
 </script>
 
-  <title> React-Native之入坑经历 | TopJohn'Blog </title>
+  <title> 自定义Dialog中遇到的宽度不能匹配父窗口问题分析 | TopJohn'Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +255,7 @@
             
             
               
-                React-Native之入坑经历
+                自定义Dialog中遇到的宽度不能匹配父窗口问题分析
               
             
           </h1>
@@ -269,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-24T18:59:21+08:00" content="2015-12-24">
-              2015-12-24
+            <time itemprop="dateCreated" datetime="2016-02-18T15:22:08+08:00" content="2016-02-18">
+              2016-02-18
             </time>
           </span>
 
@@ -283,8 +281,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/React-Native/" itemprop="url" rel="index">
-                    <span itemprop="name">React Native</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -299,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/24/React-Native之入坑经历/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/24/React-Native之入坑经历/" itemprop="commentsCount"></span>
+                <a href="/2016/02/18/自定义Dialog中遇到的宽度不能匹配父窗口问题分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/18/自定义Dialog中遇到的宽度不能匹配父窗口问题分析/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -321,9 +319,26 @@
       
 
       
-        <p>这几天一直很郁闷，React-Native环境搭建比较坎坷，<code>npm</code>换源了之后效果依然不佳，翻过了厚厚的围墙，也是龟速，npm倒还好，不得不吐槽下，<code>atom</code>，<code>apm</code>安装插件比搭Android还慢，而且<code>atom</code>装多了插件就会很卡。</p>
-<p>过了N小时，总算搭建完了，想跑个HelloWorld，但是发现在传输本地服务器的js文件时总是<code>Unable to download JS bundle</code>，尝试了<code>GitHub</code>上的<code>Issue</code>，和<code>StackOverFlow</code>上的解答依然无果。就这样耗了几天，今天在React中文论坛上看到一篇帖子说<code>0.18.0-rc</code>版有问题，然后看了一下自己的，果然是这个版本，出于试试看的心态，我把它换成了<code>0.17.0</code>，就可以跑的通了。</p>
-<p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_1.jpg" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_2.jpg" alt=""></p>
+        <h1 id="Bug场景描述"><a href="#Bug场景描述" class="headerlink" title="Bug场景描述"></a>Bug场景描述</h1><p>大致场景就是在项目中需要自定义一个对话框，那么我就继承了一个Dialog然后理所当然的<code>setContentView()</code>咯，其它的业务逻辑就不讲了。<br>布局将下吧：<br>最外层是一个<code>vertical</code>的<code>LinearLayout</code>，然后有个<code>title</code>，有一个<code>EditText</code>，最后底部有2个对称的<code>Button</code>，布局很简单。<br>当我没有手动在代码中设置对话框的高度的时候，出现的情况是：对话框的高度只有<code>title</code>的高度，奇怪吧。<br>当我加上了下面的代码：<br><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">WindowManager</span> m = getWindow<span class="literal">()</span>.getWindowManager<span class="literal">()</span>;</span><br><span class="line">      <span class="type">Display</span> d = m.getDefaultDisplay<span class="literal">()</span>;</span><br><span class="line">      <span class="type">WindowManager</span>.<span class="type">LayoutParams</span> p = getWindow<span class="literal">()</span>.getAttributes<span class="literal">()</span>;</span><br><span class="line">      p.width = d.getWidth<span class="literal">()</span>;</span><br><span class="line">      getWindow<span class="literal">()</span>.setAttributes(p);</span><br></pre></td></tr></table></figure></p>
+<p>就正常了。</p>
+<p>当时自欺欺人，就糊弄过去了。</p>
+<h1 id="问题所在"><a href="#问题所在" class="headerlink" title="问题所在"></a>问题所在</h1><p>直到今天看了Android中的View的绘制过程，才知道当初的问题所在。</p>
+<p>首先简单的介绍下View的绘制过程：</p>
+<ol>
+<li>measure:为整个View树计算实际的大小，即设置实际的高(对应属性:mMeasuredHeight)和宽(对应属性:<br>mMeasureWidth)，每个View的控件的实际宽高都是由父视图和本身视图决定的。</li>
+<li>layout:根据子视图的大小以及布局参数将View树放到合适的位置上。</li>
+<li>draw：ViewRoot对象的performTraversals()方法调用draw()方法发起绘制该View树，值得注意的是每次发起绘图时，并不会重新绘制每个View树的视图，而只会重新绘制那些“需要重绘”的视图，View类内部变量包含了一个标志位DRAWN，当该视图需要重绘时，就会为该View添加该标志位。</li>
+</ol>
+<p>View树是遍历绘制的，内部的主体逻辑是判断是否需要重新测量视图大小（measure），是否需要重新布局（layout），是否重新需要绘制（draw）。measure过程是遍历的前提，只有measure后才能进行布局（layout）和绘制（draw），因为在layout的过程中需要用到measure过程中计算得到的每个View的测量大小，而draw过程需要layout确定每个view的位置才能进行绘制。</p>
+<p>我们在编写layout的xml文件时会碰到layout_width和layout_height两个属性，对于这两个属性我们有三种选择：赋值成具体的数值，match_parent或者wrap_content，而measure过程就是用来处理match_parent（低版本叫fill_parent）或者wrap_content，假如layout中规定所有View的layout_width和layout_height必须赋值成具体的数值，那么measure其实是没有必要的，但是google在设计Android的时候考虑加入match_parent或者wrap_content肯定是有原因的，它们会使得布局更加灵活。</p>
+<p>看下measue(int widthMeasureSpec, int heightMeasureSpec)中的两个参数， 这两个参数分别是父视图提供的测量规格，当父视图调用子视图的measure函数对子视图进行测量时，会传入这两个参数，通过这两个参数以及子视图本身的LayoutParams来共同决定子视图的测量规格，在ViewGroup的measureChildWithMargins函数中体现了这个过程，稍后会介绍。</p>
+<p>MeasureSpec参数的值为int型，分为高32位和低16为，高32位保存的是specMode，低16位表示specSize，specMode分三种：</p>
+<p>1、MeasureSpec.UNSPECIFIED（int值为0）,父视图不对子视图施加任何限制，子视图可以得到任意想要的大小；<br>2、MeasureSpec.EXACTLY，父视图希望子视图的大小是specSize中指定的大小；<br>3、MeasureSpec.AT_MOST，子视图的大小最多是specSize中的大小。</p>
+<p>父视图对子视图无限制时，一般使用measue（0,0），即specModeMeasureSpec.UNSPECIFIED</p>
+<p>MeasureSpec有3种模式分别是UNSPECIFIED, EXACTLY和AT_MOST, 那么这些模式和我们平时设置的layout参数fill_parent, wrap_content有什么关系呢。经过代码测试就知道，当我们设置width或height为fill_parent时，容器在布局时调用子view的measure方法传入的模式是EXACTLY，因为子view会占据剩余容器的空间，所以它大小是确定的。而当设置为wrap_content时，容器传进去的是AT_MOST, 表示子view的大小最多是多少，这样子view会根据这个上限来设置自己的尺寸。当子view的大小设置为精确值时，容器传入的是EXACTLY  </p>
+<p>fill_parent应该是子view会占据剩下容器的空间，而不会覆盖前面已布局好的其他view空间，当然后面布局子view就没有空间给分配了，所以fill_parent属性对布局顺序很重要。</p>
+<p>之前的问题是由于我在写<code>title</code>的样式的时候宽度写成了<code>wrap_content</code>，当在进行<code>measure</code>的时候首先测量的是<code>title</code>那么自然dialog的宽度是按照<code>title</code>来了，之后测量的控件都是<code>match_parent</code>，显然已经没有意义了，因为此时的parent只有<code>title</code>的宽度了。</p>
+<p>最后啰嗦一句，我仿佛明白了，为什么当初Google为什么要把<code>fill_parent</code>改成<code>match_parent</code>了，你明白了吗！</p>
 
       
     </div>
@@ -332,7 +347,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/入坑经历/" rel="tag">#入坑经历</a>
+            <a href="/tags/Android实现原理/" rel="tag">#Android实现原理</a>
           
         </div>
       
@@ -341,17 +356,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/20/参加腾讯Innovation-Space比赛的感想/" rel="next" title="参加腾讯Innovation Space比赛的感想">
-                <i class="fa fa-chevron-left"></i> 参加腾讯Innovation Space比赛的感想
+              <a href="/2016/02/13/Android中动态解析Json/" rel="next" title="Android中动态解析Json">
+                <i class="fa fa-chevron-left"></i> Android中动态解析Json
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/25/第一次开源贡献成功/" rel="prev" title="第一次开源贡献成功">
-                第一次开源贡献成功 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -366,10 +377,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/12/24/React-Native之入坑经历/"
-     data-title="React-Native之入坑经历"
+        <div class="ds-share flat" data-thread-key="2016/02/18/自定义Dialog中遇到的宽度不能匹配父窗口问题分析/"
+     data-title="自定义Dialog中遇到的宽度不能匹配父窗口问题分析"
      data-content=""
-     data-url="http://www.xuanzhangjiong.xyz/2015/12/24/React-Native之入坑经历/">
+     data-url="http://www.xuanzhangjiong.xyz/2016/02/18/自定义Dialog中遇到的宽度不能匹配父窗口问题分析/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -396,8 +407,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/24/React-Native之入坑经历/"
-           data-title="React-Native之入坑经历" data-url="http://www.xuanzhangjiong.xyz/2015/12/24/React-Native之入坑经历/">
+      <div class="ds-thread" data-thread-key="2016/02/18/自定义Dialog中遇到的宽度不能匹配父窗口问题分析/"
+           data-title="自定义Dialog中遇到的宽度不能匹配父窗口问题分析" data-url="http://www.xuanzhangjiong.xyz/2016/02/18/自定义Dialog中遇到的宽度不能匹配父窗口问题分析/">
       </div>
     
   </div>
@@ -528,7 +539,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bug场景描述"><span class="nav-number">1.</span> <span class="nav-text">Bug场景描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题所在"><span class="nav-number">2.</span> <span class="nav-text">问题所在</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
