@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ssh," />
+  <meta name="keywords" content="框架," />
 
 
 
@@ -61,16 +61,16 @@
 
 
 
-<meta name="description" content="阿里ecs每次用密码太麻烦了，配了个openssh-server，直接登录">
+<meta name="description" content="这几天学习Retrofit和RxJava，感受颇深，两者配合使用的也很好，总结下看过的blog。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu配置ssh">
-<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2016/01/14/Ubuntu配置ssh/index.html">
+<meta property="og:title" content="post学习Retrofit和RxJava小记">
+<meta property="og:url" content="http://www.xuanzhangjiong.xyz/2016/02/25/post学习Retrofit和RxJava小记/index.html">
 <meta property="og:site_name" content="TopJohn'Blog">
-<meta property="og:description" content="阿里ecs每次用密码太麻烦了，配了个openssh-server，直接登录">
-<meta property="og:updated_time" content="2016-01-22T11:34:14.000Z">
+<meta property="og:description" content="这几天学习Retrofit和RxJava，感受颇深，两者配合使用的也很好，总结下看过的blog。">
+<meta property="og:updated_time" content="2016-02-25T03:30:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu配置ssh">
-<meta name="twitter:description" content="阿里ecs每次用密码太麻烦了，配了个openssh-server，直接登录">
+<meta name="twitter:title" content="post学习Retrofit和RxJava小记">
+<meta name="twitter:description" content="这几天学习Retrofit和RxJava，感受颇深，两者配合使用的也很好，总结下看过的blog。">
 
 
 
@@ -88,7 +88,7 @@
   };
 </script>
 
-  <title> Ubuntu配置ssh | TopJohn'Blog </title>
+  <title> post学习Retrofit和RxJava小记 | TopJohn'Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +255,7 @@
             
             
               
-                Ubuntu配置ssh
+                post学习Retrofit和RxJava小记
               
             
           </h1>
@@ -267,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-14T18:50:00+08:00" content="2016-01-14">
-              2016-01-14
+            <time itemprop="dateCreated" datetime="2016-02-25T11:07:11+08:00" content="2016-02-25">
+              2016-02-25
             </time>
           </span>
 
@@ -281,8 +281,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -297,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/14/Ubuntu配置ssh/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/14/Ubuntu配置ssh/" itemprop="commentsCount"></span>
+                <a href="/2016/02/25/post学习Retrofit和RxJava小记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/25/post学习Retrofit和RxJava小记/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -319,19 +319,29 @@
       
 
       
-        <p>每次<code>ssh</code>连服务器都要敲一大段密码，不方便，之前做项目的时候都是给boss公钥，直接无密登录的，如今自己搞了一个服务器玩玩，想着也配一下吧。</p>
-<ol>
-<li><p>先用终端<code>ssh</code>，用密码登录远程<code>Ubuntu</code>，输入<code>sudo apt-get install openssh-server</code>，下载安装<code>openssh-server</code>。</p>
+        <h1 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h1><ol>
+<li><p>Retrofit官网学习：<a href="http://square.github.io/retrofit/" target="_blank" rel="external">http://square.github.io/retrofit/</a></p>
 </li>
-<li><p>下载完成后系统会自动安装，都完成后看看sshserver启动没有。输入<code>ps -e |grep ssh</code>，如果有sshd那行就说明启动成功了。如果没有，就<code>sudo /etc/init.d/ssh start</code>，将其开启。</p>
+<li><p>简书上的Retrofit 1.x 版本学习的不错博文，介绍了旧版本中的使用方法，不过旧版本的缺点就是不能cancel：<a href="http://www.jianshu.com/p/63723f593695" target="_blank" rel="external">http://www.jianshu.com/p/63723f593695</a></p>
 </li>
-<li><p>在自己的电脑上<code>ssh-keygen -t rsa -C joyqi -f my-key-file</code>，生成公钥和私钥。</p>
+<li><p>简书上的Retrofit 2.0.x 版本学习的博文，新版本支持cancel：<a href="http://www.jianshu.com/p/90b1f20b123d" target="_blank" rel="external">http://www.jianshu.com/p/90b1f20b123d</a></p>
 </li>
-<li><p>将你的公钥放到服务器的<code>~/.ssh/authorized_keys</code>中就可以无密登录了。我用的Mac，</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install ssh-<span class="keyword">copy</span>-<span class="property">id</span></span><br><span class="line">ssh-<span class="keyword">copy</span>-<span class="property">id</span> username@hostname  <span class="comment">#将username和hostname替换为你的ssh服务器用户名和IP</span></span><br></pre></td></tr></table></figure>
+<li><p>RxJava+Retrofit框架Demo，介绍了如何将Retrofit和RxJava进行封装：<a href="http://www.jianshu.com/p/2b0aeb6b6b61" target="_blank" rel="external">http://www.jianshu.com/p/2b0aeb6b6b61</a></p>
 </li>
 </ol>
-<p>所以方便了很多。其它系统的可以参照<a href="http://segmentfault.com/a/1190000000481249" target="_blank" rel="external">http://segmentfault.com/a/1190000000481249</a>，都不复杂。<br><strong>注意如果你要改公钥的名字，那么连私钥的名字也改了，不然会出错，亲测！！！</strong></p>
+<h1 id="RxJava"><a href="#RxJava" class="headerlink" title="RxJava"></a>RxJava</h1><ol>
+<li><p>给Android开发者的RxJava详解：<a href="https://gank.io/post/560e15be2dca930e00da1083#toc_26" target="_blank" rel="external">https://gank.io/post/560e15be2dca930e00da1083#toc_26</a></p>
+</li>
+<li><p>谜之RxJava （一） —— 最基本的观察者模式：<a href="https://segmentfault.com/a/1190000004049490" target="_blank" rel="external">https://segmentfault.com/a/1190000004049490</a></p>
+</li>
+<li><p>谜之RxJava （二） —— Magic Lift：<a href="https://segmentfault.com/a/1190000004049841" target="_blank" rel="external">https://segmentfault.com/a/1190000004049841</a></p>
+</li>
+<li><p>迷之RxJava （三）—— 线程切换：<a href="https://segmentfault.com/a/1190000004051191" target="_blank" rel="external">https://segmentfault.com/a/1190000004051191</a></p>
+</li>
+<li><p>迷之RxJava（四）—— Retrofit和RxJava的基情：<a href="https://segmentfault.com/a/1190000004077117" target="_blank" rel="external">https://segmentfault.com/a/1190000004077117</a></p>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Retrofit已经给了RxJava的实现，所以2者结合使用会更好，看了2天，虽然看懂了，但是实际运用还是有点欠缺，在项目中感悟下，下次再写篇实战吧。哈哈哈</p>
 
       
     </div>
@@ -340,7 +350,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ssh/" rel="tag">#ssh</a>
+            <a href="/tags/框架/" rel="tag">#框架</a>
           
         </div>
       
@@ -349,17 +359,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/12/Ubuntu修改hostname/" rel="next" title="Ubuntu修改hostname">
-                <i class="fa fa-chevron-left"></i> Ubuntu修改hostname
+              <a href="/2016/02/18/自定义Dialog中遇到的宽度不能匹配父窗口问题分析/" rel="next" title="自定义Dialog中遇到的宽度不能匹配父窗口问题分析">
+                <i class="fa fa-chevron-left"></i> 自定义Dialog中遇到的宽度不能匹配父窗口问题分析
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/20/搭建git服务器/" rel="prev" title="搭建git服务器">
-                搭建git服务器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -374,10 +380,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/01/14/Ubuntu配置ssh/"
-     data-title="Ubuntu配置ssh"
+        <div class="ds-share flat" data-thread-key="2016/02/25/post学习Retrofit和RxJava小记/"
+     data-title="post学习Retrofit和RxJava小记"
      data-content=""
-     data-url="http://www.xuanzhangjiong.xyz/2016/01/14/Ubuntu配置ssh/">
+     data-url="http://www.xuanzhangjiong.xyz/2016/02/25/post学习Retrofit和RxJava小记/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -404,8 +410,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/14/Ubuntu配置ssh/"
-           data-title="Ubuntu配置ssh" data-url="http://www.xuanzhangjiong.xyz/2016/01/14/Ubuntu配置ssh/">
+      <div class="ds-thread" data-thread-key="2016/02/25/post学习Retrofit和RxJava小记/"
+           data-title="post学习Retrofit和RxJava小记" data-url="http://www.xuanzhangjiong.xyz/2016/02/25/post学习Retrofit和RxJava小记/">
       </div>
     
   </div>
@@ -536,7 +542,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Retrofit"><span class="nav-number">1.</span> <span class="nav-text">Retrofit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RxJava"><span class="nav-number">2.</span> <span class="nav-text">RxJava</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
