@@ -329,7 +329,7 @@
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install git</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建一个Git用户，用来运行<code>git</code>服务：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">sudo</span> <span class="keyword">adduser </span>git</span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">sudo</span> <span class="keyword">adduser </span>git</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>切换到<code>git</code>用户，将你的公钥放到git用户目录下的<code>~/.ssh/authorized_keys</code>里，方法上一篇blog已经写了。</p>
 </li>
@@ -343,7 +343,7 @@
 <p>一般是在最下面一行<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git:</span><span class="symbol">x:</span><span class="number">1001</span><span class="symbol">:</span><span class="number">1001</span><span class="symbol">:</span>,,,<span class="symbol">:/home/git</span><span class="symbol">:/usr/bin/git-shell</span></span><br></pre></td></tr></table></figure></p>
 <p>这样，git用户可以正常通过ssh使用git，但无法登录shell，因为我们为git用户指定的git-shell每次一登录就自动退出。<br>当然你要改回来，直接用root用户去改回来就好了。</p>
 <ol>
-<li>可以克隆远程仓库了<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@xxx<span class="class">.xxx</span><span class="class">.xxx</span><span class="class">.xxx</span>:~/xxx/xxx.git</span><br></pre></td></tr></table></figure>
+<li>可以克隆远程仓库了<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@xxx<span class="selector-class">.xxx</span><span class="selector-class">.xxx</span><span class="selector-class">.xxx</span>:~/xxx/xxx.git</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>大概就是这样了，已然成功。</p>

@@ -328,7 +328,7 @@
 <li><p>在自己的电脑上<code>ssh-keygen -t rsa -C joyqi -f my-key-file</code>，生成公钥和私钥。</p>
 </li>
 <li><p>将你的公钥放到服务器的<code>~/.ssh/authorized_keys</code>中就可以无密登录了。我用的Mac，</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install ssh-<span class="keyword">copy</span>-<span class="property">id</span></span><br><span class="line">ssh-<span class="keyword">copy</span>-<span class="property">id</span> username@hostname  <span class="comment">#将username和hostname替换为你的ssh服务器用户名和IP</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install ssh-<span class="keyword">copy</span>-<span class="built_in">id</span></span><br><span class="line">ssh-<span class="keyword">copy</span>-<span class="built_in">id</span> username@hostname  <span class="comment">#将username和hostname替换为你的ssh服务器用户名和IP</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>所以方便了很多。其它系统的可以参照<a href="http://segmentfault.com/a/1190000000481249" target="_blank" rel="external">http://segmentfault.com/a/1190000000481249</a>，都不复杂。<br><strong>注意如果你要改公钥的名字，那么连私钥的名字也改了，不然会出错，亲测！！！</strong></p>

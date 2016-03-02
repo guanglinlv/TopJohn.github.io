@@ -43,7 +43,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="开发必备,科学上网," />
+  <meta name="keywords" content="科学上网,开发必备," />
 
 
 
@@ -329,9 +329,9 @@
 <li>pip install shadowsocks // 安装shadowsocks</li>
 <li>ssserver -c /etc/shadowsocks.json -d start //启动shadowsocks<br>shadowsocks.json需要自己创建，默认是没有的</li>
 </ol>
-<h1 id="配置shaodowsocks"><a href="#配置shaodowsocks" class="headerlink" title="配置shaodowsocks"></a>配置shaodowsocks</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>shadowsocks.json</span><br></pre></td></tr></table></figure>
+<h1 id="配置shaodowsocks"><a href="#配置shaodowsocks" class="headerlink" title="配置shaodowsocks"></a>配置shaodowsocks</h1><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="meta-keyword">/etc/</span>shadowsocks.json</span><br></pre></td></tr></table></figure>
 <p>（ps. 可能有人不会用vi，这里简单说下，vi打开文件后，按i即可进入编辑状态，编辑完后，按esc退出编辑状态，按:进入命令状态，输入wq即可保存并退出，还不懂的话自行百度vi吧）</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">server</span>":<span class="value"><span class="string">"0.0.0.0"</span></span>,</span><br><span class="line">    "<span class="attribute">server_port</span>":<span class="value">端口</span>,</span><br><span class="line">    "<span class="attribute">local_address</span>":<span class="value"><span class="string">"127.0.0.1"</span></span>,</span><br><span class="line">    "<span class="attribute">local_port</span>":<span class="value"><span class="number">1080</span></span>,</span><br><span class="line">    "<span class="attribute">password</span>":<span class="value"><span class="string">"连接密码"</span></span>,</span><br><span class="line">    "<span class="attribute">timeout</span>":<span class="value"><span class="number">300</span></span>,</span><br><span class="line">    "<span class="attribute">method</span>":<span class="value"><span class="string">"aes-256-cfb"</span></span>,</span><br><span class="line">    "<span class="attribute">fast_open</span>":<span class="value"><span class="literal">false</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:端口,</span><br><span class="line">    <span class="attr">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"连接密码"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>:<span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="开启AWS入站端口"><a href="#开启AWS入站端口" class="headerlink" title="开启AWS入站端口"></a>开启AWS入站端口</h1><p>配置好shaodowsocks后，还需要将配置中的端口打开,这样客户端的服务才能链接得上EC2中的shadowsocks服务<br>首先打开正在运行的实例，向右滚动表格，最后一项，安全组，点击进入，编辑入站规则，默认是开启了一个22端口（这是给ssh访问的），再建一个如下图红框标示的端口，我的shadowsocks配置的端口是8388，所以这里就开启8388。</p>
 <p>如果不放心流量超限的话可以设置下账单报警。</p>
 
@@ -342,9 +342,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/开发必备/" rel="tag">#开发必备</a>
-          
             <a href="/tags/科学上网/" rel="tag">#科学上网</a>
+          
+            <a href="/tags/开发必备/" rel="tag">#开发必备</a>
           
         </div>
       
