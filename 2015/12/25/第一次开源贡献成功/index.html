@@ -310,6 +310,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -343,6 +344,12 @@
 <p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/open_source_1.jpg" alt=""></p>
 <p>项目地址：<br><a href="http://git.oschina.net/oschina/android-app" target="_blank" rel="external">http://git.oschina.net/oschina/android-app</a></p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -586,17 +593,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -789,7 +785,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

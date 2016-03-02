@@ -308,6 +308,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -343,6 +344,12 @@
 </ol>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Retrofit已经给了RxJava的实现，所以2者结合使用会更好，看了2天，虽然看懂了，但是实际运用还是有点欠缺，在项目中感悟下，下次再写篇实战吧。</p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -586,17 +593,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -789,7 +785,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

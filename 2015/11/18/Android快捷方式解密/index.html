@@ -311,6 +311,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -405,6 +406,12 @@
 <h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addShortcutTest</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 系统方式创建</span></span><br><span class="line">      <span class="comment">// ShortcutUtils.addShortcut(this, getShortCutIntent(), mShortcutName);</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 创建前判断是否存在</span></span><br><span class="line">      <span class="keyword">if</span> (!ShortcutSuperUtils.isShortCutExist(<span class="keyword">this</span>, mShortcutName, getShortCutIntent())) &#123;</span><br><span class="line">          ShortcutUtils.addShortcut(<span class="keyword">this</span>, getShortCutIntent(), mShortcutName, <span class="literal">false</span>,</span><br><span class="line">                  BitmapFactory.decodeResource(getResources(), com.hujiang.hj_shortcut_lib.R.drawable.ocsplayer));</span><br><span class="line">          finish();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          Toast.makeText(<span class="keyword">this</span>, <span class="string">"Shortcut is exist!"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 为某个包创建快捷方式</span></span><br><span class="line">      <span class="comment">// ShortcutSuperUtils.addShortcutByPackageName(this, this.getPackageName());</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeShortcutTest</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      ShortcutUtils.removeShortcut(<span class="keyword">this</span>, getShortCutIntent(), mShortcutName);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateShortcutTest</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      ShortcutSuperUtils.updateShortcutIcon(<span class="keyword">this</span>, mShortcutName, getShortCutIntent(),</span><br><span class="line">              BitmapFactory.decodeResource(getResources(), com.hujiang.hj_shortcut_lib.R.mipmap.ic_launcher));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">toggleFlowEntrance</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      FlowEntranceUtil.toggleFlowEntrance(<span class="keyword">this</span>, HJShortcutActivity.<span class="keyword">class</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> Intent <span class="title">getShortCutIntent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 使用MAIN，可以避免部分手机(比如华为、HTC部分机型)删除应用时无法删除快捷方式的问题</span></span><br><span class="line">      Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_MAIN);</span><br><span class="line">      intent.addCategory(Intent.CATEGORY_DEFAULT);</span><br><span class="line">      intent.setClass(MainActivity.<span class="keyword">this</span>, HJShortcutActivity.<span class="keyword">class</span>);</span><br><span class="line">      <span class="keyword">return</span> intent;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>转自：<a href="http://www.jianshu.com/p/dc3d04337d00" target="_blank" rel="external">http://www.jianshu.com/p/dc3d04337d00</a></p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -648,17 +655,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -851,7 +847,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

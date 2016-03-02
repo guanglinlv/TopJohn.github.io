@@ -311,6 +311,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -344,6 +345,12 @@
 <h1 id="九、撤销"><a href="#九、撤销" class="headerlink" title="九、撤销"></a>九、撤销</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 恢复暂存区的指定文件到工作区</span><br><span class="line">$ git checkout [file]</span><br><span class="line"></span><br><span class="line"># 恢复某个<span class="keyword">commit</span>的指定文件到工作区</span><br><span class="line">$ git checkout [<span class="keyword">commit</span>] [<span class="keyword">file</span>]</span><br><span class="line"></span><br><span class="line"># 恢复上一个<span class="keyword">commit</span>的所有文件到工作区</span><br><span class="line">$ git checkout .</span><br><span class="line"></span><br><span class="line"># 重置暂存区的指定文件，与上一次<span class="keyword">commit</span>保持一致，但工作区不变</span><br><span class="line">$ git <span class="keyword">reset</span> [<span class="keyword">file</span>]</span><br><span class="line"></span><br><span class="line"># 重置暂存区与工作区，与上一次<span class="keyword">commit</span>保持一致</span><br><span class="line">$ git <span class="keyword">reset</span> <span class="comment">--hard</span></span><br><span class="line"></span><br><span class="line"># 重置当前分支的指针为指定<span class="keyword">commit</span>，同时重置暂存区，但工作区不变</span><br><span class="line">$ git <span class="keyword">reset</span> [<span class="keyword">commit</span>]</span><br><span class="line"></span><br><span class="line"># 重置当前分支的<span class="keyword">HEAD</span>为指定<span class="keyword">commit</span>，同时重置暂存区和工作区，与指定<span class="keyword">commit</span>一致</span><br><span class="line">$ git <span class="keyword">reset</span> <span class="comment">--hard [commit]</span></span><br><span class="line"></span><br><span class="line"># 重置当前<span class="keyword">HEAD</span>为指定<span class="keyword">commit</span>，但保持暂存区和工作区不变</span><br><span class="line">$ git <span class="keyword">reset</span> <span class="comment">--keep [commit]</span></span><br><span class="line"></span><br><span class="line"># 新建一个<span class="keyword">commit</span>，用来撤销指定<span class="keyword">commit</span></span><br><span class="line"># 后者的所有变化都将被前者抵消，并且应用到当前分支</span><br><span class="line">$ git revert [<span class="keyword">commit</span>]</span><br></pre></td></tr></table></figure>
 <h1 id="十、其他"><a href="#十、其他" class="headerlink" title="十、其他"></a>十、其他</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个可供发布的压缩包</span></span><br><span class="line"><span class="variable">$ </span>git archive</span><br></pre></td></tr></table></figure>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -587,17 +594,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -790,7 +786,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

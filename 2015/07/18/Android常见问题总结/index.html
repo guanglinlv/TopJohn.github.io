@@ -315,6 +315,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -348,6 +349,12 @@
 <p>Binder提供了远程过程调用RPC功能，英文意思是粘结剂的意思。在android的binder机制中，由一系列组件组成，分别是client，server，service manager和binder驱动程序，其中client，server和service manager运行在用户空间，binder驱动程序运行在内核空间，binder就是将这四个组件粘合在一起的粘结剂，其中核心组件便是binder驱动程序，service manger提供了辅助管理功能，client和server正式在binder驱动和service manger提供的基础设施上，进行client-server之间的通信。Service Manager和Binder驱动已经在Android平台中实现好，开发者只要按照规范实现自己的Client和Server组件就可以了。如图所示</p>
 <p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/aidl_structure.png" alt=""></p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -591,17 +598,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -794,7 +790,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

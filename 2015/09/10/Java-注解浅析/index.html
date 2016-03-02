@@ -308,6 +308,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -377,6 +378,12 @@
 <p>TableInfo.java 的构造函数如上，运行时，得到所有行信息并存储起来用来构件表信息。</p>
 <p>并没有深入了解这些框架的原理，只是粗浅的介绍，以后有时间再来沉下心研究。</p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -620,17 +627,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -823,7 +819,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

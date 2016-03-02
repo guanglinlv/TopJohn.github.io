@@ -308,6 +308,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -329,6 +330,12 @@
 <p>边学习边分享吧，大家共同进步。</p>
 <h1 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h1><p>写博客只为记录自己的开发历程，希望自己在这个互联网时代中留下一些自己的足迹，证明自己也曾为开源做过贡献。</p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -568,17 +575,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -771,7 +767,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

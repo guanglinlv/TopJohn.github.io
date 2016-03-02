@@ -312,6 +312,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -386,6 +387,12 @@
 <p>下面来分析上面的代码，<code>@{@id/empty_view}</code>表示引用了<code>@id/empty_view</code>这个id，所以它的值就是int，再看上面的setEmptyView方法，第一个参数<code>AdapterView adapterView</code>表示使用emptyView这个属性的控件，而第二个参数int viewId则是emptyView属性传进来的值，上面的layout可以看出来它就是<code>R.id.empty_view</code>，然后通过id找到控件，然后调用原始的setEmptyView来设置。</p>
 <p>上面的代码来自<code>derron</code>写的一个Data Binding Library的示例项目DataBinding-album-sample，Github地址：<a href="https://github.com/derron/DataBinding-album-sample" target="_blank" rel="external">https://github.com/derron/DataBinding-album-sample</a></p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -629,17 +636,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -832,7 +828,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

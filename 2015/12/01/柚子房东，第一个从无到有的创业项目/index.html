@@ -330,6 +330,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -403,6 +404,12 @@
 <p>团队介绍：<br><a href="http://www.inyouzi.com" target="_blank" rel="external">http://www.inyouzi.com</a></p>
 <p>忘了最后的截图了，毕竟无图无真相:<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_1.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_2.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_3.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_4.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_5.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_6.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_7.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_8.jpg?imageView2/2/w/240/h/427" alt=""> <img src="http://7xoz2q.com1.z0.glb.clouddn.com/inyouzi_9.jpg?imageView2/2/w/240/h/427" alt=""></p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -646,17 +653,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -849,7 +845,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

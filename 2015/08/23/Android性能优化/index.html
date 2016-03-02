@@ -308,6 +308,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -338,6 +339,12 @@
 <p>17.通常，View会保持Activity的引用，Activity同时还和其他内部对象也有可能保持引用关系。当屏幕发生旋转的时候，activity很容易发生泄漏，这样的话，里面的view也会发生泄漏。避免的规则有：避免使用异步回调，异步回调执行时可能activity已经被销毁；避免使用Static对象，static的生命周期过长，使用不当很可能导致leak；避免把View添加到没有清除机制的容器里面如：WeekHashMap。</p>
 <p>转自：<a href="http://www.jianshu.com/p/402d7d4d4da4" target="_blank" rel="external">http://www.jianshu.com/p/402d7d4d4da4</a></p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -581,17 +588,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -784,7 +780,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

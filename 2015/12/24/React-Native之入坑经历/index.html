@@ -311,6 +311,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -326,6 +327,12 @@
 <p>过了N小时，总算搭建完了，想跑个HelloWorld，但是发现在传输本地服务器的js文件时总是<code>Unable to download JS bundle</code>，尝试了<code>GitHub</code>上的<code>Issue</code>，和<code>StackOverFlow</code>上的解答依然无果。就这样耗了几天，今天在React中文论坛上看到一篇帖子说<code>0.18.0-rc</code>版有问题，然后看了一下自己的，果然是这个版本，出于试试看的心态，我把它换成了<code>0.17.0</code>，就可以跑的通了。</p>
 <p><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_1.jpg" alt=""><br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/react-native-%E5%85%A5%E5%9D%91_2.jpg" alt=""></p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -569,17 +576,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -772,7 +768,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

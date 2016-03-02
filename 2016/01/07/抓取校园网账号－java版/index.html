@@ -311,6 +311,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -353,6 +354,12 @@
 <p>主要代码都贴出来了，我把它放到github了<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#109;&#58;&#x54;&#x6f;&#112;&#74;&#111;&#x68;&#x6e;&#47;&#x4e;&#101;&#x74;&#65;&#99;&#111;&#117;&#110;&#x74;&#46;&#103;&#105;&#116;">&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#109;&#58;&#x54;&#x6f;&#112;&#74;&#111;&#x68;&#x6e;&#47;&#x4e;&#101;&#x74;&#65;&#99;&#111;&#117;&#110;&#x74;&#46;&#103;&#105;&#116;</a></p>
 <p>那么测试结果呢：<br><img src="http://7xoz2q.com1.z0.glb.clouddn.com/%E7%A0%B4%E8%A7%A3%E6%A0%A1%E5%9B%AD%E7%BD%912.jpg" alt=""><br>顶峰时刻有130个，估计我宣传了一波之后，有不少人改了。<br>一会推出Android版的。</p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -596,17 +603,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -799,7 +795,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

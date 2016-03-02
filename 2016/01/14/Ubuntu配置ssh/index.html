@@ -308,6 +308,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -333,6 +334,12 @@
 </ol>
 <p>所以方便了很多。其它系统的可以参照<a href="http://segmentfault.com/a/1190000000481249" target="_blank" rel="external">http://segmentfault.com/a/1190000000481249</a>，都不复杂。<br><strong>注意如果你要改公钥的名字，那么连私钥的名字也改了，不然会出错，亲测！！！</strong></p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -576,17 +583,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -779,7 +775,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

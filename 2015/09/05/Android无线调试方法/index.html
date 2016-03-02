@@ -329,6 +329,7 @@ Android Studio中是不是已经可以无线调试了。
 
           
           
+
         </div>
       </header>
     
@@ -350,6 +351,12 @@ Android Studio中是不是已经可以无线调试了。
 <li>如果要切换回USB调试的话也很简单，<code>adb usb</code>即可。</li>
 </ol>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -593,17 +600,6 @@ Android Studio中是不是已经可以无线调试了。
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -796,7 +792,7 @@ Android Studio中是不是已经可以无线调试了。
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

@@ -308,6 +308,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -385,6 +386,12 @@
 <p>注意事项及要点<br>同一个onEvent函数不能被注册两次，所以不能在一个类中注册同时还在父类中注册<br>当Post一个事件时，这个事件类的父类的事件也会被Post。<br>Post的事件无Subscriber处理时会Post <code>NoSubscriberEvent</code>事件，当调用Subscriber失败时会Post <code>SubscriberExceptionEvent</code>事件。</p>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p><code>EventBus</code>中还有个Util包，主要作用是可以通过<code>AsyncExecutor</code>执行一个Runnable，通过内部的RunnableEx(可以搜索异常的Runnable)当Runnable抛出异常时通过<code>EventBus</code>发消息显示错误对话框。</p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -628,17 +635,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -831,7 +827,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

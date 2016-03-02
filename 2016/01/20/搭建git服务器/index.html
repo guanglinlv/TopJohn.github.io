@@ -308,6 +308,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -349,6 +350,12 @@
 <p>大概就是这样了，已然成功。</p>
 <p>自己用用这样足够了，那些大公司就要用Gitosis管理公钥了，权限控制：Gitolite了，作为个人开发者，足矣。</p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -592,17 +599,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -795,7 +791,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

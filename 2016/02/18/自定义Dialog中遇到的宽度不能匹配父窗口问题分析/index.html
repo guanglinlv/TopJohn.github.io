@@ -308,6 +308,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -340,6 +341,12 @@
 <p>之前的问题是由于我在写<code>title</code>的样式的时候宽度写成了<code>wrap_content</code>，当在进行<code>measure</code>的时候首先测量的是<code>title</code>那么自然dialog的宽度是按照<code>title</code>来了，之后测量的控件都是<code>match_parent</code>，显然已经没有意义了，因为此时的parent只有<code>title</code>的宽度了。</p>
 <p>最后啰嗦一句，我仿佛明白了，为什么当初Google为什么要把<code>fill_parent</code>改成<code>match_parent</code>了，你明白了吗！</p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -583,17 +590,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -786,7 +782,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

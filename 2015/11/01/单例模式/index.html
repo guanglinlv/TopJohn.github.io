@@ -308,6 +308,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -346,6 +347,12 @@
 <p>解决线程不安全的方法有很多，可以在<code>getSingleton</code>方法前加<code>synchronized</code>关键字，也可以在<code>getSingleton</code>方法内增加<code>synchronized</code>来实现。</p>
 <p>其次，需要考虑对象的复制情况。在Java中，对象默认是不可以被复制的，若实现了Cloneable接口，并实现了clone方法，则可以直接通过对象复制方式创建一个新对象，对象复制是不用调用类构造方法，因此即使是私有的构造方法，对象仍然可以被复制，在一般情况下，类复制的情况不需要考虑，很少会出现一个单例类会主动要求被复制的情况，解决该问题的最好方法就是单例类不要实现Cloneable接口。</p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -589,17 +596,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -792,7 +788,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }

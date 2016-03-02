@@ -319,6 +319,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -371,6 +372,12 @@
 <p>从<a href="http://www.google.com/design/spec/resources/roboto-noto-fonts.html" target="_blank" rel="external">此处</a>获得 Roboto。</p>
 <h1 id="动画和阴影（elevation）一览"><a href="#动画和阴影（elevation）一览" class="headerlink" title="动画和阴影（elevation）一览"></a>动画和阴影（elevation）一览</h1><p>Lollipop 中最惊艳的应该就是动画了。拥有全新的 activity 动画（activity transitions）, 触摸时的水波纹动画（ripple animations），还有很多其它的！ 而且还有阴影（elevation）属性，使得视图（View）终于有了“深度”的概念。动画全部由一个系统级的渲染线程（RenderThread）来管理。 引用 Android Developers 博客中的原话： “RippleDrawable 能流畅运行的最大功臣就是 Android 5.0 的渲染线程（RenderThread）。直到现在才发布是因为我们一直在优化它在较老 Android 版本上运行时的表现。” 阴影（elevation）效果也是如此。但是实现这样的动画有很多方法，特别是著名的水波纹效果（Ripple effect），而且有很多开源库也可以帮到你，但是我选择在这里不讨论它们，因为我觉得如果用开源库的方式来实现就背离我的初衷了。</p>
 
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -614,17 +621,6 @@
   </a>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
-
-
 
 
       </div>
@@ -817,7 +813,7 @@
     NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
 
-      if (CONFIG.sidebar === 'post') {
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
           NexT.utils.displaySidebar();
         }
