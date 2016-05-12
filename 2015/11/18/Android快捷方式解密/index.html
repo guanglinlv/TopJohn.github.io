@@ -29,18 +29,45 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android快捷方式," />
@@ -54,7 +81,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
@@ -81,7 +108,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: "post",
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -115,10 +142,14 @@
 
 
 
+
+
   
+  
+    
   
 
-  <div class="container one-collumn  page-post-detail ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -147,13 +178,13 @@
   
 
   
-    <ul id="menu" class="menu menu-left">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -163,7 +194,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -173,7 +204,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -183,7 +214,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -193,7 +224,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -201,7 +232,16 @@
       
 
       
-      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
       
     </ul>
   
@@ -312,6 +352,12 @@
           
           
 
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
         </div>
       </header>
     
@@ -343,7 +389,7 @@
 <h1 id="删除快捷方式"><a href="#删除快捷方式" class="headerlink" title="删除快捷方式"></a>删除快捷方式</h1><p>删除快捷方式的Action：</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Action 移除Shortcut</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">String</span> ACTION_REMOVE_SHORTCUT = <span class="string">"com.android.launcher.action.UNINSTALL_SHORTCUT"</span>;</span><br></pre></td></tr></table></figure>
 <p>通过广播删除快捷方式：</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">   <span class="keyword">*</span> 移除快捷方式</span><br><span class="line">   <span class="keyword">*</span></span><br><span class="line">   <span class="keyword">*</span> <span class="meta">@param</span> context      context</span><br><span class="line">   <span class="keyword">*</span> <span class="meta">@param</span> actionIntent 要启动的Intent</span><br><span class="line">   <span class="keyword">*</span> <span class="meta">@param</span> name         name</span><br><span class="line">   <span class="keyword">*</span>/</span><br><span class="line">  public static void removeShortcut(Context context, Intent actionIntent, String name) &#123;</span><br><span class="line">      Intent intent = new Intent(ACTION_REMOVE_SHORTCUT);</span><br><span class="line">      intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, name);</span><br><span class="line">//        intent.addCategory(Intent.CATEGORY_LAUNCHER);</span><br><span class="line">      intent.putExtra(<span class="string">"duplicate"</span>, false);</span><br><span class="line">      intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, actionIntent);</span><br><span class="line">      context.sendBroadcast(intent);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">   * 移除快捷方式</span><br><span class="line">   *</span><br><span class="line">   * <span class="doctag">@param</span> context      context</span><br><span class="line">   * <span class="doctag">@param</span> actionIntent 要启动的Intent</span><br><span class="line">   * <span class="doctag">@param</span> name         name</span><br><span class="line">   */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">removeShortcut</span><span class="params">(Context context, Intent actionIntent, String name)</span> </span>&#123;</span><br><span class="line">      Intent intent = <span class="keyword">new</span> Intent(ACTION_REMOVE_SHORTCUT);</span><br><span class="line">      intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, name);</span><br><span class="line"><span class="comment">//        intent.addCategory(Intent.CATEGORY_LAUNCHER);</span></span><br><span class="line">      intent.putExtra(<span class="string">"duplicate"</span>, <span class="keyword">false</span>);</span><br><span class="line">      intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, actionIntent);</span><br><span class="line">      context.sendBroadcast(intent);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>参数与创建快捷方式的方法基本类似，需要注意的是，Intent.EXTRA_SHORTCUT_INTENT，与之前创建快捷方式的Intent必须要是同一个，不然是无法删除快捷方式的。</p>
 <h1 id="创建快捷方式之——逍遥派"><a href="#创建快捷方式之——逍遥派" class="headerlink" title="创建快捷方式之——逍遥派"></a>创建快捷方式之——逍遥派</h1><blockquote>
 <p>所谓逍遥派，是指我们从原理来理解如何来适配各种Launcher。</p>
@@ -356,11 +402,11 @@
 <p>对于快捷方式的创建，我们依然可以使用系统提供的方法，所以这里不再多说。</p>
 <h1 id="快捷方式的判断是否存在"><a href="#快捷方式的判断是否存在" class="headerlink" title="快捷方式的判断是否存在"></a>快捷方式的判断是否存在</h1><p>前面我们说了，通过duplicate属性可以区分是否允许创建重复的快捷方式，但是，很多ROM是无法兼容到的，所以，这里我们使用查询Launcher数据库的方式来实现。</p>
 <p>我们先来看代码：</p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    * 检查快捷方式是否存在 &lt;br/&gt;</span><br><span class="line">    * &lt;font color=red&gt;注意：&lt;/font&gt; 有些手机无法判断是否已经创建过快捷方式&lt;br/&gt;</span><br><span class="line">    * 因此，在创建快捷方式时，请添加&lt;br/&gt;</span><br><span class="line">    * shortcutIntent.putExtra(<span class="string">"duplicate"</span>, <span class="literal">false</span>);// 不允许重复创建&lt;br/&gt;</span><br><span class="line">    * 最好使用&#123;@link <span class="comment">#isShortCutExist(Context, String, Intent)&#125;</span></span><br><span class="line">    * 进行判断，因为可能有些应用生成的快捷方式名称是一样的的&lt;br/&gt;</span><br><span class="line">    */</span><br><span class="line">   public <span class="keyword">static</span> boolean isShortCutExist(<span class="type">Context</span> context, <span class="type">String</span> title) &#123;</span><br><span class="line">       boolean <span class="literal">result</span> = <span class="literal">false</span>;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="type">ContentResolver</span> cr = context.getContentResolver();</span><br><span class="line">           <span class="type">Uri</span> uri = getUriFromLauncher(context);</span><br><span class="line">           <span class="type">Cursor</span> c = cr.query(uri, new <span class="type">String</span>[]&#123;<span class="string">"title"</span>&#125;, <span class="string">"title=? "</span>, new <span class="type">String</span>[]&#123;title&#125;, null);</span><br><span class="line">           <span class="keyword">if</span> (c != null &amp;&amp; c.getCount() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               <span class="literal">result</span> = <span class="literal">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (c != null &amp;&amp; !c.isClosed()) &#123;</span><br><span class="line">               c.close();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; catch (<span class="type">Exception</span> e) &#123;</span><br><span class="line">           <span class="literal">result</span> = <span class="literal">false</span>;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   /**</span><br><span class="line">    * 不一定所有的手机都有效，因为国内大部分手机的桌面不是系统原生的&lt;br/&gt;</span><br><span class="line">    * 更多请参考&#123;@link <span class="comment">#isShortCutExist(Context, String)&#125;&lt;br/&gt;</span></span><br><span class="line">    * 桌面有两种，系统桌面(<span class="type">ROM</span>自带)与第三方桌面，一般只考虑系统自带&lt;br/&gt;</span><br><span class="line">    * 第三方桌面如果没有实现系统响应的方法是无法判断的，比如<span class="type">GO</span>桌面&lt;br/&gt;</span><br><span class="line">    */</span><br><span class="line">   public <span class="keyword">static</span> boolean isShortCutExist(<span class="type">Context</span> context, <span class="type">String</span> title, <span class="type">Intent</span> intent) &#123;</span><br><span class="line">       boolean <span class="literal">result</span> = <span class="literal">false</span>;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="type">ContentResolver</span> cr = context.getContentResolver();</span><br><span class="line">           <span class="type">Uri</span> uri = getUriFromLauncher(context);</span><br><span class="line">           <span class="type">Cursor</span> c = cr.query(uri, new <span class="type">String</span>[]&#123;<span class="string">"title"</span>, <span class="string">"intent"</span>&#125;, <span class="string">"title=?  and intent=?"</span>,</span><br><span class="line">                   new <span class="type">String</span>[]&#123;title, intent.toUri(<span class="number">0</span>)&#125;, null);</span><br><span class="line">           <span class="keyword">if</span> (c != null &amp;&amp; c.getCount() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               <span class="literal">result</span> = <span class="literal">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (c != null &amp;&amp; !c.isClosed()) &#123;</span><br><span class="line">               c.close();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; catch (<span class="type">Exception</span> ex) &#123;</span><br><span class="line">           <span class="literal">result</span> = <span class="literal">false</span>;</span><br><span class="line">           ex.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   private <span class="keyword">static</span> <span class="type">Uri</span> getUriFromLauncher(<span class="type">Context</span> context) &#123;</span><br><span class="line">       <span class="type">StringBuilder</span> uriStr = new <span class="type">StringBuilder</span>();</span><br><span class="line">       <span class="type">String</span> authority = <span class="type">LauncherUtil</span>.getAuthorityFromPermissionDefault(context);</span><br><span class="line">       <span class="keyword">if</span> (authority == null || authority.trim().equals(<span class="string">""</span>)) &#123;</span><br><span class="line">           authority = <span class="type">LauncherUtil</span>.getAuthorityFromPermission(context, <span class="type">LauncherUtil</span>.getCurrentLauncherPackageName(context) + <span class="string">".permission.READ_SETTINGS"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       uriStr.append(<span class="string">"content://"</span>);</span><br><span class="line">       <span class="keyword">if</span> (<span class="type">TextUtils</span>.isEmpty(authority)) &#123;</span><br><span class="line">           <span class="built_in">int</span> sdkInt = android.os.<span class="type">Build</span>.<span class="type">VERSION</span>.<span class="type">SDK_INT</span>;</span><br><span class="line">           <span class="keyword">if</span> (sdkInt &lt; <span class="number">8</span>) &#123; // <span class="type">Android</span> <span class="number">2</span>.<span class="number">1</span>.x(<span class="type">API</span> <span class="number">7</span>)以及以下的</span><br><span class="line">               uriStr.append(<span class="string">"com.android.launcher.settings"</span>);</span><br><span class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sdkInt &lt; <span class="number">19</span>) &#123;// <span class="type">Android</span> <span class="number">4</span>.<span class="number">4</span>以下</span><br><span class="line">               uriStr.append(<span class="string">"com.android.launcher2.settings"</span>);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;// <span class="number">4</span>.<span class="number">4</span>以及以上</span><br><span class="line">               uriStr.append(<span class="string">"com.android.launcher3.settings"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           uriStr.append(authority);</span><br><span class="line">       &#125;</span><br><span class="line">       uriStr.append(<span class="string">"/favorites?notify=true"</span>);</span><br><span class="line">       <span class="keyword">return</span> <span class="type">Uri</span>.parse(uriStr.toString());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">    * 检查快捷方式是否存在 &lt;br/&gt;</span><br><span class="line">    * &lt;font color=red&gt;注意：&lt;/font&gt; 有些手机无法判断是否已经创建过快捷方式&lt;br/&gt;</span><br><span class="line">    * 因此，在创建快捷方式时，请添加&lt;br/&gt;</span><br><span class="line">    * shortcutIntent.putExtra("duplicate", false);// 不允许重复创建&lt;br/&gt;</span><br><span class="line">    * 最好使用&#123;@link #isShortCutExist(Context, String, Intent)&#125;</span><br><span class="line">    * 进行判断，因为可能有些应用生成的快捷方式名称是一样的的&lt;br/&gt;</span><br><span class="line">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">boolean</span> isShortCutExist(Context context, <span class="keyword">String</span> title) &#123;</span><br><span class="line">       <span class="built_in">boolean</span> result = <span class="keyword">false</span>;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           ContentResolver cr = context.getContentResolver();</span><br><span class="line">           Uri uri = getUriFromLauncher(context);</span><br><span class="line">           Cursor c = cr.query(uri, <span class="keyword">new</span> <span class="keyword">String</span>[]&#123;<span class="string">"title"</span>&#125;, <span class="string">"title=? "</span>, <span class="keyword">new</span> <span class="keyword">String</span>[]&#123;title&#125;, <span class="keyword">null</span>);</span><br><span class="line">           <span class="keyword">if</span> (c != <span class="keyword">null</span> &amp;&amp; c.getCount() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               result = <span class="keyword">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (c != <span class="keyword">null</span> &amp;&amp; !c.isClosed()) &#123;</span><br><span class="line">               c.close();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           result = <span class="keyword">false</span>;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span><br><span class="line">    * 不一定所有的手机都有效，因为国内大部分手机的桌面不是系统原生的&lt;br/&gt;</span><br><span class="line">    * 更多请参考&#123;@link #isShortCutExist(Context, String)&#125;&lt;br/&gt;</span><br><span class="line">    * 桌面有两种，系统桌面(ROM自带)与第三方桌面，一般只考虑系统自带&lt;br/&gt;</span><br><span class="line">    * 第三方桌面如果没有实现系统响应的方法是无法判断的，比如GO桌面&lt;br/&gt;</span><br><span class="line">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">boolean</span> isShortCutExist(Context context, <span class="keyword">String</span> title, Intent intent) &#123;</span><br><span class="line">       <span class="built_in">boolean</span> result = <span class="keyword">false</span>;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           ContentResolver cr = context.getContentResolver();</span><br><span class="line">           Uri uri = getUriFromLauncher(context);</span><br><span class="line">           Cursor c = cr.query(uri, <span class="keyword">new</span> <span class="keyword">String</span>[]&#123;<span class="string">"title"</span>, <span class="string">"intent"</span>&#125;, <span class="string">"title=?  and intent=?"</span>,</span><br><span class="line">                   <span class="keyword">new</span> <span class="keyword">String</span>[]&#123;title, intent.toUri(<span class="number">0</span>)&#125;, <span class="keyword">null</span>);</span><br><span class="line">           <span class="keyword">if</span> (c != <span class="keyword">null</span> &amp;&amp; c.getCount() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">               result = <span class="keyword">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (c != <span class="keyword">null</span> &amp;&amp; !c.isClosed()) &#123;</span><br><span class="line">               c.close();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">           result = <span class="keyword">false</span>;</span><br><span class="line">           ex.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> Uri getUriFromLauncher(Context context) &#123;</span><br><span class="line">       StringBuilder uriStr = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">       <span class="keyword">String</span> authority = LauncherUtil.getAuthorityFromPermissionDefault(context);</span><br><span class="line">       <span class="keyword">if</span> (authority == <span class="keyword">null</span> || authority.<span class="built_in">trim</span>().equals(<span class="string">""</span>)) &#123;</span><br><span class="line">           authority = LauncherUtil.getAuthorityFromPermission(context, LauncherUtil.getCurrentLauncherPackageName(context) + <span class="string">".permission.READ_SETTINGS"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       uriStr.<span class="built_in">append</span>(<span class="string">"content://"</span>);</span><br><span class="line">       <span class="keyword">if</span> (TextUtils.isEmpty(authority)) &#123;</span><br><span class="line">           <span class="built_in">int</span> sdkInt = android.os.Build.VERSION.SDK_INT;</span><br><span class="line">           <span class="keyword">if</span> (sdkInt &lt; <span class="number">8</span>) &#123; <span class="comment">// Android 2.1.x(API 7)以及以下的</span></span><br><span class="line">               uriStr.<span class="built_in">append</span>(<span class="string">"com.android.launcher.settings"</span>);</span><br><span class="line">           &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sdkInt &lt; <span class="number">19</span>) &#123;<span class="comment">// Android 4.4以下</span></span><br><span class="line">               uriStr.<span class="built_in">append</span>(<span class="string">"com.android.launcher2.settings"</span>);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;<span class="comment">// 4.4以及以上</span></span><br><span class="line">               uriStr.<span class="built_in">append</span>(<span class="string">"com.android.launcher3.settings"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           uriStr.<span class="built_in">append</span>(authority);</span><br><span class="line">       &#125;</span><br><span class="line">       uriStr.<span class="built_in">append</span>(<span class="string">"/favorites?notify=true"</span>);</span><br><span class="line">       <span class="keyword">return</span> Uri.parse(uriStr.toString());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>这里有两个重载的isShortCutExist方法，唯一的区别就是最后一个参数——intent，加这个参数的原因，在注释中已经写了，更加精确。而getUriFromLauncher方法，是给调用的ContentResolver提供Uri。构造的时候，可以看见，Android的版本话碎片问题，是多么的严重……</p>
 <p>这样在添加快捷方式前，通过这个判断下，就可以只添加一个快捷方式了。</p>
 <h1 id="为任意PackageName的App添加快捷方式"><a href="#为任意PackageName的App添加快捷方式" class="headerlink" title="为任意PackageName的App添加快捷方式"></a>为任意PackageName的App添加快捷方式</h1><p>知道了我们是如何判断快捷方式是是否存在的，我们就可以通过这种思路来为任意PackageName的App添加快捷方式，代码如下：</p>
-<figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 为PackageName的App添加快捷方式</span><br><span class="line">     *</span><br><span class="line">     * @param context context</span><br><span class="line">     * @param pkg     待添加快捷方式的应用包名</span><br><span class="line">     * @return 返回true为正常执行完毕</span><br><span class="line">     */</span></span><br><span class="line">    public static boolean addShortcutByPackageName(Context context, String pkg) &#123;</span><br><span class="line">        <span class="comment">// 快捷方式名</span></span><br><span class="line">        String <span class="keyword">title</span> = <span class="string">"unknown"</span><span class="comment">;</span></span><br><span class="line">        <span class="comment">// MainActivity完整名</span></span><br><span class="line">        String mainAct = null<span class="comment">;</span></span><br><span class="line">        <span class="comment">// 应用图标标识</span></span><br><span class="line">        <span class="keyword">int</span> iconIdentifier = <span class="number">0</span><span class="comment">;</span></span><br><span class="line">        <span class="comment">// 根据包名寻找MainActivity</span></span><br><span class="line">        PackageManager pkgMag = context.getPackageManager()<span class="comment">;</span></span><br><span class="line">        Intent queryIntent = new Intent(Intent.ACTION_MAIN, null)<span class="comment">;</span></span><br><span class="line">        queryIntent.addCategory(Intent.CATEGORY_LAUNCHER)<span class="comment">;// 重要，添加后可以进入直接已经打开的页面</span></span><br><span class="line">        queryIntent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED)<span class="comment">;</span></span><br><span class="line">        queryIntent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">        List&lt;ResolveInfo&gt; list = pkgMag.queryIntentActivities(queryIntent,</span><br><span class="line">                PackageManager.GET_ACTIVITIES)<span class="comment">;</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span><span class="comment">; i &lt; list.size(); i++) &#123;</span></span><br><span class="line">            ResolveInfo info = list.get(i)<span class="comment">;</span></span><br><span class="line">            <span class="keyword">if</span> (info.activityInfo.packageName.equals(pkg)) &#123;</span><br><span class="line">                <span class="keyword">title</span> = info.loadLabel(pkgMag).toString()<span class="comment">;</span></span><br><span class="line">                mainAct = info.activityInfo.name<span class="comment">;</span></span><br><span class="line">                iconIdentifier = info.activityInfo.applicationInfo.icon<span class="comment">;</span></span><br><span class="line">                <span class="keyword">break</span><span class="comment">;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (mainAct == null) &#123;</span><br><span class="line">            <span class="comment">// 没有启动类</span></span><br><span class="line">            <span class="keyword">return</span> false<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        Intent shortcut = new Intent(</span><br><span class="line">                <span class="string">"com.android.launcher.action.INSTALL_SHORTCUT"</span>)<span class="comment">;</span></span><br><span class="line">        <span class="comment">// 快捷方式的名称</span></span><br><span class="line">        shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, <span class="keyword">title</span>)<span class="comment">;</span></span><br><span class="line">        <span class="comment">// 不允许重复创建</span></span><br><span class="line">        shortcut.putExtra(<span class="string">"duplicate"</span>, false)<span class="comment">;</span></span><br><span class="line">        ComponentName comp = new ComponentName(pkg, mainAct)<span class="comment">;</span></span><br><span class="line">        shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT,</span><br><span class="line">                queryIntent.setComponent(comp))<span class="comment">;</span></span><br><span class="line">        <span class="comment">// 快捷方式的图标</span></span><br><span class="line">        Context pkgContext = null<span class="comment">;</span></span><br><span class="line">        <span class="keyword">if</span> (context.getPackageName().equals(pkg)) &#123;</span><br><span class="line">            pkgContext = context<span class="comment">;</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 创建第三方应用的上下文环境，为的是能够根据该应用的图标标识符寻找到图标文件。</span></span><br><span class="line">            try &#123;</span><br><span class="line">                pkgContext = context.createPackageContext(pkg,</span><br><span class="line">                        Context.CONTEXT_IGNORE_SECURITY</span><br><span class="line">                                | Context.CONTEXT_INCLUDE_CODE)<span class="comment">;</span></span><br><span class="line">            &#125; catch (PackageManager.NameNotFoundException e) &#123;</span><br><span class="line">                e.printStackTrace()<span class="comment">;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (pkgContext != null) &#123;</span><br><span class="line">            Intent.ShortcutIconResource iconRes = Intent.ShortcutIconResource</span><br><span class="line">                    .fromContext(pkgContext, iconIdentifier)<span class="comment">;</span></span><br><span class="line">            shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, iconRes)<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 发送广播，让接收者创建快捷方式</span></span><br><span class="line">        <span class="comment">// 需权限&lt;uses-permission</span></span><br><span class="line">        <span class="comment">// android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /&gt;</span></span><br><span class="line">        context.sendBroadcast(shortcut)<span class="comment">;</span></span><br><span class="line">        <span class="keyword">return</span> true<span class="comment">;</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 为PackageName的App添加快捷方式</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> context context</span><br><span class="line">     * <span class="doctag">@param</span> pkg     待添加快捷方式的应用包名</span><br><span class="line">     * <span class="doctag">@return</span> 返回true为正常执行完毕</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> addShortcutByPackageName(Context context, String pkg) &#123;</span><br><span class="line">        <span class="comment">// 快捷方式名</span></span><br><span class="line">        String title = <span class="string">"unknown"</span>;</span><br><span class="line">        <span class="comment">// MainActivity完整名</span></span><br><span class="line">        String mainAct = <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">// 应用图标标识</span></span><br><span class="line">        <span class="keyword">int</span> iconIdentifier = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 根据包名寻找MainActivity</span></span><br><span class="line">        PackageManager pkgMag = context.getPackageManager();</span><br><span class="line">        Intent queryIntent = <span class="keyword">new</span> Intent(Intent.ACTION_MAIN, <span class="keyword">null</span>);</span><br><span class="line">        queryIntent.addCategory(Intent.CATEGORY_LAUNCHER);<span class="comment">// 重要，添加后可以进入直接已经打开的页面</span></span><br><span class="line">        queryIntent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);</span><br><span class="line">        queryIntent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">List</span>&lt;ResolveInfo&gt; <span class="keyword">list</span> = pkgMag.queryIntentActivities(queryIntent,</span><br><span class="line">                PackageManager.GET_ACTIVITIES);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">list</span>.size(); i++) &#123;</span><br><span class="line">            ResolveInfo info = <span class="keyword">list</span>.get(i);</span><br><span class="line">            <span class="keyword">if</span> (info.activityInfo.packageName.equals(pkg)) &#123;</span><br><span class="line">                title = info.loadLabel(pkgMag).toString();</span><br><span class="line">                mainAct = info.activityInfo.name;</span><br><span class="line">                iconIdentifier = info.activityInfo.applicationInfo.icon;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (mainAct == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 没有启动类</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Intent shortcut = <span class="keyword">new</span> Intent(</span><br><span class="line">                <span class="string">"com.android.launcher.action.INSTALL_SHORTCUT"</span>);</span><br><span class="line">        <span class="comment">// 快捷方式的名称</span></span><br><span class="line">        shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, title);</span><br><span class="line">        <span class="comment">// 不允许重复创建</span></span><br><span class="line">        shortcut.putExtra(<span class="string">"duplicate"</span>, <span class="keyword">false</span>);</span><br><span class="line">        ComponentName comp = <span class="keyword">new</span> ComponentName(pkg, mainAct);</span><br><span class="line">        shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT,</span><br><span class="line">                queryIntent.setComponent(comp));</span><br><span class="line">        <span class="comment">// 快捷方式的图标</span></span><br><span class="line">        Context pkgContext = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (context.getPackageName().equals(pkg)) &#123;</span><br><span class="line">            pkgContext = context;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 创建第三方应用的上下文环境，为的是能够根据该应用的图标标识符寻找到图标文件。</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                pkgContext = context.createPackageContext(pkg,</span><br><span class="line">                        Context.CONTEXT_IGNORE_SECURITY</span><br><span class="line">                                | Context.CONTEXT_INCLUDE_CODE);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (PackageManager.NameNotFoundException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (pkgContext != <span class="keyword">null</span>) &#123;</span><br><span class="line">            Intent.ShortcutIconResource iconRes = Intent.ShortcutIconResource</span><br><span class="line">                    .fromContext(pkgContext, iconIdentifier);</span><br><span class="line">            shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, iconRes);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 发送广播，让接收者创建快捷方式</span></span><br><span class="line">        <span class="comment">// 需权限&lt;uses-permission</span></span><br><span class="line">        <span class="comment">// android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /&gt;</span></span><br><span class="line">        context.sendBroadcast(shortcut);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h1 id="创建快捷方式之——星宿派"><a href="#创建快捷方式之——星宿派" class="headerlink" title="创建快捷方式之——星宿派"></a>创建快捷方式之——星宿派</h1><p>所谓星宿派，是指我们使用一些Trick来解决多Launcher适配的问题。</p>
 <p>由于快捷方式的碎片化非常严重，所以，你顾得上这种ROM，顾不上其它ROM。例如，在原生ROM上，你需要使用类似原生的Launcher权限：</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:<span class="built_in">name</span>=<span class="string">"com.android.launcher.permission.INSTALL_SHORTCUT"</span> /&gt;</span><br><span class="line">&lt;uses-permission android:<span class="built_in">name</span>=<span class="string">"com.android.launcher.permission.UNINSTALL_SHORTCUT"</span> /&gt;</span><br></pre></td></tr></table></figure>
@@ -386,24 +432,24 @@
 <ul>
 <li>增加快捷方式</li>
 </ul>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">   <span class="keyword">*</span> 添加快捷方式</span><br><span class="line">   <span class="keyword">*</span></span><br><span class="line">   <span class="keyword">*</span> <span class="meta">@param</span> context      context</span><br><span class="line">   <span class="keyword">*</span> <span class="meta">@param</span> actionIntent 要启动的Intent</span><br><span class="line">   <span class="keyword">*</span> <span class="meta">@param</span> name         name</span><br><span class="line">   <span class="keyword">*</span> <span class="meta">@param</span> allowRepeat  是否允许重复</span><br><span class="line">   <span class="keyword">*</span> <span class="meta">@param</span> iconBitmap   快捷方式图标</span><br><span class="line">   <span class="keyword">*</span>/</span><br><span class="line">  public static void addShortcut(Context context, Intent actionIntent, String name,</span><br><span class="line">                                 boolean allowRepeat, Bitmap iconBitmap)</span><br></pre></td></tr></table></figure>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">   * 添加快捷方式</span><br><span class="line">   *</span><br><span class="line">   * <span class="doctag">@param</span> context      context</span><br><span class="line">   * <span class="doctag">@param</span> actionIntent 要启动的Intent</span><br><span class="line">   * <span class="doctag">@param</span> name         name</span><br><span class="line">   * <span class="doctag">@param</span> allowRepeat  是否允许重复</span><br><span class="line">   * <span class="doctag">@param</span> iconBitmap   快捷方式图标</span><br><span class="line">   */</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> addShortcut(Context context, Intent actionIntent, String name,</span><br><span class="line">                                 <span class="keyword">boolean</span> allowRepeat, Bitmap iconBitmap)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>判断快捷方式是否存在</li>
 </ul>
 <p>基础方式</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">     <span class="keyword">*</span> 判断快捷方式是否存在</span><br><span class="line">     <span class="keyword">*</span> <span class="variable">&lt;p/&gt;</span></span><br><span class="line">     <span class="keyword">*</span> 检查快捷方式是否存在 <span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="keyword">*</span> <span class="variable">&lt;font color=red&gt;</span>注意：<span class="variable">&lt;/font&gt;</span> 有些手机无法判断是否已经创建过快捷方式<span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="keyword">*</span> 因此，在创建快捷方式时，请添加<span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="keyword">*</span> shortcutIntent.putExtra(<span class="string">"duplicate"</span>, false);// 不允许重复创建<span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="keyword">*</span> 最好使用&#123;<span class="meta">@link</span> <span class="comment">#isShortCutExist(Context, String, Intent)&#125;</span></span><br><span class="line">     <span class="keyword">*</span> 进行判断，因为可能有些应用生成的快捷方式名称是一样的的<span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="keyword">*</span></span><br><span class="line">     <span class="keyword">*</span> <span class="meta">@param</span> context context</span><br><span class="line">     <span class="keyword">*</span> <span class="meta">@param</span> title   快捷方式名</span><br><span class="line">     <span class="keyword">*</span> <span class="meta">@return</span> 是否存在</span><br><span class="line">     <span class="keyword">*</span>/</span><br><span class="line">    public static boolean isShortCutExist(Context context, String title)</span><br></pre></td></tr></table></figure>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/<span class="symbol">*</span><span class="symbol">*</span></span><br><span class="line">     <span class="symbol">*</span> 判断快捷方式是否存在</span><br><span class="line">     <span class="symbol">*</span> <span class="variable">&lt;p/&gt;</span></span><br><span class="line">     <span class="symbol">*</span> 检查快捷方式是否存在 <span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="symbol">*</span> <span class="variable">&lt;font color=red&gt;</span>注意：<span class="variable">&lt;/font&gt;</span> 有些手机无法判断是否已经创建过快捷方式<span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="symbol">*</span> 因此，在创建快捷方式时，请添加<span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="symbol">*</span> shortcutIntent.putExtra(<span class="string">"duplicate"</span>, false);// 不允许重复创建<span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="symbol">*</span> 最好使用&#123;<span class="meta">@link</span> <span class="comment">#isShortCutExist(Context, String, Intent)&#125;</span></span><br><span class="line">     <span class="symbol">*</span> 进行判断，因为可能有些应用生成的快捷方式名称是一样的的<span class="variable">&lt;br/&gt;</span></span><br><span class="line">     <span class="symbol">*</span></span><br><span class="line">     <span class="symbol">*</span> <span class="meta">@param</span> context context</span><br><span class="line">     <span class="symbol">*</span> <span class="meta">@param</span> title   快捷方式名</span><br><span class="line">     <span class="symbol">*</span> <span class="meta">@return</span> 是否存在</span><br><span class="line">     <span class="symbol">*</span>/</span><br><span class="line">    public static boolean isShortCutExist(Context context, String title)</span><br></pre></td></tr></table></figure>
 <p>严格方式（增加Intent的检查）</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">    <span class="keyword">*</span> 判断快捷方式是否存在</span><br><span class="line">    <span class="keyword">*</span> <span class="variable">&lt;p/&gt;</span></span><br><span class="line">    <span class="keyword">*</span> 不一定所有的手机都有效，因为国内大部分手机的桌面不是系统原生的<span class="variable">&lt;br/&gt;</span></span><br><span class="line">    <span class="keyword">*</span> 更多请参考&#123;<span class="meta">@link</span> <span class="comment">#isShortCutExist(Context, String)&#125;&lt;br/&gt;</span></span><br><span class="line">    <span class="keyword">*</span> 桌面有两种，系统桌面(ROM自带)与第三方桌面，一般只考虑系统自带<span class="variable">&lt;br/&gt;</span></span><br><span class="line">    <span class="keyword">*</span> 第三方桌面如果没有实现系统响应的方法是无法判断的，比如GO桌面<span class="variable">&lt;br/&gt;</span></span><br><span class="line">    <span class="keyword">*</span></span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@param</span> context context</span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@param</span> title   快捷方式名</span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@param</span> intent  快捷方式Intent</span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@return</span> 是否存在</span><br><span class="line">    <span class="keyword">*</span>/</span><br><span class="line">   public static boolean isShortCutExist(Context context, String title, Intent intent)</span><br></pre></td></tr></table></figure>
-<h1 id="更新快捷方式"><a href="#更新快捷方式" class="headerlink" title="更新快捷方式"></a>更新快捷方式</h1><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">     <span class="keyword">*</span> 更新桌面快捷方式图标，不一定所有图标都有效(有可能需要系统权限)</span><br><span class="line">     <span class="keyword">*</span></span><br><span class="line">     <span class="keyword">*</span> <span class="meta">@param</span> context context</span><br><span class="line">     <span class="keyword">*</span> <span class="meta">@param</span> title   快捷方式名</span><br><span class="line">     <span class="keyword">*</span> <span class="meta">@param</span> intent  快捷方式Intent</span><br><span class="line">     <span class="keyword">*</span> <span class="meta">@param</span> bitmap  快捷方式Icon</span><br><span class="line">     <span class="keyword">*</span>/</span><br><span class="line">    public static void updateShortcutIcon(Context context, String title, Intent intent, Bitmap bitmap)</span><br></pre></td></tr></table></figure>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/<span class="symbol">*</span><span class="symbol">*</span></span><br><span class="line">    <span class="symbol">*</span> 判断快捷方式是否存在</span><br><span class="line">    <span class="symbol">*</span> <span class="variable">&lt;p/&gt;</span></span><br><span class="line">    <span class="symbol">*</span> 不一定所有的手机都有效，因为国内大部分手机的桌面不是系统原生的<span class="variable">&lt;br/&gt;</span></span><br><span class="line">    <span class="symbol">*</span> 更多请参考&#123;<span class="meta">@link</span> <span class="comment">#isShortCutExist(Context, String)&#125;&lt;br/&gt;</span></span><br><span class="line">    <span class="symbol">*</span> 桌面有两种，系统桌面(ROM自带)与第三方桌面，一般只考虑系统自带<span class="variable">&lt;br/&gt;</span></span><br><span class="line">    <span class="symbol">*</span> 第三方桌面如果没有实现系统响应的方法是无法判断的，比如GO桌面<span class="variable">&lt;br/&gt;</span></span><br><span class="line">    <span class="symbol">*</span></span><br><span class="line">    <span class="symbol">*</span> <span class="meta">@param</span> context context</span><br><span class="line">    <span class="symbol">*</span> <span class="meta">@param</span> title   快捷方式名</span><br><span class="line">    <span class="symbol">*</span> <span class="meta">@param</span> intent  快捷方式Intent</span><br><span class="line">    <span class="symbol">*</span> <span class="meta">@return</span> 是否存在</span><br><span class="line">    <span class="symbol">*</span>/</span><br><span class="line">   public static boolean isShortCutExist(Context context, String title, Intent intent)</span><br></pre></td></tr></table></figure>
+<h1 id="更新快捷方式"><a href="#更新快捷方式" class="headerlink" title="更新快捷方式"></a>更新快捷方式</h1><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 更新桌面快捷方式图标，不一定所有图标都有效(有可能需要系统权限)</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> context context</span><br><span class="line">     * <span class="doctag">@param</span> title   快捷方式名</span><br><span class="line">     * <span class="doctag">@param</span> intent  快捷方式Intent</span><br><span class="line">     * <span class="doctag">@param</span> bitmap  快捷方式Icon</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> updateShortcutIcon(Context context, String title, Intent intent, Bitmap bitmap)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>需要注意的是，更新快捷方式在很多手机上都不能生效，需要系统权限。可以通过先删除、再新增的方式来实现。</p>
 </blockquote>
-<h1 id="为任意PackageName的App添加快捷方式-1"><a href="#为任意PackageName的App添加快捷方式-1" class="headerlink" title="为任意PackageName的App添加快捷方式"></a>为任意PackageName的App添加快捷方式</h1><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">    <span class="keyword">*</span> 为任意PackageName的App添加快捷方式</span><br><span class="line">    <span class="keyword">*</span></span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@param</span> context context</span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@param</span> pkg     待添加快捷方式的应用包名</span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@return</span> 返回true为正常执行完毕</span><br><span class="line">    <span class="keyword">*</span>/</span><br><span class="line">   public static boolean addShortcutByPackageName(Context context, String pkg)</span><br></pre></td></tr></table></figure>
-<h1 id="移除快捷方式"><a href="#移除快捷方式" class="headerlink" title="移除快捷方式"></a>移除快捷方式</h1><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">    <span class="keyword">*</span> 移除快捷方式</span><br><span class="line">    <span class="keyword">*</span></span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@param</span> context      context</span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@param</span> actionIntent 要启动的Intent</span><br><span class="line">    <span class="keyword">*</span> <span class="meta">@param</span> name         name</span><br><span class="line">    <span class="keyword">*</span>/</span><br><span class="line">   public static void removeShortcut(Context context, Intent actionIntent, String name)</span><br></pre></td></tr></table></figure>
-<h1 id="显示隐藏Launcher入口"><a href="#显示隐藏Launcher入口" class="headerlink" title="显示隐藏Launcher入口"></a>显示隐藏Launcher入口</h1><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">     <span class="keyword">*</span> 显示\隐藏Launcher入口</span><br><span class="line">     <span class="keyword">*</span></span><br><span class="line">     <span class="keyword">*</span> <span class="meta">@param</span> context       context</span><br><span class="line">     <span class="keyword">*</span> <span class="meta">@param</span> launcherClass launcherClass</span><br><span class="line">     <span class="keyword">*</span>/</span><br><span class="line">    public static void toggleFlowEntrance(Context context, Class launcherClass)</span><br></pre></td></tr></table></figure>
+<h1 id="为任意PackageName的App添加快捷方式-1"><a href="#为任意PackageName的App添加快捷方式-1" class="headerlink" title="为任意PackageName的App添加快捷方式"></a>为任意PackageName的App添加快捷方式</h1><figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">    * 为任意PackageName的App添加快捷方式</span><br><span class="line">    *</span><br><span class="line">    * <span class="doctag">@param</span> context context</span><br><span class="line">    * <span class="doctag">@param</span> pkg     待添加快捷方式的应用包名</span><br><span class="line">    * <span class="doctag">@return</span> 返回true为正常执行完毕</span><br><span class="line">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> addShortcutByPackageName(Context context, String pkg)</span><br></pre></td></tr></table></figure>
+<h1 id="移除快捷方式"><a href="#移除快捷方式" class="headerlink" title="移除快捷方式"></a>移除快捷方式</h1><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">    * 移除快捷方式</span><br><span class="line">    *</span><br><span class="line">    * <span class="doctag">@param</span> context      context</span><br><span class="line">    * <span class="doctag">@param</span> actionIntent 要启动的Intent</span><br><span class="line">    * <span class="doctag">@param</span> name         name</span><br><span class="line">    */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> removeShortcut(Context context, Intent actionIntent, String name)</span><br></pre></td></tr></table></figure>
+<h1 id="显示隐藏Launcher入口"><a href="#显示隐藏Launcher入口" class="headerlink" title="显示隐藏Launcher入口"></a>显示隐藏Launcher入口</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">     * 显示\隐藏Launcher入口</span><br><span class="line">     *</span><br><span class="line">     * <span class="doctag">@param</span> context       context</span><br><span class="line">     * <span class="doctag">@param</span> launcherClass launcherClass</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void toggleFlowEntrance(Context context, <span class="class"><span class="keyword">Class</span> <span class="title">launcherClass</span>)</span></span><br></pre></td></tr></table></figure>
 <p>使用Launcher入口需要在AndroidMainifest文件中注册新增的入口Activity，例如：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".MainActivity"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">activity</span></span><br><span class="line">    <span class="attr">android:name</span>=<span class="string">"com.xxx.xxxxx"</span></span><br><span class="line">    <span class="attr">android:theme</span>=<span class="string">"@style/Base.Theme.AppCompat.Dialog"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addShortcutTest</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 系统方式创建</span></span><br><span class="line">      <span class="comment">// ShortcutUtils.addShortcut(this, getShortCutIntent(), mShortcutName);</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 创建前判断是否存在</span></span><br><span class="line">      <span class="keyword">if</span> (!ShortcutSuperUtils.isShortCutExist(<span class="keyword">this</span>, mShortcutName, getShortCutIntent())) &#123;</span><br><span class="line">          ShortcutUtils.addShortcut(<span class="keyword">this</span>, getShortCutIntent(), mShortcutName, <span class="literal">false</span>,</span><br><span class="line">                  BitmapFactory.decodeResource(getResources(), com.hujiang.hj_shortcut_lib.R.drawable.ocsplayer));</span><br><span class="line">          finish();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          Toast.makeText(<span class="keyword">this</span>, <span class="string">"Shortcut is exist!"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 为某个包创建快捷方式</span></span><br><span class="line">      <span class="comment">// ShortcutSuperUtils.addShortcutByPackageName(this, this.getPackageName());</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeShortcutTest</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      ShortcutUtils.removeShortcut(<span class="keyword">this</span>, getShortCutIntent(), mShortcutName);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateShortcutTest</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      ShortcutSuperUtils.updateShortcutIcon(<span class="keyword">this</span>, mShortcutName, getShortCutIntent(),</span><br><span class="line">              BitmapFactory.decodeResource(getResources(), com.hujiang.hj_shortcut_lib.R.mipmap.ic_launcher));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">toggleFlowEntrance</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      FlowEntranceUtil.toggleFlowEntrance(<span class="keyword">this</span>, HJShortcutActivity.<span class="keyword">class</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> Intent <span class="title">getShortCutIntent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 使用MAIN，可以避免部分手机(比如华为、HTC部分机型)删除应用时无法删除快捷方式的问题</span></span><br><span class="line">      Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_MAIN);</span><br><span class="line">      intent.addCategory(Intent.CATEGORY_DEFAULT);</span><br><span class="line">      intent.setClass(MainActivity.<span class="keyword">this</span>, HJShortcutActivity.<span class="keyword">class</span>);</span><br><span class="line">      <span class="keyword">return</span> intent;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">addShortcutTest</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 系统方式创建</span></span><br><span class="line">      <span class="comment">// ShortcutUtils.addShortcut(this, getShortCutIntent(), mShortcutName);</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 创建前判断是否存在</span></span><br><span class="line">      <span class="keyword">if</span> (!ShortcutSuperUtils.isShortCutExist(<span class="keyword">this</span>, mShortcutName, getShortCutIntent())) &#123;</span><br><span class="line">          ShortcutUtils.addShortcut(<span class="keyword">this</span>, getShortCutIntent(), mShortcutName, <span class="keyword">false</span>,</span><br><span class="line">                  BitmapFactory.decodeResource(getResources(), com.hujiang.hj_shortcut_lib.R.drawable.ocsplayer));</span><br><span class="line">          finish();</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          Toast.makeText(<span class="keyword">this</span>, <span class="string">"Shortcut is exist!"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 为某个包创建快捷方式</span></span><br><span class="line">      <span class="comment">// ShortcutSuperUtils.addShortcutByPackageName(this, this.getPackageName());</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">removeShortcutTest</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      ShortcutUtils.removeShortcut(<span class="keyword">this</span>, getShortCutIntent(), mShortcutName);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">updateShortcutTest</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      ShortcutSuperUtils.updateShortcutIcon(<span class="keyword">this</span>, mShortcutName, getShortCutIntent(),</span><br><span class="line">              BitmapFactory.decodeResource(getResources(), com.hujiang.hj_shortcut_lib.R.mipmap.ic_launcher));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">toggleFlowEntrance</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">      FlowEntranceUtil.toggleFlowEntrance(<span class="keyword">this</span>, HJShortcutActivity.class);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="function">Intent <span class="title">getShortCutIntent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 使用MAIN，可以避免部分手机(比如华为、HTC部分机型)删除应用时无法删除快捷方式的问题</span></span><br><span class="line">      Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_MAIN);</span><br><span class="line">      intent.addCategory(Intent.CATEGORY_DEFAULT);</span><br><span class="line">      intent.setClass(MainActivity.<span class="keyword">this</span>, HJShortcutActivity.class);</span><br><span class="line">      <span class="keyword">return</span> intent;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>转自：<a href="http://www.jianshu.com/p/dc3d04337d00" target="_blank" rel="external">http://www.jianshu.com/p/dc3d04337d00</a></p>
 
       
@@ -412,6 +458,13 @@
     <div>
       
         
+      
+    </div>
+
+    <div>
+      
+        
+
       
     </div>
 
@@ -533,7 +586,7 @@
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
-          
+
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
@@ -567,18 +620,20 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/TopJohn" target="_blank">
+                <a href="https://github.com/TopJohn" target="_blank" title="github">
                   
-                    <i class="fa fa-globe"></i> github
+                    <i class="fa fa-fw fa-globe"></i>
                   
+                  github
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/xuanzhangjiong" target="_blank">
+                <a href="http://weibo.com/xuanzhangjiong" target="_blank" title="weibo">
                   
-                    <i class="fa fa-globe"></i> weibo
+                    <i class="fa fa-fw fa-globe"></i>
                   
+                  weibo
                 </a>
               </span>
             
@@ -588,28 +643,31 @@
         
         
 
-        <div class="links-of-author motion-element">
-          
-            <p class="site-author-name"></p>
-            
-              <span class="links-of-author-item">
-                <a href="http://jiajixin.cn/" target="_blank">Jason's Blog</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.changhuiyuan.com/" target="_blank">Eric Libaray</a>
-              </span>
-            
-          
-        </div>
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jiajixin.cn/" title="Jason's Blog" target="_blank">Jason's Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.changhuiyuan.com/" title="Eric Libaray" target="_blank">Eric Libaray</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
       </section>
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
           <div class="post-toc">
             
               
@@ -617,9 +675,6 @@
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android快捷方式解密"><span class="nav-number">1.</span> <span class="nav-text">Android快捷方式解密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建快捷方式之——少林派"><span class="nav-number">2.</span> <span class="nav-text">创建快捷方式之——少林派</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#权限设置"><span class="nav-number">3.</span> <span class="nav-text">权限设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建快捷方式"><span class="nav-number">4.</span> <span class="nav-text">创建快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除快捷方式"><span class="nav-number">5.</span> <span class="nav-text">删除快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建快捷方式之——逍遥派"><span class="nav-number">6.</span> <span class="nav-text">创建快捷方式之——逍遥派</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷方式的存储"><span class="nav-number">7.</span> <span class="nav-text">快捷方式的存储</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷方式的创建"><span class="nav-number">8.</span> <span class="nav-text">快捷方式的创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷方式的判断是否存在"><span class="nav-number">9.</span> <span class="nav-text">快捷方式的判断是否存在</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为任意PackageName的App添加快捷方式"><span class="nav-number">10.</span> <span class="nav-text">为任意PackageName的App添加快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建快捷方式之——星宿派"><span class="nav-number">11.</span> <span class="nav-text">创建快捷方式之——星宿派</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建快捷方式之——西域派"><span class="nav-number">12.</span> <span class="nav-text">创建快捷方式之——西域派</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#奇技PackageManager"><span class="nav-number">13.</span> <span class="nav-text">奇技PackageManager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一统江湖"><span class="nav-number">14.</span> <span class="nav-text">一统江湖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ShortcutLib使用指南"><span class="nav-number">15.</span> <span class="nav-text">ShortcutLib使用指南</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目意义"><span class="nav-number">16.</span> <span class="nav-text">项目意义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新快捷方式"><span class="nav-number">17.</span> <span class="nav-text">更新快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为任意PackageName的App添加快捷方式-1"><span class="nav-number">18.</span> <span class="nav-text">为任意PackageName的App添加快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移除快捷方式"><span class="nav-number">19.</span> <span class="nav-text">移除快捷方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#显示隐藏Launcher入口"><span class="nav-number">20.</span> <span class="nav-text">显示隐藏Launcher入口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用示例"><span class="nav-number">21.</span> <span class="nav-text">使用示例</span></a></li></ol></div>
             
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
           </div>
         </section>
       
@@ -654,222 +709,95 @@
     NexT.Mist
   </a>
 </div>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<br/>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
 
 
+
+        
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
 
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
 
   
 
 
 
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
+  
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
-
-  
-  
 
   
   
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
 
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
-        }
-      }
-    };
-  });
-</script>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -902,34 +830,11 @@
 
   
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
-
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-
-  
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
   
 
-
-  
   
 
+  
 
 </body>
 </html>
